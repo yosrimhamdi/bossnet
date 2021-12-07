@@ -1,6 +1,5 @@
 const Admin = require("../../models/Admin");
 const { ADMIN } = require("../../models/configs/collectionsNames");
-
 const bcrypt = require("bcrypt");
 const hasPermission = require("../hasPermission");
 const { ADMIN_GROUP } = require("./configs/navigationGroups");
@@ -12,9 +11,6 @@ const handleBeforeSaveAction = async(req) => {
     }
     return req;
 }
-
-const canModifyUsers = ({ currentAdmin }) => currentAdmin.isSuperuser;
-
 
 module.exports = {
     resource: Admin,
