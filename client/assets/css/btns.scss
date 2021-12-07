@@ -1,0 +1,100 @@
+.btn {
+  @apply inline-flex items-center justify-center
+  transform
+  scale-100
+  bg-opacity-100
+  transition-all
+  /* default small size */
+  text-sm font-semibold 
+  px-4 py-2 shadow-sm rounded-md;
+  svg {
+    @apply w-4 ml-2;
+    &.left {
+      @apply mr-2 ml-0;
+    }
+    path {
+      stroke: var(--dark-cl);
+    }
+  }
+  /* medium size */
+  &.md {
+    @apply text-base px-6 py-3;
+    svg {
+      @apply w-6 ml-3;
+      &.left {
+        @apply mr-3 ml-0;
+      }
+    }
+  }
+  /* large size */
+  &.lg {
+    @apply text-lg px-6 py-4;
+    svg {
+      @apply w-8  ml-4;
+      &.left {
+        @apply mr-4 ml-0;
+      }
+    }
+  }
+  /* square-icon-btn */
+  &.sq {
+    @apply w-12 h-12;
+    svg {
+      @apply w-full m-0;
+    }
+  }
+  /* flat btn */
+  &.flat {
+    @apply flex w-full;
+    &.start {
+      @apply justify-start;
+    }
+  }
+  /* colors */
+  &.white-primary {
+    @apply text-primary;
+    svg {
+      path {
+        stroke: var(--primary-cl);
+      }
+    }
+  }
+  &.primary {
+    @apply bg-primary border-primary-dark 
+    text-white;
+    svg {
+      path {
+        stroke: white;
+      }
+    }
+  }
+  &.dark {
+    @apply bg-dark border-dark 
+    text-white;
+    svg {
+      path {
+        stroke: white;
+      }
+    }
+  }
+  &.light {
+    @apply text-primary bg-primary-light 
+    border-primary;
+    svg {
+      path {
+        stroke: var(--primary-cl);
+      }
+    }
+  }
+  &:disabled {
+    @apply opacity-50 pointer-events-none;
+  }
+  /* no shadow */
+  &.no-sh {
+    @apply shadow-none;
+  }
+  /* effects */
+  &:active {
+    @apply scale-95;
+  }
+}

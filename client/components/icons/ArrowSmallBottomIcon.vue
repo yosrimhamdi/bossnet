@@ -1,0 +1,25 @@
+<template>
+  <svg
+    width="12"
+    height="12"
+    viewBox="0 0 12 12"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M9.96004 4.4751L6.70004 7.7351C6.31504 8.1201 5.68504 8.1201 5.30004 7.7351L2.04004 4.4751"
+      stroke="#343A40"
+      stroke-width="2"
+      stroke-miterlimit="10"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+</template>
+
+<script>
+export default {};
+</script>
+
+<style>
+</style>

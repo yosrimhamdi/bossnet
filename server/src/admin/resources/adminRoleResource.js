@@ -1,0 +1,33 @@
+const AdminRole = require("../../models/AdminRole");
+const { ADMIN_ROLE } = require("../../models/configs/collectionsNames");
+const hasPermission = require("../hasPermission");
+const { ADMIN_GROUP } = require("./configs/navigationGroups");
+
+module.exports = {
+    resource: AdminRole,
+    options: {
+        navigation: ADMIN_GROUP,
+        properties: {
+            _id: {
+                isVisible: {
+                    list: false,
+                    show: true
+                }
+            },
+            permissions: {
+                isVisible: {
+                    list: false,
+                    show: true,
+                    edit: true
+                }
+            }
+        },
+        actions: {
+            new: { isAccessible: hasPermission(ADMIN_ROLE, "canCreate") },
+            edit: { isAccessible: hasPermission(ADMIN_ROLE, "canModify") },
+            delete: { isAccessible: hasPermission(ADMIN_ROLE, "canDelete") },
+            show: { isAccessible: hasPermission(ADMIN_ROLE, "canView") },
+            list: { isAccessible: hasPermission(ADMIN_ROLE, "canView") },
+        }
+    }
+}

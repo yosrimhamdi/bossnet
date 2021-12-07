@@ -1,0 +1,44 @@
+.form-input {
+  @apply block w-full my-3;
+  label {
+    @apply block font-semibold mb-1 ml-1;
+  }
+  .input {
+    @apply block w-full px-4 h-14 border rounded-md 
+    shadow-sm bg-gray-50 transition-colors;
+    &:hover {
+      @apply bg-gray-100;
+    }
+    &:focus {
+      @apply outline-none border-primary
+      shadow-md;
+    }
+  }
+  &.has-err {
+    input,
+    select {
+      @apply border-red-400;
+      animation: shake 0.3s;
+    }
+  }
+  small {
+    @apply block mt-1 ml-2;
+    &.err {
+      @apply text-red-400;
+    }
+  }
+}
+.input-group {
+  @apply grid grid-cols-2 gap-5 items-start;
+}
+
+.checkbox-input {
+  @apply inline-flex items-center;
+  button {
+    @apply mr-2;
+  }
+  svg {
+    width: 28px;
+    height: 28px;
+  }
+}
