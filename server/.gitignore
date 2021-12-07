@@ -3,6 +3,8 @@
 
 # adminbro
 .adminbro/
+# uploaded images
+public/uploads
 # Logs
 /logs
 *.log
