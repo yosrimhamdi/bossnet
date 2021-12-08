@@ -3,6 +3,9 @@ const { ADMIN } = require("../../models/configs/collectionsNames");
 const bcrypt = require("bcrypt");
 const hasPermission = require("../hasPermission");
 const { ADMIN_GROUP } = require("./configs/navigationGroups");
+const timestampsPropertyConfigs = require("./timestampsPropertyConfigs");
+
+
 
 const handleBeforeSaveAction = async(req) => {
     if (req.payload.password) {
@@ -17,6 +20,7 @@ module.exports = {
     options: {
         navigation: ADMIN_GROUP,
         properties: {
+            ...timestampsPropertyConfigs,
             encryptedPassword: { isVisible: false, isRequired: false },
             password: {
                 type: "password",
@@ -41,7 +45,11 @@ module.exports = {
                 isAccessible: hasPermission(ADMIN, "canModify")
             },
             delete: { isAccessible: hasPermission(ADMIN, "canDelete") },
-            show: { isAccessible: hasPermission(ADMIN, "canView") },
+
+            show: {
+                isAccessible: hasPermission(ADMIN, "canView"),
+                showInDrawer: true
+            },
             list: { isAccessible: hasPermission(ADMIN, "canView") },
         },
     }

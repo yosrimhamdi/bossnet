@@ -2,12 +2,14 @@ const AdminRole = require("../../models/AdminRole");
 const { ADMIN_ROLE } = require("../../models/configs/collectionsNames");
 const hasPermission = require("../hasPermission");
 const { ADMIN_GROUP } = require("./configs/navigationGroups");
+const timestampsPropertyConfigs = require("./timestampsPropertyConfigs");
 
 module.exports = {
     resource: AdminRole,
     options: {
         navigation: ADMIN_GROUP,
         properties: {
+            ...timestampsPropertyConfigs,
             _id: {
                 isVisible: {
                     list: false,
@@ -26,7 +28,10 @@ module.exports = {
             new: { isAccessible: hasPermission(ADMIN_ROLE, "canCreate") },
             edit: { isAccessible: hasPermission(ADMIN_ROLE, "canModify") },
             delete: { isAccessible: hasPermission(ADMIN_ROLE, "canDelete") },
-            show: { isAccessible: hasPermission(ADMIN_ROLE, "canView") },
+            show: {
+                isAccessible: hasPermission(ADMIN_ROLE, "canView"),
+                showInDrawer: true
+            },
             list: { isAccessible: hasPermission(ADMIN_ROLE, "canView") },
         }
     }

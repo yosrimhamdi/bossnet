@@ -5,12 +5,14 @@ const hasPermission = require("../hasPermission");
 const UploadProvider = require("./features/uploadProvider");
 const { AD_POSITION_CHOICES } = require("../../models/configs/enums");
 const { PUBLIC_GROUP } = require("./configs/navigationGroups");
+const timestampsPropertyConfigs = require("./timestampsPropertyConfigs");
 
 module.exports = {
     resource: Advertissment,
     options: {
         navigation: PUBLIC_GROUP,
         properties: {
+            ...timestampsPropertyConfigs,
             image: {
                 isVisible: {
                     list: false,
@@ -44,10 +46,8 @@ module.exports = {
                     show: true
                 }
             },
-            url: {
-                type: "url"
-            },
             description: {
+                type: "textarea",
                 isVisible: {
                     list: false,
                     filter: false,
@@ -60,7 +60,10 @@ module.exports = {
             new: { isAccessible: hasPermission(ADVERTISSMENT, "canCreate") },
             edit: { isAccessible: hasPermission(ADVERTISSMENT, "canModify") },
             delete: { isAccessible: hasPermission(ADVERTISSMENT, "canDelete") },
-            show: { isAccessible: hasPermission(ADVERTISSMENT, "canView") },
+            show: {
+                isAccessible: hasPermission(ADVERTISSMENT, "canView"),
+                showInDrawer: true
+            },
             list: { isAccessible: hasPermission(ADVERTISSMENT, "canView") },
         }
     },

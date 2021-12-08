@@ -6,5 +6,5 @@ module.exports = {
     ADMIN_PANEL_PATH: process.env.ADMIN_PANEL_PATH || "/admin",
     MONGO_URI: process.env.MONGO_URI || "mongodb://127.0.0.1:27017/bossnet-db-dev",
     PORT: process.env.PORT || "4000",
-    CORS_CLIENT_ORIGINE: process.env.CORS_CLIENT_ORIGINE || "http://localhost:8080"
+    CLIENT_ENDPOINT: process.env.CLIENT_ENDPOINT || "http://localhost:8080"
 }

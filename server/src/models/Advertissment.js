@@ -3,7 +3,10 @@ const { ADVERTISSMENT } = require("./configs/collectionsNames");
 const duration = require("./embeded/duration");
 const file = require("./embeded/file");
 const { AD_POSITION_CHOICES } = require("./configs/enums");
-const { REQUIRED_ERROR_MSG } = require("./configs/fieldsValidationMessages");
+const { REQUIRED_ERROR_MSG, INVALID_ERROR_MSG } = require("./configs/fieldsValidationMessages");
+const createJoiMongooseFieldValidate = require("../utils/createJoiMongooseFieldValidate");
+const Joi = require("joi");
+
 
 const advertissmentSchema = new mongoose.Schema({
     image: file,
@@ -25,7 +28,11 @@ const advertissmentSchema = new mongoose.Schema({
     url: {
         type: String,
         required: [true, REQUIRED_ERROR_MSG],
-        trim: true
+        trim: true,
+        validate: createJoiMongooseFieldValidate(
+            Joi.string().uri(),
+            INVALID_ERROR_MSG
+        )
     },
     showAtHome: Boolean
 }, { timestamps: true });

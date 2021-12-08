@@ -1,3 +1,5 @@
+const { ADMIN, ADMIN_ROLE, ADVERTISSMENT, CONTACT, CUSTOM_PAGE } = require("../models/configs/collectionsNames");
+
 // translation to french
 module.exports = {
     language: 'fr',
@@ -28,11 +30,48 @@ module.exports = {
             selectedRecords: 'Sélectionné ({{selected}})',
             filters: 'Filtres',
             loginWelcome: 'Back Office',
+            [ADMIN]: "Administrateurs",
+            [ADMIN_ROLE]: "Rôles de l'administration",
+            [ADVERTISSMENT]: "Publicités",
+            [CONTACT]: "Contactes",
+            [CUSTOM_PAGE]: "Pages personnalisées",
         },
         properties: {
             length: 'Longueur',
             from: 'De',
             to: 'À',
+            yes: "Oui",
+            no: "Non",
+            createdAt: "Date de création",
+            updatedAt: "Date de modification",
+            password: "Mot de passe",
+            fullName: "Nom complet",
+            isSuperuser: "Est Superuser",
+            role: "Rôle d'administrateur",
+            name: "Nom",
+            "permissions.collection": "Table",
+            "permissions.canView": "Afficher",
+            "permissions.canDelete": "Supprimer",
+            "permissions.canModify": "Modifier",
+            "permissions.canCreate": "Créer",
+
+            position: "Position dans l'accueil",
+
+            title: "Titre",
+            adImage: "Image de publicité",
+            showAtHome: "Afficher dans l'accueil",
+            url: "Lien (URL)",
+            duration: "Durée",
+            "duration.startDate": "Date de début",
+            "duration.endDate": "Date de fin",
+
+            firstName: "Prénom",
+            lastName: "Nom",
+            companyName: "Nom de la société",
+            mobilePhone: "Téléphone",
+            isContacted: "Est contactée",
+
+            content: "Contenue",
         },
         messages: {
             successfullyBulkDeleted: '{{count}} enregistrement supprimés avec succès',
@@ -52,6 +91,7 @@ module.exports = {
             welcomeOnBoard_subtitle: "Bienvenu sur la page d'administration de Bossnet.",
             loginWelcome: "Bienvenu sur la page d'administration de Bossnet.",
             invalidCredentials: 'Email ou Mot de passe incorrect, veuillez réessayer!',
-        }
+        },
+        resources: {}
     }
 }
