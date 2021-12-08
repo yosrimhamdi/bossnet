@@ -25,7 +25,8 @@ module.exports = {
                     filter: false,
                     show: true,
                     edit: true
-                }
+                },
+                isRequired: true
             },
             duration: {
                 isVisible: {
@@ -70,5 +71,8 @@ module.exports = {
             mimeType: "image.mimeType",
             file: "adImage"
         },
+        validation: {
+            mimeTypes: ["image/jpeg", "image/png"]
+        }
     })]
 }

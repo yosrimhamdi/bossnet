@@ -19,7 +19,7 @@ module.exports = {
         properties: {
             encryptedPassword: { isVisible: false, isRequired: false },
             password: {
-                type: "string",
+                type: "password",
                 isRequired: {
                     new: true
                 },
@@ -29,7 +29,7 @@ module.exports = {
                     filter: false,
                     show: false,
                 },
-            }
+            },
         },
         actions: {
             new: {
