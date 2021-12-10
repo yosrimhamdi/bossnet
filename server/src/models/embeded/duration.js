@@ -10,4 +10,7 @@ module.exports = new mongoose.Schema({
         type: Date,
         default: null // has no end
     }
+}, {
+    _id: false,
+    versionKey: false
 });

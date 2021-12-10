@@ -12,4 +12,7 @@ module.exports = new mongoose.Schema({
     canCreate: Boolean,
     canModify: Boolean,
     canDelete: Boolean
+}, {
+    _id: false,
+    versionKey: false
 });

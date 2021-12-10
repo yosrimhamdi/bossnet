@@ -4,5 +4,6 @@ module.exports = {
     ADMIN: "Admin",
     CONTACT: "Contact",
     CUSTOM_PAGE: "CustomPage",
-    ADVERTISSMENT: "Advertissment"
+    ADVERTISSMENT: "Advertissment",
+    CLIENT: "Client"
 }
