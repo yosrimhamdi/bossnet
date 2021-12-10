@@ -3,7 +3,7 @@ const { ADMIN } = require("../../models/configs/collectionsNames");
 const bcrypt = require("bcrypt");
 const hasPermission = require("../hasPermission");
 const { ADMIN_GROUP } = require("./configs/navigationGroups");
-const timestampsPropertyConfigs = require("./timestampsPropertyConfigs");
+const timestampsProperties = require("./configs/timestampsProperties");
 
 
 
@@ -20,7 +20,7 @@ module.exports = {
     options: {
         navigation: ADMIN_GROUP,
         properties: {
-            ...timestampsPropertyConfigs,
+            ...timestampsProperties,
             encryptedPassword: { isVisible: false, isRequired: false },
             password: {
                 type: "password",

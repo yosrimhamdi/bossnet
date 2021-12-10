@@ -1,7 +1,7 @@
 module.exports = {
     createdAt: {
         isVisible: {
-            list: false,
+            list: true,
             show: true,
             filter: true
         }

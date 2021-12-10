@@ -5,14 +5,14 @@ const hasPermission = require("../hasPermission");
 const UploadProvider = require("./features/uploadProvider");
 const { AD_POSITION_CHOICES } = require("../../models/configs/enums");
 const { PUBLIC_GROUP } = require("./configs/navigationGroups");
-const timestampsPropertyConfigs = require("./timestampsPropertyConfigs");
+const timestampsProperties = require("./configs/timestampsProperties");
 
 module.exports = {
     resource: Advertissment,
     options: {
         navigation: PUBLIC_GROUP,
         properties: {
-            ...timestampsPropertyConfigs,
+            ...timestampsProperties,
             image: {
                 isVisible: {
                     list: false,

@@ -2,14 +2,14 @@ const Contact = require("../../models/Contact");
 const hasPermission = require("../hasPermission");
 const { CONTACT } = require("../../models/configs/collectionsNames");
 const { PUBLIC_GROUP } = require("./configs/navigationGroups");
-const timestampsPropertyConfigs = require("./timestampsPropertyConfigs");
+const timestampsProperties = require("./configs/timestampsProperties");
 
 module.exports = {
     resource: Contact,
     options: {
         navigation: PUBLIC_GROUP,
         properties: {
-            ...timestampsPropertyConfigs,
+            ...timestampsProperties,
             _id: {
                 isVisible: {
                     list: false,

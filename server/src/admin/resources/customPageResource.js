@@ -3,14 +3,14 @@ const hasPermission = require("../hasPermission");
 const { CUSTOM_PAGE } = require("../../models/configs/collectionsNames");
 const { PUBLIC_GROUP } = require("./configs/navigationGroups");
 const { default: adminBro } = require("admin-bro");
-const timestampsPropertyConfigs = require("./timestampsPropertyConfigs");
+const timestampsProperties = require("./configs/timestampsProperties");
 
 module.exports = {
     resource: CustomPage,
     options: {
         navigation: PUBLIC_GROUP,
         properties: {
-            ...timestampsPropertyConfigs,
+            ...timestampsProperties,
             _id: {
                 isVisible: {
                     list: false,
