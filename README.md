@@ -7,10 +7,15 @@
 $ node --version
 v16.13.0
 ```
-- Node package mamanger
+- Node package manager
 ```
 $ npm --version
 8.1.0
+```
+- MongoDB
+```
+> db.version()
+5.0.3
 ```
 ## Install dependencies
 
