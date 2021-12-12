@@ -6,9 +6,10 @@ const resources = require('./../admin/resources');
 const branding = require("./../admin/branding");
 const authenticateAdmin = require('../admin/authenticateAdmin');
 const locale = require("./../admin/locale");
+const createInitialSuperuser = require('../utils/createInitialSuperuser');
 
 AdminBro.registerAdapter(AdminBroMongoose);
-module.exports = (expressApp, database) => {
+module.exports = async (expressApp, database) => {
     const adminBro = new AdminBro({
         databases: [database],
         resources,
@@ -20,5 +21,6 @@ module.exports = (expressApp, database) => {
         authenticate: authenticateAdmin,
         cookiePassword: SECRET_COOKIE_CODE,
     });
+    await createInitialSuperuser();
     expressApp.use(ADMIN_PANEL_PATH, adminBroRouter);
 }

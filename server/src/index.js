@@ -9,7 +9,7 @@ async function startServer() {
     const app = express();
     const db = await loadMongoose();
     loadExpress(app);
-    loadAdminBro(app, db);
+    await loadAdminBro(app, db);
     app.listen(PORT, handleAppListenCallback);
 }
 
