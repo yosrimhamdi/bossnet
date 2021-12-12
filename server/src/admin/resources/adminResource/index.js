@@ -1,19 +1,12 @@
-const Admin = require("../../models/Admin");
-const { ADMIN } = require("../../models/configs/collectionsNames");
+const Admin = require("../../../models/Admin");
+const { ADMIN } = require("../../../models/configs/collectionsNames");
 const bcrypt = require("bcrypt");
-const hasPermission = require("../hasPermission");
-const { ADMIN_GROUP } = require("./configs/navigationGroups");
-const timestampsProperties = require("./configs/timestampsProperties");
+const hasPermission = require("../../hasPermission");
+const { ADMIN_GROUP } = require("../configs/navigationGroups");
+const timestampsProperties = require("../configs/timestampsProperties");
+const { handleBeforeSaveAction, handleAfterSaveAction } = require("./actions");
 
 
-
-const handleBeforeSaveAction = async(req) => {
-    if (req.payload.password) {
-        req.payload.encryptedPassword = bcrypt.hashSync(req.payload.password, 10);
-        delete req.payload.password;
-    }
-    return req;
-}
 
 module.exports = {
     resource: Admin,
@@ -38,10 +31,12 @@ module.exports = {
         actions: {
             new: {
                 before: handleBeforeSaveAction,
+                after: handleAfterSaveAction,
                 isAccessible: hasPermission(ADMIN, "canCreate")
             },
             edit: {
                 before: handleBeforeSaveAction,
+                after: handleAfterSaveAction,
                 isAccessible: hasPermission(ADMIN, "canModify")
             },
             delete: { isAccessible: hasPermission(ADMIN, "canDelete") },

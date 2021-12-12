@@ -6,7 +6,7 @@ module.exports = {
     },
     CLIENT_GROUP: {
         name: "Client",
-        icon: ""
+        icon: "ParentChild"
     },
     PUBLIC_GROUP: {
         name: "Publique",

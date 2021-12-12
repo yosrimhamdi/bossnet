@@ -1,4 +1,4 @@
-const { ADMIN, ADMIN_ROLE, ADVERTISSMENT, CONTACT, CUSTOM_PAGE } = require("../models/configs/collectionsNames");
+const { ADMIN, ADMIN_ROLE, ADVERTISSMENT, CONTACT, CUSTOM_PAGE, CLIENT } = require("../models/configs/collectionsNames");
 
 // translation to french
 module.exports = {
@@ -35,6 +35,7 @@ module.exports = {
             [ADVERTISSMENT]: "Publicités",
             [CONTACT]: "Contactes",
             [CUSTOM_PAGE]: "Pages personnalisées",
+            [CLIENT]: "Clients"
         },
         properties: {
             length: 'Longueur',
@@ -72,6 +73,18 @@ module.exports = {
             isContacted: "Est contactée",
 
             content: "Contenue",
+
+            "profile.firstName": "Prénom",
+            "profile.lastName": "Nom",
+            "profile.gender": "Genre",
+            "profile.mobilePhone": "Téléphone",
+            "profile.facebookAccountLink": "Lien du compte facebook",
+            "cinId": "Identifiant de cin",
+            "rib": "Relevé d'Identité Bancaire",
+
+            isVerified: "Est vérifié",
+            isPaid: "Est payé",
+            "ancestors": "Les ancêtres"
         },
         messages: {
             successfullyBulkDeleted: '{{count}} enregistrement supprimés avec succès',
