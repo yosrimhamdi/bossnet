@@ -3,10 +3,12 @@ const hasPermission = require("../hasPermission");
 const { CONTACT } = require("../../models/configs/collectionsNames");
 const { PUBLIC_GROUP } = require("./configs/navigationGroups");
 const timestampsProperties = require("./configs/timestampsProperties");
+const defaultOptions = require("./configs/defaultOptions");
 
 module.exports = {
     resource: Contact,
     options: {
+        ...defaultOptions,
         navigation: PUBLIC_GROUP,
         properties: {
             ...timestampsProperties,

@@ -6,10 +6,12 @@ const UploadProvider = require("./features/uploadProvider");
 const { AD_POSITION_CHOICES } = require("../../models/configs/enums");
 const { PUBLIC_GROUP } = require("./configs/navigationGroups");
 const timestampsProperties = require("./configs/timestampsProperties");
+const defaultOptions = require("./configs/defaultOptions");
 
 module.exports = {
     resource: Advertissment,
     options: {
+        ...defaultOptions,
         navigation: PUBLIC_GROUP,
         properties: {
             ...timestampsProperties,

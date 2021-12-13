@@ -1,12 +1,14 @@
 const AdminRole = require("../../models/AdminRole");
 const { ADMIN_ROLE } = require("../../models/configs/collectionsNames");
 const hasPermission = require("../hasPermission");
+const defaultOptions = require("./configs/defaultOptions");
 const { ADMIN_GROUP } = require("./configs/navigationGroups");
 const timestampsProperties = require("./configs/timestampsProperties");
 
 module.exports = {
     resource: AdminRole,
     options: {
+        ...defaultOptions,
         navigation: ADMIN_GROUP,
         properties: {
             ...timestampsProperties,

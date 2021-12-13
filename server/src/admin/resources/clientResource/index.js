@@ -9,10 +9,12 @@ const {
 } = require("./actions");
 const { CLIENT_CHILD_DIRECTION_CHOICES, CLIENT_PROFILE_GENDER_CHOICES } = require("../../../models/configs/enums");
 const { default: adminBro } = require("admin-bro");
+const defaultOptions = require("../configs/defaultOptions");
 
 module.exports = {
     resource: Client,
     options: {
+        ...defaultOptions,
         navigation: CLIENT_GROUP,
         editProperties: [
             "profile",

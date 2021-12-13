@@ -4,10 +4,12 @@ const { CUSTOM_PAGE } = require("../../models/configs/collectionsNames");
 const { PUBLIC_GROUP } = require("./configs/navigationGroups");
 const { default: adminBro } = require("admin-bro");
 const timestampsProperties = require("./configs/timestampsProperties");
+const defaultOptions = require("./configs/defaultOptions");
 
 module.exports = {
     resource: CustomPage,
     options: {
+        ...defaultOptions,
         navigation: PUBLIC_GROUP,
         properties: {
             ...timestampsProperties,

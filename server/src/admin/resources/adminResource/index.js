@@ -5,15 +5,24 @@ const hasPermission = require("../../hasPermission");
 const { ADMIN_GROUP } = require("../configs/navigationGroups");
 const timestampsProperties = require("../configs/timestampsProperties");
 const { handleBeforeSaveAction, handleAfterSaveAction } = require("./actions");
+const defaultOptions = require("../configs/defaultOptions");
 
 
 
 module.exports = {
     resource: Admin,
     options: {
+        ...defaultOptions,
         navigation: ADMIN_GROUP,
         properties: {
             ...timestampsProperties,
+            _id: {
+                isVisible: {
+                    list: false,
+                    filter: true,
+                    show: true
+                },
+            },
             encryptedPassword: { isVisible: false, isRequired: false },
             password: {
                 type: "password",
