@@ -48,15 +48,13 @@ const clientSchema = new mongoose.Schema({
     // Binary Tree Structures with an Array of Ancestors
     parent: {
         type: mongoose.Types.ObjectId,
-        ref: CLIENT,
-        index: true
+        ref: CLIENT
     },
     ancestors: {
         type: [{
             type: mongoose.Types.ObjectId,
             ref: CLIENT
         }],
-        index: true
     },
     direction: {
         type: String,

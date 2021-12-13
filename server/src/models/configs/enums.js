@@ -13,7 +13,8 @@ module.exports = {
     ],
     CLIENT_CHILD_DIRECTION_CHOICES: [
         { value: "l", label: "Gauche" },
-        { value: "r", label: "Droit" }
+        { value: "r", label: "Droit" },
+        { value: "ro", label: "Racine" } // root
     ]
 
 }
