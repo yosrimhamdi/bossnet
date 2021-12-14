@@ -5,5 +5,6 @@ module.exports = {
     CONTACT: "Contact",
     CUSTOM_PAGE: "CustomPage",
     ADVERTISSMENT: "Advertissment",
-    CLIENT: "Client"
+    CLIENT: "Client",
+    CLIENT_EMAIL_VERIFICATION: "ClientEmailVerification"
 }
