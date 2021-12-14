@@ -1,13 +1,13 @@
-const ClientEmailVerification = require("./../../models/ClientEmailVerification");
 const hasPermission = require("../hasPermission");
 const defaultOptions = require("./configs/defaultOptions");
 const { CLIENT_GROUP } = require("./configs/navigationGroups");
 const timestampsProperties = require("./configs/timestampsProperties");
-const { CLIENT_EMAIL_VERIFICATION } = require("../../models/configs/collectionsNames");
+const { CLIENT_PASSWORD_RESET } = require("../../models/configs/collectionsNames");
+const ClientPasswordReset = require("../../models/ClientPasswordReset");
 
 
 module.exports = {
-    resource: ClientEmailVerification,
+    resource: ClientPasswordReset,
     options: {
         ...defaultOptions,
         navigation: CLIENT_GROUP,
@@ -24,9 +24,12 @@ module.exports = {
         actions: {
             new: { isAccessible: false },
             edit: { isAccessible: false },
-            delete: { isAccessible: hasPermission(CLIENT_EMAIL_VERIFICATION, "canDelete") },
-            show: { isAccessible: hasPermission(CLIENT_EMAIL_VERIFICATION, "canView") },
-            list: { isAccessible: hasPermission(CLIENT_EMAIL_VERIFICATION, "canView") },
+            delete: { isAccessible: hasPermission(CLIENT_PASSWORD_RESET, "canDelete") },
+            show: {
+                isAccessible: hasPermission(CLIENT_PASSWORD_RESET, "canView"),
+                showInDrawer: true
+            },
+            list: { isAccessible: hasPermission(CLIENT_PASSWORD_RESET, "canView") },
         }
     }
 }

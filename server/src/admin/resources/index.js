@@ -4,7 +4,8 @@ const advertissmentResource = require("./advertissmentResource");
 const clientResource = require("./clientResource");
 const contactResource = require("./contactResource");
 const customPageResource = require("./customPageResource");
-const clientEmailVerificationResource = require("./ClientEmailVerificationResource");
+const clientEmailVerificationResource = require("./clientEmailVerificationResource");
+const clientPasswordResetResource = require("./clientPasswordResetResource");
 
 module.exports = [
     customPageResource,
@@ -15,5 +16,6 @@ module.exports = [
     adminRoleResource,
 
     clientResource,
-    clientEmailVerificationResource
+    clientEmailVerificationResource,
+    clientPasswordResetResource
 ];
