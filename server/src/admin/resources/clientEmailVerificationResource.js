@@ -24,8 +24,13 @@ module.exports = {
         actions: {
             new: { isAccessible: false },
             edit: { isAccessible: false },
-            delete: { isAccessible: hasPermission(CLIENT_EMAIL_VERIFICATION, "canDelete") },
-            show: { isAccessible: hasPermission(CLIENT_EMAIL_VERIFICATION, "canView") },
+            delete: {
+                isAccessible: hasPermission(CLIENT_EMAIL_VERIFICATION, "canDelete")
+            },
+            show: {
+                isAccessible: hasPermission(CLIENT_EMAIL_VERIFICATION, "canView"),
+                showInDrawer: true
+            },
             list: { isAccessible: hasPermission(CLIENT_EMAIL_VERIFICATION, "canView") },
         }
     }
