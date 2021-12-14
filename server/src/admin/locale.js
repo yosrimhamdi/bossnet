@@ -1,4 +1,4 @@
-const { ADMIN, ADMIN_ROLE, ADVERTISSMENT, CONTACT, CUSTOM_PAGE, CLIENT } = require("../models/configs/collectionsNames");
+const { ADMIN, ADMIN_ROLE, ADVERTISSMENT, CONTACT, CUSTOM_PAGE, CLIENT, CLIENT_EMAIL_VERIFICATION } = require("../models/configs/collectionsNames");
 
 // translation to french
 module.exports = {
@@ -35,7 +35,8 @@ module.exports = {
             [ADVERTISSMENT]: "Publicités",
             [CONTACT]: "Contactes",
             [CUSTOM_PAGE]: "Pages personnalisées",
-            [CLIENT]: "Clients"
+            [CLIENT]: "Clients",
+            [CLIENT_EMAIL_VERIFICATION]: "Vérification de l'e-mail"
         },
         properties: {
             length: 'Longueur',
@@ -84,7 +85,8 @@ module.exports = {
 
             isVerified: "Est vérifié",
             isPaid: "Est payé",
-            "ancestors": "Les ancêtres"
+            "ancestors": "Les ancêtres",
+            "verificationKey": "Clé de vérification"
         },
         messages: {
             successfullyBulkDeleted: '{{count}} enregistrement supprimés avec succès',
