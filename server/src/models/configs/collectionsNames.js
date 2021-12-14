@@ -6,5 +6,6 @@ module.exports = {
     CUSTOM_PAGE: "CustomPage",
     ADVERTISSMENT: "Advertissment",
     CLIENT: "Client",
-    CLIENT_EMAIL_VERIFICATION: "ClientEmailVerification"
+    CLIENT_EMAIL_VERIFICATION: "ClientEmailVerification",
+    CLIENT_PASSWORD_RESET: "ClientPasswordReset"
 }
