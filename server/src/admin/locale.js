@@ -1,4 +1,4 @@
-const { ADMIN, ADMIN_ROLE, ADVERTISSMENT, CONTACT, CUSTOM_PAGE, CLIENT, CLIENT_EMAIL_VERIFICATION, CLIENT_PASSWORD_RESET } = require("../models/configs/collectionsNames");
+const { ADMIN, ADMIN_ROLE, ADVERTISSMENT, CONTACT, CUSTOM_PAGE, CLIENT, CLIENT_EMAIL_VERIFICATION, CLIENT_PASSWORD_RESET, CLIENT_PAYMENT } = require("../models/configs/collectionsNames");
 
 // translation to french
 module.exports = {
@@ -37,7 +37,8 @@ module.exports = {
             [CUSTOM_PAGE]: "Pages personnalisées",
             [CLIENT]: "Clients",
             [CLIENT_EMAIL_VERIFICATION]: "Vérification de l'e-mail",
-            [CLIENT_PASSWORD_RESET]: "Réinitialisation du mot de passe"
+            [CLIENT_PASSWORD_RESET]: "Réinitialisation du mot de passe",
+            [CLIENT_PAYMENT]: "Paiement des clients"
         },
         properties: {
             length: 'Longueur',
@@ -88,7 +89,13 @@ module.exports = {
             isPaid: "Est payé",
             ancestors: "Les ancêtres",
             verificationKey: "Clé de vérification",
-            resetCode: "Code de réinitialisation"
+            resetCode: "Code de réinitialisation",
+
+            paymentMethod: "Méthode de paiement",
+            amount: "Montant (DT)",
+            paidFor: "Payé pour",
+            paidDate: "Date de paiement"
+
         },
         messages: {
             successfullyBulkDeleted: '{{count}} enregistrement supprimés avec succès',
