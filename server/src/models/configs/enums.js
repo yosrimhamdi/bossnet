@@ -8,13 +8,18 @@ module.exports = {
         { value: "3", label: "Dernière section" }, // After top offers
     ],
     CLIENT_PROFILE_GENDER_CHOICES: [
-        { value: "m", label: "Homme" },
-        { value: "f", label: "Femme" }
+        { value: "m", label: "Homme" }, // man
+        { value: "f", label: "Femme" } // female
     ],
     CLIENT_CHILD_DIRECTION_CHOICES: [
-        { value: "l", label: "Gauche" },
-        { value: "r", label: "Droit" },
+        { value: "l", label: "Gauche" }, // right
+        { value: "r", label: "Droit" }, // left
         { value: "ro", label: "Racine" } // root
+    ],
+    CLIENT_PAYMENT_METHOD_CHOICES: [
+        { value: "ca", label: "Espèces" }, // cash
+        { value: "ch", label: "Chèque" }, // check
+        { value: "d", label: "Brouillon" }, // draft
+        { value: "t", label: "Transfert" }, // transfert
     ]
-
 }
