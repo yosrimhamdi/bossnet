@@ -8,5 +8,6 @@ module.exports = {
     CLIENT: "Client",
     CLIENT_EMAIL_VERIFICATION: "ClientEmailVerification",
     CLIENT_PASSWORD_RESET: "ClientPasswordReset",
-    CLIENT_PAYMENT: "ClientPayment"
+    CLIENT_PAYMENT: "ClientPayment",
+    CATEGORY: "Category",
 }
