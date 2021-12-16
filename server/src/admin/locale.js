@@ -1,4 +1,4 @@
-const { ADMIN, ADMIN_ROLE, ADVERTISSMENT, CONTACT, CUSTOM_PAGE, CLIENT, CLIENT_EMAIL_VERIFICATION, CLIENT_PASSWORD_RESET, CLIENT_PAYMENT } = require("../models/configs/collectionsNames");
+const { ADMIN, ADMIN_ROLE, ADVERTISSMENT, CONTACT, CUSTOM_PAGE, CLIENT, CLIENT_EMAIL_VERIFICATION, CLIENT_PASSWORD_RESET, CLIENT_PAYMENT, CATEGORY } = require("../models/configs/collectionsNames");
 
 // translation to french
 module.exports = {
@@ -38,7 +38,8 @@ module.exports = {
             [CLIENT]: "Clients",
             [CLIENT_EMAIL_VERIFICATION]: "Vérification de l'e-mail",
             [CLIENT_PASSWORD_RESET]: "Réinitialisation du mot de passe",
-            [CLIENT_PAYMENT]: "Paiement des clients"
+            [CLIENT_PAYMENT]: "Paiement des clients",
+            [CATEGORY]: "Catégories"
         },
         properties: {
             length: 'Longueur',
@@ -94,7 +95,9 @@ module.exports = {
             paymentMethod: "Méthode de paiement",
             amount: "Montant (DT)",
             paidFor: "Payé pour",
-            paidDate: "Date de paiement"
+            paidDate: "Date de paiement",
+
+            searchKeys: "Clés de recherche"
 
         },
         messages: {

@@ -11,5 +11,9 @@ module.exports = {
     PUBLIC_GROUP: {
         name: "Publique",
         icon: "Home"
+    },
+    PARTNER_GROUP: {
+        name: "Partenaire",
+        icon: "Store"
     }
 }
