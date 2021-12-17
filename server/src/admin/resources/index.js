@@ -8,13 +8,16 @@ const clientEmailVerificationResource = require("./clientEmailVerificationResour
 const clientPasswordResetResource = require("./clientPasswordResetResource");
 const clientPaymentResource = require("./clientPaymentResource");
 const categoryResource = require("./categoryResource");
+const partnerResource = require("./partnerResource");
 
 module.exports = [
     customPageResource,
     contactResource,
     advertissmentResource,
 
+    partnerResource,
     categoryResource,
+
 
     clientResource,
     clientPaymentResource,
