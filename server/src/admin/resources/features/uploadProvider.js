@@ -7,10 +7,9 @@ class UploadProvider extends BaseProvider {
         super(path.join('/uploads', bucket));
     }
 
-    async upload(file, key) {
+    upload(file, key) {
         const uploadToPath = this.getUploadPath(key);
         this.createUploadDirIfNotExists(uploadToPath);
-        console.log(uploadToPath);
         fs.copyFileSync(file.path, uploadToPath);
         return true
     }
@@ -20,12 +19,20 @@ class UploadProvider extends BaseProvider {
             fs.mkdirSync(dirPath, { recursive: true });
         }
     }
-    async delete(key) {
+    delete(key) {
         // delete old file on update
-        const filePathToDelete = this.path(key);
-        if (fs.existsSync(filePathToDelete))
+        const filePathToDelete = this.getUploadPath(key);
+        if (fs.existsSync(filePathToDelete)) {
             fs.rmSync(filePathToDelete, { recursive: true });
+            this.deleteFileDirIfEmpty(filePathToDelete);
+        }
         return true
+    }
+    deleteFileDirIfEmpty(filePath) {
+        const folderToDelete = path.join(filePath, "..");
+        const dirIsEmpty = fs.readdirSync(folderToDelete).length == 0;
+        if (dirIsEmpty)
+            fs.rmdirSync(folderToDelete);
     }
     getUploadPath(key) {
         return path.join(path.join(__dirname, '../../../../public', this.bucket), key)
