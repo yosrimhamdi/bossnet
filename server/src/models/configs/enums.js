@@ -21,5 +21,10 @@ module.exports = {
         { value: "ch", label: "Chèque" }, // check
         { value: "d", label: "Brouillon" }, // draft
         { value: "t", label: "Transfert" }, // transfert
+    ],
+    PARTNER_TYPE_CHOICES: [
+        { value: "p", label: "Platinium" },
+        { value: "g", label: "Gold" },
+        { value: "s", label: "Silver" }
     ]
 }
