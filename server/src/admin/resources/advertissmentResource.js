@@ -62,6 +62,7 @@ module.exports = {
             new: { isAccessible: hasPermission(ADVERTISSMENT, "canCreate") },
             edit: { isAccessible: hasPermission(ADVERTISSMENT, "canModify") },
             delete: { isAccessible: hasPermission(ADVERTISSMENT, "canDelete") },
+            bulkDelete: { isAccessible: hasPermission(ADVERTISSMENT, "canDelete") },
             show: {
                 isAccessible: hasPermission(ADVERTISSMENT, "canView"),
                 showInDrawer: true

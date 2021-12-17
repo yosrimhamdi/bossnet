@@ -78,6 +78,7 @@ module.exports = {
                 isAccessible: hasPermission(CLIENT, "canModify")
             },
             delete: { isAccessible: hasPermission(CLIENT, "canDelete") },
+            bulkDelete: { isAccessible: hasPermission(CLIENT, "canDelete") },
             show: {
                 isAccessible: hasPermission(CLIENT, "canView"),
                 showInDrawer: true

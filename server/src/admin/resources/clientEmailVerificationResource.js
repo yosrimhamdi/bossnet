@@ -27,6 +27,7 @@ module.exports = {
             delete: {
                 isAccessible: hasPermission(CLIENT_EMAIL_VERIFICATION, "canDelete")
             },
+            bulkDelete: { isAccessible: hasPermission(CLIENT_EMAIL_VERIFICATION, "canDelete") },
             show: {
                 isAccessible: hasPermission(CLIENT_EMAIL_VERIFICATION, "canView"),
                 showInDrawer: true

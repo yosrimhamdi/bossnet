@@ -36,6 +36,7 @@ module.exports = {
             new: { isAccessible: hasPermission(CLIENT_PAYMENT, "canCreate") },
             edit: { isAccessible: hasPermission(CLIENT_PAYMENT, "canModify") },
             delete: { isAccessible: hasPermission(CLIENT_PAYMENT, "canDelete") },
+            bulkDelete: { isAccessible: hasPermission(CLIENT_PAYMENT, "canDelete") },
             show: {
                 isAccessible: hasPermission(CLIENT_PAYMENT, "canView"),
                 showInDrawer: true

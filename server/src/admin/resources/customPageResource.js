@@ -45,6 +45,7 @@ module.exports = {
             new: { isAccessible: hasPermission(CUSTOM_PAGE, "canCreate") },
             edit: { isAccessible: hasPermission(CUSTOM_PAGE, "canModify") },
             delete: { isAccessible: hasPermission(CUSTOM_PAGE, "canDelete") },
+            bulkDelete: { isAccessible: hasPermission(CUSTOM_PAGE, "canDelete") },
             show: { isAccessible: hasPermission(CUSTOM_PAGE, "canView") },
             list: { isAccessible: hasPermission(CUSTOM_PAGE, "canView") },
         }

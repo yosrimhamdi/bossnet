@@ -30,6 +30,7 @@ module.exports = {
             new: { isAccessible: hasPermission(ADMIN_ROLE, "canCreate") },
             edit: { isAccessible: hasPermission(ADMIN_ROLE, "canModify") },
             delete: { isAccessible: hasPermission(ADMIN_ROLE, "canDelete") },
+            bulkDelete: { isAccessible: hasPermission(ADMIN_ROLE, "canDelete") },
             show: {
                 isAccessible: hasPermission(ADMIN_ROLE, "canView"),
                 showInDrawer: true

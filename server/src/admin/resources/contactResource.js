@@ -45,6 +45,7 @@ module.exports = {
             new: { isAccessible: hasPermission(CONTACT, "canCreate") },
             edit: { isAccessible: hasPermission(CONTACT, "canModify") },
             delete: { isAccessible: hasPermission(CONTACT, "canDelete") },
+            bulkDelete: { isAccessible: hasPermission(CONTACT, "canDelete") },
             show: {
                 isAccessible: hasPermission(CONTACT, "canView"),
                 showInDrawer: true

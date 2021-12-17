@@ -25,6 +25,7 @@ module.exports = {
             new: { isAccessible: false },
             edit: { isAccessible: false },
             delete: { isAccessible: hasPermission(CLIENT_PASSWORD_RESET, "canDelete") },
+            bulkDelete: { isAccessible: hasPermission(CLIENT_PASSWORD_RESET, "canDelete") },
             show: {
                 isAccessible: hasPermission(CLIENT_PASSWORD_RESET, "canView"),
                 showInDrawer: true

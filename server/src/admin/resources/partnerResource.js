@@ -75,6 +75,7 @@ module.exports = {
                 isAccessible: hasPermission(PARTNER, "canModify")
             },
             delete: { isAccessible: hasPermission(PARTNER, "canDelete") },
+            bulkDelete: { isAccessible: hasPermission(PARTNER, "canDelete") },
             show: { isAccessible: hasPermission(PARTNER, "canView") },
             list: { isAccessible: hasPermission(PARTNER, "canView") },
         }
