@@ -10,5 +10,6 @@ module.exports = {
     CLIENT_PASSWORD_RESET: "ClientPasswordReset",
     CLIENT_PAYMENT: "ClientPayment",
     CATEGORY: "Category",
-    PARTNER: "Partner"
+    PARTNER: "Partner",
+    PARTNER_OFFER: "PartnerOffer"
 }
