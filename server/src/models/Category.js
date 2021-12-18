@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const { CATEGORY } = require("./configs/collectionsNames");
 const { REQUIRED_ERROR_MSG } = require("./configs/fieldsValidationMessages");
-
+const Partner = require("./Partner");
 
 const categorySchema = new mongoose.Schema({
     name: {
@@ -25,6 +25,16 @@ const categorySchema = new mongoose.Schema({
 }, {
     timestamps: true
 });
+
+categorySchema.post("findOneAndRemove", async function (doc) {
+    // remove category from partner categories
+    await Partner.updateMany({ categories: doc._id }, {
+        $pull: {
+            categories: doc._id
+        }
+    });
+});
+
 
 const Category = mongoose.model(CATEGORY, categorySchema);
 
