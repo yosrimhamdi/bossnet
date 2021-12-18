@@ -1,4 +1,4 @@
-const { ADMIN, ADMIN_ROLE, ADVERTISSMENT, CONTACT, CUSTOM_PAGE, CLIENT, CLIENT_EMAIL_VERIFICATION, CLIENT_PASSWORD_RESET, CLIENT_PAYMENT, CATEGORY, PARTNER } = require("../models/configs/collectionsNames");
+const { ADMIN, ADMIN_ROLE, ADVERTISSMENT, CONTACT, CUSTOM_PAGE, CLIENT, CLIENT_EMAIL_VERIFICATION, CLIENT_PASSWORD_RESET, CLIENT_PAYMENT, CATEGORY, PARTNER, PARTNER_OFFER } = require("../models/configs/collectionsNames");
 
 // translation to french
 module.exports = {
@@ -40,7 +40,8 @@ module.exports = {
             [CLIENT_PASSWORD_RESET]: "Réinitialisation du mot de passe",
             [CLIENT_PAYMENT]: "Paiement des clients",
             [CATEGORY]: "Catégories",
-            [PARTNER]: "Partenaires"
+            [PARTNER]: "Partenaires",
+            [PARTNER_OFFER]: "Offres"
         },
         properties: {
             length: 'Longueur',
@@ -106,8 +107,12 @@ module.exports = {
             categories: "Catégories",
             "location.addresses": "Adresses",
             "location.embedMapIframe": "Carte intégrée",
-            "uploadLogo": "Logo",
-            "uploadImages": "Images",
+            uploadLogo: "Logo",
+            uploadImages: "Images",
+
+            partner: "Partenaire",
+            uploadImage: "Image",
+            relatedOffers: "Offres similaires"
         },
         messages: {
             successfullyBulkDeleted: '{{count}} enregistrement supprimés avec succès',

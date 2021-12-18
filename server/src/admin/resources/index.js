@@ -9,6 +9,7 @@ const clientPasswordResetResource = require("./clientPasswordResetResource");
 const clientPaymentResource = require("./clientPaymentResource");
 const categoryResource = require("./categoryResource");
 const partnerResource = require("./partnerResource");
+const partnerOfferResource = require("./partnerOfferResource");
 
 module.exports = [
     customPageResource,
@@ -16,6 +17,7 @@ module.exports = [
     advertissmentResource,
 
     partnerResource,
+    partnerOfferResource,
     categoryResource,
 
 
