@@ -1,5 +1,7 @@
+const Joi = require("joi");
 const mongoose = require("mongoose");
-const { REQUIRED_ERROR_MSG } = require("../configs/fieldsValidationMessages");
+const createJoiMongooseFieldValidate = require("../../utils/createJoiMongooseFieldValidate");
+const { REQUIRED_ERROR_MSG, INVALID_ERROR_MSG } = require("../configs/fieldsValidationMessages");
 
 module.exports = new mongoose.Schema({
     addresses: {
@@ -7,7 +9,10 @@ module.exports = new mongoose.Schema({
         required: [true, REQUIRED_ERROR_MSG]
     },
     embedMapIframe: {
-        type: String
+        type: String,
+        validate: createJoiMongooseFieldValidate(
+            Joi.string().trim().regex(new RegExp("^<iframe.*</iframe>$")).allow(""),
+            INVALID_ERROR_MSG)
     }
 }, {
     _id: false,
