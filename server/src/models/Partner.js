@@ -7,6 +7,8 @@ const { REQUIRED_ERROR_MSG, INVALID_ERROR_MSG } = require("./configs/fieldsValid
 const file = require("./embeded/file");
 const files = require("./embeded/files");
 const location = require("./embeded/location");
+const PartnerOffer = require("./PartnerOffer");
+
 
 const partnerSchema = new mongoose.Schema({
     name: {
@@ -67,6 +69,11 @@ const partnerSchema = new mongoose.Schema({
     }
 }, {
     timestamps: true
+});
+
+partnerSchema.post("findOneAndRemove", async function (doc) {
+    // remove partner offers
+    await PartnerOffer.deleteMany({ partner: doc._id });
 });
 
 const Partner = mongoose.model(PARTNER, partnerSchema);
