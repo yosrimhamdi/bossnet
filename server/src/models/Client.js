@@ -63,5 +63,25 @@ const clientSchema = new mongoose.Schema({
     }
 }, { timestamps: true });
 
+
+const getClientAncestorsByParent = async (parentId) => {
+    const parent = (await Client.findById(parentId).select("ancestors"));
+    let parentAncestors;
+    if (parent) {
+        parentAncestors = parent.ancestors;
+    }
+    return [...parentAncestors, parentId];
+}
+
+clientSchema.pre("save", async function () {
+    if (this.parent && this.ancestors.length == 0)
+        this.ancestors = await getClientAncestorsByParent(this.parent);
+});
+
+clientSchema.post("findOneAndRemove", async function (doc) {
+    // remove client childrens 
+    await this.model.deleteMany({ ancestors: doc._id });
+});
+
 const Client = mongoose.model(CLIENT, clientSchema);
 module.exports = Client;
