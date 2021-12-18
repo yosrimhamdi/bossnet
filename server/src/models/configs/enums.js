@@ -14,7 +14,6 @@ module.exports = {
     CLIENT_CHILD_DIRECTION_CHOICES: [
         { value: "l", label: "Gauche" }, // right
         { value: "r", label: "Droit" }, // left
-        { value: "ro", label: "Racine" } // root
     ],
     CLIENT_PAYMENT_METHOD_CHOICES: [
         { value: "ca", label: "Espèces" }, // cash

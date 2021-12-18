@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const createJoiMongooseFieldValidate = require("../utils/createJoiMongooseFieldValidate");
 const Joi = require("joi");
-const { REQUIRED_ERROR_MSG, INVALID_ERROR_MSG, UNIQUE_ERROR_MSG } = require("./configs/fieldsValidationMessages");
+const { REQUIRED_ERROR_MSG, INVALID_ERROR_MSG, UNIQUE_ERROR_MSG, PARENT_CHILD_DIRECTION_ALREADY_EXISTS } = require("./configs/fieldsValidationMessages");
 const profile = require("./embeded/profile");
 const { CLIENT } = require("./configs/collectionsNames");
 const { CLIENT_CHILD_DIRECTION_CHOICES } = require("./configs/enums");
@@ -46,9 +46,11 @@ const clientSchema = new mongoose.Schema({
         default: false
     },
     // Binary Tree Structures with an Array of Ancestors
+    // first Parent is a static parent (it doesn't exists in db)
     parent: {
         type: mongoose.Types.ObjectId,
-        ref: CLIENT
+        ref: CLIENT,
+        default: null
     },
     ancestors: {
         type: [{
@@ -64,7 +66,7 @@ const clientSchema = new mongoose.Schema({
 }, { timestamps: true });
 
 
-const getClientAncestorsByParent = async (parentId) => {
+const getAncestorsByParent = async (parentId) => {
     const parent = (await Client.findById(parentId).select("ancestors"));
     let parentAncestors;
     if (parent) {
@@ -73,15 +75,37 @@ const getClientAncestorsByParent = async (parentId) => {
     return [...parentAncestors, parentId];
 }
 
+const parentIsRequired = async (doc) => {
+    if (!doc.parent) {
+        const childrenWithParentCount = await Client.find({ $not: { parent: null } }).count();
+        return childrenWithParentCount >= 2; // first two children has a static parent (bossnet)
+    }
+}
+
+const prentChildAlreadyExists = async (doc) => {
+    return !!(await Client.findOne({ parent: doc.parent, direction: doc.direction }));
+}
+
+// Custom validations
+clientSchema.pre("validate", async function () {
+    if (await parentIsRequired(this)) {
+        this.invalidate("parent", REQUIRED_ERROR_MSG);
+    }
+    if (await prentChildAlreadyExists(this)) {
+        this.invalidate("direction", PARENT_CHILD_DIRECTION_ALREADY_EXISTS);
+    }
+});
+
 clientSchema.pre("save", async function () {
     if (this.parent && this.ancestors.length == 0)
-        this.ancestors = await getClientAncestorsByParent(this.parent);
+        this.ancestors = await getAncestorsByParent(this.parent);
 });
 
 clientSchema.post("findOneAndRemove", async function (doc) {
-    // remove client childrens 
-    await this.model.deleteMany({ ancestors: doc._id });
+    // remove client children
+    await Client.deleteMany({ ancestors: doc._id });
 });
 
 const Client = mongoose.model(CLIENT, clientSchema);
+Client.findOne
 module.exports = Client;
