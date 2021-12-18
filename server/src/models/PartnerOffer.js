@@ -41,6 +41,15 @@ const partnerOfferSchema = new mongoose.Schema({
     }
 }, { timestamps: true });
 
+partnerOfferSchema.post("findOneAndRemove", async function (doc) {
+    // remove offer from related offers
+    await this.model.updateMany({ relatedOffers: doc._id }, {
+        $pull: {
+            relatedOffers: doc._id
+        }
+    });
+});
+
 const PartnerOffer = mongoose.model(PARTNER_OFFER, partnerOfferSchema);
 
 module.exports = PartnerOffer;
