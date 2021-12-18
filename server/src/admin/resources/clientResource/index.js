@@ -4,7 +4,8 @@ const { CLIENT_GROUP } = require("../configs/navigationGroups");
 const timestampsProperties = require("../configs/timestampsProperties");
 const hasPermission = require("../../hasPermission");
 const {
-    handleBeforeSaveAction,
+    handleBeforeCreateAction,
+    handleBeforeUpdateAction,
     handleAfterSaveAction
 } = require("./actions");
 const { CLIENT_CHILD_DIRECTION_CHOICES, CLIENT_PROFILE_GENDER_CHOICES } = require("../../../models/configs/enums");
@@ -48,7 +49,14 @@ module.exports = {
                     show: false,
                 },
             },
-
+            parent: {
+                isVisible: {
+                    new: true,
+                    edit: false,
+                    filter: true,
+                    show: true,
+                },
+            },
             fullName: {
                 isTitle: true,
                 isVisible: {
@@ -60,7 +68,13 @@ module.exports = {
                 }
             },
             direction: {
-                availableValues: CLIENT_CHILD_DIRECTION_CHOICES
+                availableValues: CLIENT_CHILD_DIRECTION_CHOICES,
+                isVisible: {
+                    new: true,
+                    edit: false,
+                    filter: true,
+                    show: true,
+                },
             },
             "profile.gender": {
                 availableValues: CLIENT_PROFILE_GENDER_CHOICES
@@ -68,17 +82,17 @@ module.exports = {
         },
         actions: {
             new: {
-                before: handleBeforeSaveAction,
+                before: handleBeforeCreateAction,
                 after: handleAfterSaveAction,
                 isAccessible: hasPermission(CLIENT, "canCreate")
             },
             edit: {
-                before: handleBeforeSaveAction,
+                before: handleBeforeUpdateAction,
                 after: handleAfterSaveAction,
                 isAccessible: hasPermission(CLIENT, "canModify")
             },
             delete: { isAccessible: hasPermission(CLIENT, "canDelete") },
-            bulkDelete: { isAccessible: hasPermission(CLIENT, "canDelete") },
+            bulkDelete: { isAccessible: false },
             show: {
                 isAccessible: hasPermission(CLIENT, "canView"),
                 showInDrawer: true

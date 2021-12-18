@@ -1,16 +1,18 @@
 const handleEncryptedPasswordErrors = require("../utils/handleEncryptedPasswordErrors");
 const handlePasswordEncryption = require("../utils/handlePasswordEncryption");
 const handleUniqueEmailError = require("../utils/handleUniqueEmailError");
-const setClientAncestors = require("./utils/setClientAncestors");
-const validateClientCustomErrors = require("./utils/validateClientCustomErrors");
 
 
 
 module.exports = {
-    handleBeforeSaveAction: async (req) => {
+    handleBeforeCreateAction: async (req) => {
         if (req.method == "post") {
-            await validateClientCustomErrors(req.payload);
-            await setClientAncestors(req.payload);
+            handlePasswordEncryption(req.payload);
+        }
+        return req;
+    },
+    handleBeforeUpdateAction: async (req) => {
+        if (req.method == "post") {
             handlePasswordEncryption(req.payload);
         }
         return req;
