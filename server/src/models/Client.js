@@ -5,6 +5,9 @@ const { REQUIRED_ERROR_MSG, INVALID_ERROR_MSG, UNIQUE_ERROR_MSG, PARENT_CHILD_DI
 const profile = require("./embeded/profile");
 const { CLIENT } = require("./configs/collectionsNames");
 const { CLIENT_CHILD_DIRECTION_CHOICES } = require("./configs/enums");
+const ClientPayment = require("./ClientPayment");
+const ClientEmailVerification = require("./ClientEmailVerification");
+const ClientPasswordReset = require("./ClientPasswordReset");
 
 const clientSchema = new mongoose.Schema({
     profile: {
@@ -97,15 +100,34 @@ clientSchema.pre("validate", async function () {
 });
 
 clientSchema.pre("save", async function () {
-    if (this.parent && this.ancestors.length == 0)
+    if (this.parent)
         this.ancestors = await getAncestorsByParent(this.parent);
 });
+
+// clientSchema.pre("findOneAndUpdate", async function () {
+//     const docToUpdate = await Client.findOne(this.getFilter());
+//     const updateSet = this._update.$set;
+//     // parent changed
+//     if (docToUpdate.parent.toString() != updateSet.parent) {
+//         // set new ancestors
+//         updateSet.ancestors = await getAncestorsByParent(updateSet.parent);
+//         // update each child ancestors
+//         // await Client.find({ ancestors: updateSet._id }).cursor().eachAsync(async (doc) => {
+//         //     await doc.save(); // this will automatically call pre save in the top
+//         //     console.log({ doc });
+//         // });
+//     }
+// });
 
 clientSchema.post("findOneAndRemove", async function (doc) {
     // remove client children
     await Client.deleteMany({ ancestors: doc._id });
+    await ClientPayment.deleteMany({ client: doc._id });
+    await ClientEmailVerification.deleteMany({ client: doc._id });
+    await ClientPasswordReset.deleteMany({ client: doc._id });
 });
 
 const Client = mongoose.model(CLIENT, clientSchema);
-Client.findOne
+
+
 module.exports = Client;
