@@ -100,7 +100,7 @@ clientSchema.pre("validate", async function () {
 });
 
 clientSchema.pre("save", async function () {
-    if (this.parent)
+    if (this.parent && this.ancestors.length == 0)
         this.ancestors = await getAncestorsByParent(this.parent);
 });
 
