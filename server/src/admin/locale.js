@@ -132,6 +132,8 @@ module.exports = {
             welcomeOnBoard_subtitle: "Bienvenu sur la page d'administration de Bossnet.",
             loginWelcome: "Bienvenu sur la page d'administration de Bossnet.",
             invalidCredentials: 'Email ou Mot de passe incorrect, veuillez réessayer!',
+            errorFetchingRecords: "Une erreur s'est produite lors de la récupération des enregistrements.",
+            errorFetchingRecord: "Une erreur s'est produite lors de la récupération d'enregistrement."
         },
         resources: {}
     }

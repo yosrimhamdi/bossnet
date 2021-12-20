@@ -1,0 +1,90 @@
+@mixin breakpoint($point) {
+    @if $point == laptop {
+      @media (max-width: 1280px) {
+        @content;
+      }
+    } @else if $point == tablet {
+      @media (max-width: 768px) {
+        @content;
+      }
+    } @else if $point == phablet {
+      @media (max-width: 600px) {
+        @content;
+      }
+    } @else if $point == mobile {
+      @media (max-width: 480px) {
+        @content;
+      }
+    } @else if $point == mdMobile {
+      @media (max-width: 360px) {
+        @content;
+      }
+    }
+  }
+
+  
+.admin-bro_TableBody {
+    max-width: max-content;
+    word-break: break-word;
+}
+
+.admin-bro_Box{
+  border-radius: 4px;
+}
+.admin-bro_Button{
+  border-radius: 4px;
+}
+.admin-bro_Input{
+  border-radius: 4px;
+}
+
+.dashboard {
+    position: relative;
+    .intro{
+        position: absolute;
+        top: 0;
+        z-index: 0;
+        width: 100%;
+        padding: 4rem 2rem 12rem;
+        background-color: #343A40;
+    }
+    .nav-groups{
+        position: relative;
+        padding: 2rem;
+        z-index: 1;
+        margin-top: 160px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: start;
+        a{
+            text-decoration: none;
+            color: inherit;
+        }
+        .resourceCard{
+            position: relative;
+            padding: 1.5rem;
+            background: #f6f6f6;
+            margin: 12px;
+            border-radius: 4px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid rgb(230, 230, 230);
+            &:hover{
+                box-shadow: 0 1px 2px hsla(0,0%,0%,0.05),0 1px 4px hsla(0,0%,0%,0.05),0 2px 8px hsla(0,0%,0%,0.05);
+            }
+            @include breakpoint(phablet) {
+                width: 100%;
+                margin-left: 0;
+                margin-right: 0;
+            }
+        }
+        @include breakpoint(phablet) {
+            padding: 1rem;
+            margin-top: 180px;
+        }
+    }
+
+
+}
