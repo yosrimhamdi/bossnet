@@ -6,3 +6,7 @@
 :root {
   @apply text-dark;
 }
+hr{
+  height: 2px;
+  @apply border-0 p-0 my-2 bg-gray-100 rounded-full;
+}

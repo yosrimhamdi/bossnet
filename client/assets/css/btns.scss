@@ -18,6 +18,28 @@
   }
   /* medium size */
   &.md {
+    @screen md{
+      @apply text-base px-6 py-3;
+      svg {
+        @apply w-6 ml-3;
+        &.left {
+          @apply mr-3 ml-0;
+        }
+      }
+    }
+  }
+  /* large size */
+  &.lg {
+    @screen md{
+
+      @apply text-lg px-6 py-4;
+      svg {
+        @apply w-8  ml-4;
+        &.left {
+          @apply mr-4 ml-0;
+        }
+      }
+    }
     @apply text-base px-6 py-3;
     svg {
       @apply w-6 ml-3;
@@ -26,22 +48,16 @@
       }
     }
   }
-  /* large size */
-  &.lg {
-    @apply text-lg px-6 py-4;
-    svg {
-      @apply w-8  ml-4;
-      &.left {
-        @apply mr-4 ml-0;
-      }
-    }
-  }
   /* square-icon-btn */
   &.sq {
-    @apply w-12 h-12;
     svg {
       @apply w-full m-0;
     }
+    @screen md{
+      @apply w-12 h-12;
+      
+    }
+    @apply w-10 h-10 p-1;
   }
   /* flat btn */
   &.flat {

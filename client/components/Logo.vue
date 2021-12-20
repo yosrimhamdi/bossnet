@@ -14,4 +14,14 @@ export default {};
     width: 250px;
   }
 }
+.sm {
+  @screen sm {
+    img {
+      width: 120px;
+    }
+  }
+  img {
+    width: 100px;
+  }
+}
 </style>

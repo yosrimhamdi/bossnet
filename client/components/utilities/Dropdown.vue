@@ -91,12 +91,12 @@ export default {
 </style>
 <style lang="scss">
 .dropdown-content {
-  @apply w-48 rounded-md border border-gray-50 shadow-md bg-white py-3 z-20;
+  @apply w-52 rounded-md border border-gray-50 shadow-md bg-white py-3 z-20;
   & > button,
   & > a,
   .drop-btn {
     @apply p-2 px-4 w-full flex items-center font-normal 
-    transition-colors bg-white text-sm;
+    transition-colors bg-white;
     svg {
       @apply mr-4;
     }
