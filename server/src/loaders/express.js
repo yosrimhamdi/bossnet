@@ -1,7 +1,7 @@
 const express = require("express");
 const morgan = require('morgan');
 const cors = require('cors');
-const { DEBUG, CLIENT_ENDPOINT } = require("../config");
+const { DEBUG, CLIENT_ENDPOINT, REST_API_VERSION_1_ENDPOINT } = require("../config");
 const middlewares = require("../middlewares");
 const routes = require("../routes");
 
