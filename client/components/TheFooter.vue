@@ -147,10 +147,10 @@ nav {
   @screen md {
     @apply mr-40;
   }
-  @apply relative z-10 border-t border-gray-300 w-full mr-12 pt-4
+  @apply relative z-10 border-t border-gray-500 w-full mr-12 pt-4
   flex items-center justify-between flex-wrap;
   p {
-    @apply font-semibold;
+    @apply font-normal;
   }
 }
 .socials {
