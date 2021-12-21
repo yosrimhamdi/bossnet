@@ -1,0 +1,2 @@
+// [{path, route}]
+module.exports = []

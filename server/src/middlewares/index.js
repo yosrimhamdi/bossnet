@@ -1,0 +1,2 @@
+// [{path, middleware}]
+module.exports = []
