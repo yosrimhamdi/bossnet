@@ -21,7 +21,9 @@ module.exports = (expressApp) => {
     expressApp.use('/admin-assets', express.static('public/admin-assets'));
 
     // set middlewares
-    middlewares.map(({ path, mid }) => expressApp.use(path, mid));
+    middlewares.map(({ path, mid }) =>
+        expressApp.use(`${REST_API_VERSION_1_ENDPOINT}${path}`, mid));
     // set routes
-    routes.map(({ path, route }) => expressApp.use(path, route));
+    routes.map(({ path, route }) =>
+        expressApp.use(`${REST_API_VERSION_1_ENDPOINT}${path}`, route));
 }
