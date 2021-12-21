@@ -9,7 +9,7 @@ const routes = require("../routes");
 module.exports = (expressApp) => {
     if (DEBUG) {
         // for printing request details in console
-        expressApp.use(morgan);
+        expressApp.use(morgan("tiny"));
     }
 
     expressApp.use(cors({
