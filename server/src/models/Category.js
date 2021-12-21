@@ -21,7 +21,11 @@ const categorySchema = new mongoose.Schema({
             trim: true
         }],
         required: [true, REQUIRED_ERROR_MSG],
-    }
+    },
+    showAtHome: {
+        type: Boolean,
+        default: false
+    },
 }, {
     timestamps: true
 });
