@@ -14,15 +14,19 @@
         class="btn sq primary"
       >
         <svg
-          class="uil-icon"
+          width="28"
+          height="28"
+          viewBox="0 0 28 28"
+          fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 20 20"
-          fill="currentColor"
         >
           <path
-            fill-rule="evenodd"
-            d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
-            clip-rule="evenodd"
+            d="M17.4999 23.2398L9.89323 15.6331C8.9949 14.7348 8.9949 13.2648 9.89323 12.3664L17.4999 4.75977"
+            stroke="white"
+            stroke-width="3"
+            stroke-miterlimit="10"
+            stroke-linecap="round"
+            stroke-linejoin="round"
           />
         </svg>
       </button>
@@ -34,14 +38,19 @@
         class="btn sq primary"
       >
         <svg
+          width="28"
+          height="28"
+          viewBox="0 0 28 28"
+          fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 20 20"
-          fill="currentColor"
         >
           <path
-            fill-rule="evenodd"
-            d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
-            clip-rule="evenodd"
+            d="M10.5001 4.76023L18.1068 12.3669C19.0051 13.2652 19.0051 14.7352 18.1068 15.6336L10.5001 23.2402"
+            stroke="white"
+            stroke-width="3"
+            stroke-miterlimit="10"
+            stroke-linecap="round"
+            stroke-linejoin="round"
           />
         </svg>
       </button>
@@ -77,7 +86,10 @@ export default {
   },
   methods: {
     disableAndEnableBtns({ scrollLeft, scrollWidth, clientWidth }) {
-      if (scrollLeft <= 0) {
+      if (scrollWidth == clientWidth || scrollWidth == clientWidth - 1) {
+        this.leftBtnDisabled = true;
+        this.rightBtnDisabled = true;
+      } else if (scrollLeft <= 0) {
         // start
         this.leftBtnDisabled = true;
         this.rightBtnDisabled = false;
@@ -142,8 +154,7 @@ export default {
   },
   mounted() {
     // set initial right btn state
-    const { clientWidth, scrollWidth } = this.$refs.container;
-    if (clientWidth === scrollWidth) this.rightBtnDisabled = true;
+    this.disableAndEnableBtns(this.$refs.container);
     // handle auto swipe if exists
     if (this.autoSwipeEachSeconds) {
       this.handleAutoSwipeEachSeconds();
@@ -162,7 +173,7 @@ export default {
 
 .act-btn {
   // action btn
-  @apply absolute z-20 h-full flex items-center;
+  @apply absolute z-20 h-full flex items-center p-2;
   &.d-l {
     // direction left ( swipe left btn )
     @apply left-0;
@@ -187,7 +198,7 @@ export default {
 
 .cnt {
   // swiper content
-  @apply relative overflow-x-auto flex flex-nowrap py-2;
+  @apply relative overflow-x-auto flex flex-nowrap;
   scroll-behavior: smooth;
 }
 @screen sm {

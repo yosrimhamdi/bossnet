@@ -19,11 +19,11 @@ export default {
 <style lang="scss" scoped>
 .default-main {
   @screen lg {
-    @apply mt-32;
+    @apply mt-24;
   }
   @screen md {
     @apply px-12;
   }
-  @apply relative py-12 px-4 mt-64;
+  @apply relative py-12 px-4 mt-64  flex flex-col items-center;
 }
 </style>

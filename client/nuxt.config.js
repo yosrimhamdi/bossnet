@@ -16,13 +16,20 @@ export default {
         ]
     },
 
+    env: {
+        mediaProviderUrl: process.env.MEDIA_PROVIDER_URL || "http://localhost:4000",
+        apiEndpoint: process.env.API_ENDPOINT || "http://localhost:4000/api/v1"
+    },
+
     // Global CSS: https://go.nuxtjs.dev/config-css
     css: [
         '~/assets/css/main.scss',
     ],
 
     // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-    plugins: [],
+    plugins: [
+        '~/plugins/axios'
+    ],
 
     // Auto import components: https://go.nuxtjs.dev/config-components
     components: true,
@@ -34,8 +41,16 @@ export default {
     ],
 
     // Modules: https://go.nuxtjs.dev/config-modules
-    modules: [],
-
+    modules: [
+        '@nuxtjs/axios'
+    ],
+    loading: {
+        color: "#FFBA00",
+        height: "2px"
+    },
+    server: {
+        host: "0.0.0.0"
+    },
     // Build Configuration: https://go.nuxtjs.dev/config-build
     build: {}
 }

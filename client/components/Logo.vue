@@ -1,7 +1,7 @@
 <template>
-  <div class="logo">
+  <router-link to="/" class="logo">
     <img src="~/assets/images/logo.png" alt="Bossnet logo" />
-  </div>
+  </router-link>
 </template>
 
 <script>
