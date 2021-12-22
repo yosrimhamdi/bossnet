@@ -15,7 +15,6 @@ const advertissmentSchema = new mongoose.Schema({
         required: [true, REQUIRED_ERROR_MSG],
         trim: true
     },
-    description: { type: String, trim: true },
     position: {
         type: String,
         enum: AD_POSITION_CHOICES.map((pos) => pos.value),
