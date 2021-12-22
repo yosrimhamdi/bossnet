@@ -30,7 +30,7 @@ const advertissmentSchema = new mongoose.Schema({
         required: [true, REQUIRED_ERROR_MSG],
         trim: true,
         validate: createJoiMongooseFieldValidate(
-            Joi.string().uri(),
+            Joi.string().uri({ allowRelative: true }),
             INVALID_ERROR_MSG
         )
     },
