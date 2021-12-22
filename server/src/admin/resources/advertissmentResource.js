@@ -48,15 +48,6 @@ module.exports = {
                     show: true
                 }
             },
-            description: {
-                type: "textarea",
-                isVisible: {
-                    list: false,
-                    filter: false,
-                    show: true,
-                    edit: true
-                },
-            }
         },
         actions: {
             new: { isAccessible: hasPermission(ADVERTISSMENT, "canCreate") },
