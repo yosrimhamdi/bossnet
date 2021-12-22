@@ -76,7 +76,7 @@ module.exports = {
             file: "adImage",
             filePath: "image.filePath",
             filesToDelete: "image.toDelete",
-            key: "images.path",
+            key: "image.path",
             mimeType: "image.mimeType",
             bucket: "image.bucket",
             size: "image.size",
