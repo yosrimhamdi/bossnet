@@ -5,6 +5,7 @@ const { PARTNER_TYPE_CHOICES } = require("../../models/configs/enums");
 const Partner = require("../../models/Partner");
 const hasPermission = require("../hasPermission");
 const defaultOptions = require("./configs/defaultOptions");
+const imagesValidation = require("./configs/imagesValidation");
 const { PARTNER_GROUP } = require("./configs/navigationGroups");
 const timestampsProperties = require("./configs/timestampsProperties");
 const UploadProvider = require("./features/uploadProvider");
@@ -108,9 +109,7 @@ module.exports = {
                 size: "images.size",
             },
             multiple: true,
-            validation: {
-                mimeTypes: ["image/jpeg", "image/png"]
-            }
+            validation: imagesValidation
         })
     ]
 }

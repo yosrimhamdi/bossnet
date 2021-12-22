@@ -3,6 +3,7 @@ const { PARTNER_OFFER } = require("../../models/configs/collectionsNames");
 const PartnerOffer = require("../../models/PartnerOffer");
 const hasPermission = require("../hasPermission");
 const defaultOptions = require("./configs/defaultOptions");
+const imagesValidation = require("./configs/imagesValidation");
 const { PARTNER_GROUP } = require("./configs/navigationGroups");
 const timestampsProperties = require("./configs/timestampsProperties");
 const UploadProvider = require("./features/uploadProvider");
@@ -63,9 +64,7 @@ module.exports = {
                 bucket: "image.bucket",
                 size: "image.size",
             },
-            validation: {
-                mimeTypes: ["image/jpeg", "image/png"]
-            }
+            validation: imagesValidation
         })
     ]
 }

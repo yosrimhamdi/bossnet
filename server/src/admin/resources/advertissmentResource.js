@@ -7,6 +7,7 @@ const { AD_POSITION_CHOICES } = require("../../models/configs/enums");
 const { PUBLIC_GROUP } = require("./configs/navigationGroups");
 const timestampsProperties = require("./configs/timestampsProperties");
 const defaultOptions = require("./configs/defaultOptions");
+const imagesValidation = require("./configs/imagesValidation");
 
 module.exports = {
     resource: Advertissment,
@@ -72,8 +73,6 @@ module.exports = {
             bucket: "image.bucket",
             size: "image.size",
         },
-        validation: {
-            mimeTypes: ["image/jpeg", "image/png"]
-        }
+        validation: imagesValidation
     })]
 }
