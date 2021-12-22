@@ -73,9 +73,13 @@ module.exports = {
     features: [uploadFileFeature({
         provider: new UploadProvider("advertissments"),
         properties: {
-            key: "image.path",
+            file: "adImage",
+            filePath: "image.filePath",
+            filesToDelete: "image.toDelete",
+            key: "images.path",
             mimeType: "image.mimeType",
-            file: "adImage"
+            bucket: "image.bucket",
+            size: "image.size",
         },
         validation: {
             mimeTypes: ["image/jpeg", "image/png"]
