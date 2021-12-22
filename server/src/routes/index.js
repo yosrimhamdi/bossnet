@@ -1,2 +1,4 @@
 // [{path, route}]
-module.exports = []
+module.exports = [
+    require("./homePageRoute")
+]
