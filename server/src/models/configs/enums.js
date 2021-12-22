@@ -4,7 +4,8 @@ module.exports = {
     // ads home page positions
     AD_POSITION_CHOICES: [
         { value: "1", label: "Slider" },
-        { value: "2", label: "Bottom section" }, // On bottom
+        { value: "2", label: "Deuxième section" }, // After slider
+        { value: "3", label: "Dernière section" }, // After last card
     ],
     CLIENT_PROFILE_GENDER_CHOICES: [
         { value: "m", label: "Homme" }, // man
