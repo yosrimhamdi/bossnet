@@ -71,6 +71,10 @@ export default {
       default: false,
     },
     autoSwipeEachSeconds: Number,
+    allowScroll: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
@@ -81,7 +85,10 @@ export default {
   },
   computed: {
     swiperClassName() {
-      return `${this.autoHideBtns ? "a-h-btn" : ""}`;
+      console.log(this.allowScroll);
+      return `${this.autoHideBtns ? "a-h-btn" : ""} ${
+        this.allowScroll ? "a-sc" : ""
+      }`;
     },
   },
   methods: {
@@ -153,8 +160,13 @@ export default {
     },
   },
   mounted() {
-    // set initial right btn state
-    this.disableAndEnableBtns(this.$refs.container);
+    setTimeout(
+      () =>
+        this.$refs &&
+        this.$refs.container &&
+        this.disableAndEnableBtns(this.$refs.container),
+      3000
+    );
     // handle auto swipe if exists
     if (this.autoSwipeEachSeconds) {
       this.handleAutoSwipeEachSeconds();
@@ -168,7 +180,16 @@ export default {
 
 <style lang="scss" scoped>
 .uil-swiper {
-  @apply relative;
+  @apply flex relative max-w-full;
+  width: 100%;
+
+  &.a-sc {
+    // allow scroll
+    .cnt {
+      // swiper content
+      @apply overflow-x-auto;
+    }
+  }
 }
 
 .act-btn {
@@ -185,6 +206,9 @@ export default {
     // direction right ( swipe right btn )
     @apply right-0;
   }
+  button:disabled {
+    @apply hidden;
+  }
 }
 .a-h-btn {
   // auto hide btns
@@ -198,9 +222,24 @@ export default {
 
 .cnt {
   // swiper content
-  @apply relative overflow-x-auto flex flex-nowrap;
+  @apply relative max-w-full min-w-full items-center justify-start
+   overflow-x-auto inline-flex flex-nowrap;
   scroll-behavior: smooth;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: 0.5px; /* Firefox */
+  &::-webkit-scrollbar {
+    height: 4px;
+  }
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    @apply rounded;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #888;
+    @apply rounded;
+  }
 }
+
 @screen sm {
   .cnt {
     // swiper content

@@ -3,7 +3,7 @@
     <header
       v-show="showHeader"
       :class="{
-        'has-border': !scrollPositionIsTop,
+        'has-shadow': !scrollPositionIsTop,
       }"
     >
       <div class="start-side">
@@ -39,11 +39,8 @@
                   <template #content>
                     <div class="dropdown-content">
                       <div>
-                        <router-link to="/" class="drop-btn"
+                        <router-link to="/categories" class="drop-btn"
                           >Catégories</router-link
-                        >
-                        <router-link to="/" class="drop-btn"
-                          >Offres</router-link
                         >
                       </div>
                       <hr />
@@ -157,22 +154,22 @@ export default {
 
 <style lang="scss" scoped>
 header {
-  @apply fixed z-20 bg-white top-0 w-full
+  @apply fixed z-40 bg-white top-0 w-full
   flex items-center justify-between 
-   py-2 px-2;
+   py-2 px-2 border-b;
   @screen lg {
     @apply px-4;
   }
   @screen xl {
     @apply justify-center;
   }
-  &.has-border {
-    @apply border-b shadow-sm;
+  &.has-shadow {
+    @apply shadow-sm;
     .center-side {
       @screen xl {
         @apply border-none shadow-none;
       }
-      @apply border-b shadow-sm;
+      @apply shadow-md;
     }
   }
 }
@@ -201,7 +198,7 @@ header {
   }
   @apply absolute left-0 top-full p-4
   flex items-center justify-start flex-wrap w-full
-  bg-white;
+  bg-white  border-b;
 }
 
 .header-search-input {

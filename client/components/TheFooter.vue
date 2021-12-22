@@ -1,6 +1,6 @@
 <template>
   <footer>
-    <logo class="lg" />
+    <logo />
     <nav>
       <div class="nav-links">
         <h3>Contactez-nous</h3>
@@ -125,15 +125,15 @@ nav {
   min-width: 300px;
   @apply relative py-4 max-w-full z-10;
   h3 {
-    @apply text-2xl uppercase font-semibold my-4;
+    @apply text-xl uppercase font-semibold my-4;
   }
   ul {
     @apply ml-2;
   }
   li {
-    @apply text-gray-200 py-2 flex font-normal items-center;
+    @apply text-gray-200 py-2 flex font-normal items-center text-sm;
     .foot-icon {
-      @apply mr-4 w-6 h-6 my-1;
+      @apply mr-4 w-5 h-5 my-1;
     }
     &:hover {
       @apply underline;
@@ -150,7 +150,7 @@ nav {
   @apply relative z-10 border-t border-gray-500 w-full mr-12 pt-4
   flex items-center justify-between flex-wrap;
   p {
-    @apply font-normal;
+    @apply text-sm;
   }
 }
 .socials {

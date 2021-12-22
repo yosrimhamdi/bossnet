@@ -6,15 +6,17 @@
         v-for="(advertissment, i) in advertissments"
         :to="advertissment.url"
         :key="i"
+        :title="advertissment.title"
       >
         <img
-          :src="
+          :data-src="
             generateMediaFileSrc(
               advertissment.image.bucket,
               advertissment.image.path
             )
           "
           :alt="advertissment.title"
+          v-lazy-load
         />
       </router-link>
     </swiper>
@@ -37,10 +39,9 @@ export default {
 </script>
 <style lang="scss" scoped>
 .ads-swiper {
-  @apply relative w-full overflow-hidden rounded;
+  @apply block bg-gray-300 relative w-full overflow-hidden rounded;
 }
 .ad {
-  max-height: 400px;
   @apply w-full min-w-full overflow-hidden;
   img {
     @apply object-cover w-full h-full;
