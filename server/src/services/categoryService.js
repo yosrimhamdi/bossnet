@@ -7,6 +7,13 @@ const getHomePageCategories = async () => {
     return categories;
 }
 
+const getAllCategories = async () => {
+    const allCategories = await Category.find()
+        .select(["-searchKeys", "-showAtHome"]);
+    return allCategories;
+}
+
 module.exports = {
-    getHomePageCategories
+    getHomePageCategories,
+    getAllCategories
 }

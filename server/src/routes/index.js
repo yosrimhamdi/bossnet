@@ -1,4 +1,5 @@
 // [{path, route}]
 module.exports = [
-    require("./homePageRoute")
+    require("./homePageRoute"),
+    require("./categoryRoute"),
 ]
