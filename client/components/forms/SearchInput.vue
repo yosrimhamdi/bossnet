@@ -20,7 +20,7 @@
         </transition>
       </template>
     </form>
-    <div v-if="inputIsOnFocus" class="result">
+    <div v-if="hasChildren && inputIsOnFocus" class="result">
       <slot />
     </div>
   </div>
@@ -36,6 +36,10 @@ export default {
     value: String,
     placeholder: String,
     hasSubmitBtn: {
+      type: Boolean,
+      default: true,
+    },
+    hasChildren: {
       type: Boolean,
       default: true,
     },

@@ -1,9 +1,8 @@
 <template>
   <div class="container-1">
-    <img src="~/assets/images/error404.png" alt="404 error" />
+    <img src="~/assets/images/empty.png" alt="404 error" />
     <div class="details">
-      <h1>WHOOPS!</h1>
-      <p>Désolé, la page que vous recherchez n'existe pas.</p>
+      <slot />
       <router-link to="/" class="btn lg primary flat"
         >Accueil
         <arrow-right-icon />
@@ -15,6 +14,8 @@
 <script>
 import ArrowRightIcon from "../icons/ArrowRightIcon.vue";
 export default {
-  components: { ArrowRightIcon },
+  components: {
+    ArrowRightIcon,
+  },
 };
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <div class="error-page">
+  <div class="container-1">
     <img src="~/assets/images/errorUnexpected.png" alt="Unexpected error" />
     <div class="details">
       <h1>WHOOPS!</h1>
