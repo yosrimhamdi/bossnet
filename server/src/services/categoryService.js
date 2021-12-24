@@ -13,7 +13,14 @@ const getAllCategories = async () => {
     return allCategories;
 }
 
+const getCategoryById = async (categoryId) => {
+    const category = await Category.findById(categoryId)
+        .select(["-searchKeys", "-showAtHome"]);
+    return category;
+}
+
 module.exports = {
     getHomePageCategories,
-    getAllCategories
+    getAllCategories,
+    getCategoryById
 }
