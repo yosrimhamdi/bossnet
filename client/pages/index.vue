@@ -17,11 +17,17 @@
 import PartnersSwiper from "../components/home/PartnersSwiper.vue";
 import AdvertissmentsSwiper from "../components/home/AdvertissmentsSwiper.vue";
 import TopCategories from "../components/home/TopCategories.vue";
-import apiRoutes from "./../apiRoutes";
 import TopOffers from "../components/home/TopOffers.vue";
 import ClassicAdvertissments from "../components/home/ClassicAdvertissments.vue";
 import GetStartedSection from "../components/home/GetStartedSection.vue";
 import ContactUs from "../components/shared/ContactUs.vue";
+import API_ROUTES from "./../apiRoutes";
+const initData = ({ partners, advertissments, offers, categories }) => ({
+  partners,
+  advertissments,
+  offers,
+  categories,
+});
 export default {
   components: {
     PartnersSwiper,
@@ -32,17 +38,9 @@ export default {
     GetStartedSection,
     ContactUs,
   },
-  data() {
-    return {
-      partners: [],
-      advertissments: [],
-      offers: [],
-      categories: [],
-    };
-  },
   async asyncData({ $api }) {
-    const homePageData = await $api.$get(apiRoutes.GET_HOME_PAGE_DATA);
-    return homePageData;
+    const homePageData = await $api.$get(API_ROUTES.getHomePageData);
+    return initData(homePageData);
   },
 
   computed: {
@@ -60,13 +58,10 @@ export default {
 </script>
 <style lang="scss" scoped>
 .home-page {
-  @screen lg {
-    max-width: 1200px;
-  }
   @screen xl {
-    max-width: 1600px;
+    width: 1200px;
   }
-  max-width: 100%;
+  width: 100%;
   @apply flex flex-col items-center;
 }
 .cat-ads {

@@ -1,5 +1,7 @@
-const routes = {
-    GET_HOME_PAGE_DATA: "/home/data",
-    GET_ALL_CATEGORIES: "/categories/all"
+const API_ROUTES = {
+    getHomePageData: "/home/data",
+    getAllCategories: "/categories/all",
+    getCategoryById: (id) => `/categories/${id}`,
+    getPartnersByCategoryId: (categoryId, page) => `/partners/category/${categoryId}/${page}`
 }
-export default routes;
+export default API_ROUTES;

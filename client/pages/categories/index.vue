@@ -1,5 +1,6 @@
 <template>
   <section class="categories">
+    <breadcrumb :paths="[{ name: 'Catégories' }]" />
     <div class="top-bar">
       <h1>Catégories</h1>
       <search-input
@@ -26,19 +27,17 @@
 import CategoryCard from "../../components/categories/CategoryCard.vue";
 import SearchInput from "../../components/forms/SearchInput.vue";
 import EmptyData from "../../components/shared/EmptyData.vue";
-import apiRoutes from "./../../apiRoutes";
-const initData = () => ({
-  categories: [],
+import Breadcrumb from "../../components/utilities/Breadcrumb.vue";
+import API_ROUTES from "./../../apiRoutes";
+const initData = (categories) => ({
+  categories,
   searchKey: "",
 });
 export default {
-  components: { CategoryCard, SearchInput, EmptyData },
-  data() {
-    return initData();
-  },
+  components: { CategoryCard, SearchInput, EmptyData, Breadcrumb },
   async asyncData({ $api }) {
-    const categoriesData = await $api.$get(apiRoutes.GET_ALL_CATEGORIES);
-    return { ...initData(), ...categoriesData };
+    const response = await $api.$get(API_ROUTES.getAllCategories);
+    return initData(response.categories);
   },
   computed: {
     filteredCategories() {

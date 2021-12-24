@@ -3,9 +3,9 @@
     <img src="~/assets/images/empty.png" alt="404 error" />
     <div class="details">
       <slot />
-      <router-link to="/" class="btn lg primary flat"
-        >Accueil
-        <arrow-right-icon />
+      <router-link to="/" class="btn md primary">
+        <arrow-right-icon class="left transform rotate-180" />
+        Accueil
       </router-link>
     </div>
   </div>

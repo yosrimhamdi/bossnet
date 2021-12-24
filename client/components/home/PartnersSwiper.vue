@@ -1,6 +1,6 @@
 <template>
-  <section>
-    <swiper :allowScroll="true" :autoHideBtns="true" :autoSwipeEachSeconds="3">
+  <section class="partners-swiper">
+    <swiper :autoHideBtns="true" :autoSwipeEachSeconds="3">
       <router-link
         v-for="(partner, i) in partners"
         :to="`/partners/${partner._id}`"
@@ -33,10 +33,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.partners-swiper {
+  @apply w-full;
+}
 .img {
-  max-width: 180px;
-  max-height: 100px;
-  @apply block mx-8 w-96;
+  @screen lg {
+    width: 120px;
+  }
+  width: 100px;
+  @apply block mx-8;
 }
 img {
   @apply w-full;
