@@ -1,5 +1,6 @@
 const Joi = require("joi");
 const mongoose = require("mongoose");
+const mongoosePaginate = require('mongoose-paginate-v2');
 const createJoiMongooseFieldValidate = require("../utils/createJoiMongooseFieldValidate");
 const { PARTNER, CATEGORY } = require("./configs/collectionsNames");
 const { PARTNER_TYPE_CHOICES } = require("./configs/enums");
@@ -70,6 +71,8 @@ const partnerSchema = new mongoose.Schema({
 }, {
     timestamps: true
 });
+
+partnerSchema.plugin(mongoosePaginate);
 
 partnerSchema.post("findOneAndRemove", async function (doc) {
     // remove partner offers
