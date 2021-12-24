@@ -37,6 +37,14 @@
 .admin-bro_Input{
   border-radius: 4px;
 }
+textArea.admin-bro_Input{
+  min-height: 100px;
+  max-width: 100%;
+  min-width: 100%;
+}
+.admin-bro_TableCell{
+  max-width: 150px;
+}
 
 .dashboard {
     position: relative;
