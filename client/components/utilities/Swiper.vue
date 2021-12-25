@@ -11,7 +11,7 @@
       <button
         @click="swipeLeft"
         :disabled="leftBtnDisabled"
-        class="btn sq primary"
+        class="btn sq dark"
       >
         <svg
           width="28"
@@ -35,7 +35,7 @@
       <button
         @click="swipeRight"
         :disabled="rightBtnDisabled"
-        class="btn sq primary"
+        class="btn sq dark"
       >
         <svg
           width="28"

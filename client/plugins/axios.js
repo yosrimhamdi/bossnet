@@ -2,9 +2,8 @@ export default function ({ $axios, redirect }, inject) {
     const api = $axios.create({
         baseURL: process.env.apiEndpoint
     });
-    console.log(process.env.apiEndpoint);
     api.onRequest(config => {
-        // console.log('Making request to ' + config.url)
+        console.log('Making request to ' + config.url)
     });
     inject('api', api)
     $axios.onError(error => {

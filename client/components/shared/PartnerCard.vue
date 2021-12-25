@@ -3,6 +3,7 @@
     <div class="content">
       <div class="img">
         <img
+          v-if="partner.logo"
           :data-src="
             generateMediaFileSrc(partner.logo.bucket, partner.logo.path)
           "

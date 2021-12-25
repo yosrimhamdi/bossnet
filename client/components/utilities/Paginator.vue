@@ -1,5 +1,5 @@
 <template>
-  <div class="paginator">
+  <div v-if="this.totalPages > 1" class="paginator">
     <router-link
       v-if="this.currentPage > 1"
       :to="getToLink(this.currentPage - 1)"

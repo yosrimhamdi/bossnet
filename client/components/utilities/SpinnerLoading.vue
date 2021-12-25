@@ -20,9 +20,17 @@
 }
 </style>
 <style lang="scss">
+.md {
+  &::after {
+    @apply block w-10 h-10 border-2 my-2;
+  }
+}
 .lg {
   &::after {
     @apply block w-24 h-24  border-4;
+  }
+  &.center {
+    @apply h-64;
   }
 }
 .primary {
@@ -31,6 +39,6 @@
   }
 }
 .center {
-  @apply w-full flex items-center justify-center h-96;
+  @apply w-full flex items-center justify-center;
 }
 </style>

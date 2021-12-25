@@ -8,10 +8,11 @@
       <search-icon />
       <input
         @focus="inputIsOnFocus = true"
-        @blur="inputIsOnFocus = false"
+        @blur="unfocusInput"
         :value="value"
         :placeholder="placeholder"
         :name="name"
+        autocomplete="off"
         @input="(e) => $emit('input', e.target.value)"
       />
       <template v-if="hasSubmitBtn">
@@ -20,9 +21,11 @@
         </transition>
       </template>
     </form>
-    <div v-if="hasChildren && inputIsOnFocus" class="result">
-      <slot />
-    </div>
+    <transition name="fade">
+      <div v-if="hasChildren && inputIsOnFocus" class="result">
+        <slot />
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -49,6 +52,11 @@ export default {
     return {
       inputIsOnFocus: false,
     };
+  },
+  methods: {
+    unfocusInput() {
+      setTimeout(() => (this.inputIsOnFocus = false), 200);
+    },
   },
 };
 </script>
@@ -77,6 +85,6 @@ input {
   top: calc(100% + 12px);
   @apply z-20 absolute left-0 block w-full h-auto 
   max-h-52 overflow-auto bg-white py-4 
-  rounded-md shadow-md;
+  rounded-md shadow-md border;
 }
 </style>

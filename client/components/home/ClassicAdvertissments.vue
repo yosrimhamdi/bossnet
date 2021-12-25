@@ -9,6 +9,7 @@
     >
       <div class="content">
         <img
+          v-if="advertissment.image"
           :data-src="
             generateMediaFileSrc(
               advertissment.image.bucket,

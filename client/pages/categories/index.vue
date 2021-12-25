@@ -7,7 +7,7 @@
         placeholder="Filtrer les catégories par nom"
         :hasSubmitBtn="false"
         :hasChildren="false"
-        v-model="searchKey"
+        v-model="searchQuery"
       />
     </div>
     <div v-if="filteredCategories.length" class="list">
@@ -18,7 +18,7 @@
       />
     </div>
     <empty-data v-else>
-      <p>Aucune catégorie trouvée pour "{{ searchKey }}".</p>
+      <p>Aucune catégorie trouvée pour "{{ searchQuery }}".</p>
     </empty-data>
   </section>
 </template>
@@ -31,7 +31,7 @@ import Breadcrumb from "../../components/utilities/Breadcrumb.vue";
 import API_ROUTES from "./../../apiRoutes";
 const initData = (categories) => ({
   categories,
-  searchKey: "",
+  searchQuery: "",
 });
 export default {
   components: { CategoryCard, SearchInput, EmptyData, Breadcrumb },
@@ -41,10 +41,10 @@ export default {
   },
   computed: {
     filteredCategories() {
-      const searchKey = this.searchKey.replaceAll("  ", "").toUpperCase();
+      const searchQuery = this.searchQuery.replaceAll("  ", "").toUpperCase();
       return this.categories.filter(({ name }) => {
         name = name.toUpperCase();
-        const keys = searchKey.split(" ");
+        const keys = searchQuery.split(" ");
         for (const key of keys) {
           if (!name.includes(key)) return false;
         }

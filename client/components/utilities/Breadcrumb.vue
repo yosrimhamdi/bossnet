@@ -28,12 +28,12 @@ export default {
   @apply flex flex-wrap mb-4;
 }
 .link {
-  @apply text-gray-500 mr-1;
+  @apply text-gray-600 mr-1;
   a:hover {
     @apply underline;
   }
   span {
-    @apply text-gray-600 cursor-default;
+    @apply text-gray-400 cursor-default;
   }
 }
 </style>

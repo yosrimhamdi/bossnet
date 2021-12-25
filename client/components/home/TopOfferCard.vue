@@ -1,6 +1,7 @@
 <template>
   <div class="offer">
     <img
+      v-if="offer.image"
       :data-src="generateMediaFileSrc(offer.image.bucket, offer.image.path)"
       :alt="offer.title"
       v-lazy-load

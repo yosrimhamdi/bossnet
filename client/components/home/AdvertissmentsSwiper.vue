@@ -1,6 +1,6 @@
 <template>
   <div class="ads-swiper">
-    <swiper :autoHideBtns="true" :autoSwipeEachSeconds="5">
+    <swiper :autoHideBtns="true" :autoSwipeEachSeconds="8">
       <router-link
         class="ad"
         v-for="(advertissment, i) in advertissments"
@@ -9,6 +9,7 @@
         :title="advertissment.title"
       >
         <img
+          v-if="advertissment.image"
           :data-src="
             generateMediaFileSrc(
               advertissment.image.bucket,

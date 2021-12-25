@@ -1,6 +1,6 @@
 <template>
   <section class="partners-swiper">
-    <swiper :autoHideBtns="true" :autoSwipeEachSeconds="3">
+    <swiper :autoHideBtns="true" :autoSwipeEachSeconds="7">
       <router-link
         v-for="(partner, i) in partners"
         :to="`/partners/${partner._id}`"
@@ -9,6 +9,7 @@
       >
         <div class="img">
           <img
+            v-if="partner.logo"
             :src="generateMediaFileSrc(partner.logo.bucket, partner.logo.path)"
             :alt="partner.name"
           />

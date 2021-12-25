@@ -19,11 +19,7 @@
 
       <transition name="fade">
         <div v-show="showNav" class="center-side">
-          <search-input
-            class="header-search-input"
-            placeholder="Rechercher partenaires par nom, categorie, ...."
-            name="Search"
-          ></search-input>
+          <partners-search />
           <nav>
             <ul>
               <li>
@@ -81,6 +77,7 @@
 
 <script>
 import SearchInput from "./forms/SearchInput.vue";
+import PartnersSearch from "./header/PartnersSearch.vue";
 import AccountArrowRightIcon from "./icons/AccountArrowRightIcon.vue";
 import ArrowRightIcon from "./icons/ArrowRightIcon.vue";
 import ArrowSmallBottomIcon from "./icons/ArrowSmallBottomIcon.vue";
@@ -89,7 +86,7 @@ import Logo from "./Logo.vue";
 import Dropdown from "./utilities/Dropdown.vue";
 
 const LARGE_SCREEN_MIN_WIDTH = 1280; // px
-const NO_HIDING_MAX_Y = 200; // px
+const NO_HIDING_MAX_Y = 400; // px
 
 export default {
   data() {
@@ -148,6 +145,7 @@ export default {
     ArrowSmallBottomIcon,
     ArrowRightIcon,
     MenuIcon,
+    PartnersSearch,
   },
 };
 </script>
@@ -200,7 +198,6 @@ header {
   flex items-center justify-start flex-wrap w-full
   bg-white  border-b;
 }
-
 .header-search-input {
   @screen lg {
     @apply w-3/5;
