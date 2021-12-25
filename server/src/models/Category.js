@@ -30,6 +30,13 @@ const categorySchema = new mongoose.Schema({
     timestamps: true
 });
 
+categorySchema.index({
+    name: "text",
+    searchKeys: "text"
+}, {
+    default_language: "french"
+});
+
 categorySchema.post("findOneAndRemove", async function (doc) {
     // remove category from partner categories
     await Partner.updateMany({ categories: doc._id }, {
@@ -41,5 +48,5 @@ categorySchema.post("findOneAndRemove", async function (doc) {
 
 
 const Category = mongoose.model(CATEGORY, categorySchema);
-
+Category.createIndexes(() => console.log("Category indexes done!"));
 module.exports = Category;
