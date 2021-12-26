@@ -1,10 +1,13 @@
 const mongoose = require("mongoose");
 
-module.exports = new mongoose.Schema({
+module.exports = new mongoose.Schema(
+  {
     mimeType: String,
     path: String,
-    bucket: String
-}, {
+    bucket: String,
+  },
+  {
     _id: false,
-    versionKey: false
-})
+    versionKey: false,
+  }
+);
