@@ -5,9 +5,9 @@ const slowRequestMiddleware = require("./slowRequestMiddleware");
 const middlewares = [];
 
 if (DEBUG) {
-    middlewares.push({
-        path: "*",
-        mid: slowRequestMiddleware
-    });
+  middlewares.push({
+    path: "*",
+    mid: slowRequestMiddleware,
+  });
 }
 module.exports = middlewares;

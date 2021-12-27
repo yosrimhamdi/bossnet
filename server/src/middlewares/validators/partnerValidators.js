@@ -2,6 +2,8 @@ const createJoiValidatorMiddleware = require("./utils/createJoiValidatorMiddlewa
 const Joi = require("joi");
 const JoiObjectIdValidator = require("joi-objectid")(Joi);
 
+const NOT_SPACE_OR_ALPHANUM_REGEX = /[^\w\s]/gi;
+
 const getPartnersByCategory = createJoiValidatorMiddleware(
   Joi.object({
     categoryId: JoiObjectIdValidator(),
@@ -10,17 +12,34 @@ const getPartnersByCategory = createJoiValidatorMiddleware(
   "params"
 );
 
-const getPartnersBySearchQuery = createJoiValidatorMiddleware(
+const getPartnersBySearchQuery = [
+  createJoiValidatorMiddleware(
+    Joi.object({
+      page: Joi.number().min(1),
+    }),
+    "params"
+  ),
+  createJoiValidatorMiddleware(
+    Joi.object({
+      searchQuery: Joi.string().trim().replace(NOT_SPACE_OR_ALPHANUM_REGEX, ""),
+    }),
+    "query"
+  ),
+];
+
+const getPartnersSuggestionsBySearchQuery = createJoiValidatorMiddleware(
   Joi.object({
-    searchQuery: Joi.string().trim().required(),
-    page: Joi.number().min(1),
+    searchQuery: Joi.string()
+      .trim()
+      .replace(NOT_SPACE_OR_ALPHANUM_REGEX, "")
+      .required(),
   }),
   "params"
 );
 
-const getPartnersSuggestionsBySearchQuery = createJoiValidatorMiddleware(
+const getPartnerById = createJoiValidatorMiddleware(
   Joi.object({
-    searchQuery: Joi.string().trim().required(),
+    partnerId: JoiObjectIdValidator(),
   }),
   "params"
 );
@@ -29,4 +48,5 @@ module.exports = {
   getPartnersByCategory,
   getPartnersBySearchQuery,
   getPartnersSuggestionsBySearchQuery,
+  getPartnerById,
 };

@@ -86,7 +86,7 @@ import Logo from "./Logo.vue";
 import Dropdown from "./utilities/Dropdown.vue";
 
 const LARGE_SCREEN_MIN_WIDTH = 1280; // px
-const NO_HIDING_MAX_Y = 400; // px
+const NO_HIDING_MAX_Y = 300; // px
 
 export default {
   data() {

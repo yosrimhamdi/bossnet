@@ -8,31 +8,21 @@
       :title="advertissment.title"
     >
       <div class="content">
-        <img
-          v-if="advertissment.image"
-          :data-src="
-            generateMediaFileSrc(
-              advertissment.image.bucket,
-              advertissment.image.path
-            )
-          "
-          :alt="advertissment.title"
-          v-lazy-load
-        />
+        <bucket-image :image="advertissment.image" :alt="advertissment.title" />
       </div>
     </router-link>
   </section>
 </template>
 
 <script>
-import generateMediaFileSrc from "../../utils/generateMediaFileSrc";
+import BucketImage from "../utilities/BucketImage.vue";
 
 export default {
+  components: {
+    BucketImage,
+  },
   props: {
     advertissments: Array,
-  },
-  methods: {
-    generateMediaFileSrc,
   },
 };
 </script>

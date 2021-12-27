@@ -12,7 +12,15 @@
       class="center md primary"
     ></spinner-loading>
     <div v-else-if="partnersSuggestions.partners.length" class="suggestions">
+      <button
+        @click="handleSubmit"
+        v-if="partnersSuggestions.total > 1"
+        class="search-link"
+      >
+        {{ partnersSuggestions.total }} partenaires trouvés
+      </button>
       <router-link
+        class="search-link"
         @click="this.searchQuery = ''"
         v-for="partner in partnersSuggestions.partners"
         :key="partner._id"
@@ -41,6 +49,12 @@ export default {
     };
   },
   computed: {
+    hasMoreCount() {
+      return (
+        this.partnersSuggestions.total -
+        this.partnersSuggestions.partners.length
+      );
+    },
     cleenSearchQuery() {
       return this.searchQuery.replace("  ", " ").trim();
     },
@@ -63,6 +77,7 @@ export default {
   },
   watch: {
     searchQuery() {
+      // fetch when user stop typing
       clearTimeout(this.searchTypingTimeout);
       this.searchTypingTimeout = setTimeout(this.fetchPartnersSuggestions, 300);
     },
@@ -72,14 +87,17 @@ export default {
 
 <style lang="scss" scoped>
 .suggestions {
-  a {
-    @apply block py-2 px-3 border-b border-gray-100 text-sm;
+  .search-link {
+    @apply block w-full text-left py-2 px-3 border-b border-gray-100 text-sm;
     &:hover {
       @apply bg-gray-100;
     }
     &:last-child {
       @apply border-b-0;
     }
+  }
+  button {
+    @apply font-semibold;
   }
 }
 p {

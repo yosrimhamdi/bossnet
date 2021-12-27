@@ -10,10 +10,9 @@ const getHomePageCategories = async () => {
 };
 
 const getAllCategories = async () => {
-  const allCategories = await Category.find().select([
-    "-searchKeys",
-    "-showAtHome",
-  ]);
+  const allCategories = await Category.find()
+    .select(["-searchKeys", "-showAtHome"])
+    .sort("-updatedAt");
   return allCategories;
 };
 

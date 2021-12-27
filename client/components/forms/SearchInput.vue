@@ -1,13 +1,12 @@
 <template>
   <div class="search-input">
     <form
-      @submit.prevent="$emit('handleSubmit')"
+      @submit.prevent="handleSubmit"
       class="input"
       :class="{ 'is-focus': inputIsOnFocus }"
     >
       <search-icon />
       <input
-        @focus="inputIsOnFocus = true"
         @blur="unfocusInput"
         :value="value"
         :placeholder="placeholder"
@@ -56,6 +55,17 @@ export default {
   methods: {
     unfocusInput() {
       setTimeout(() => (this.inputIsOnFocus = false), 200);
+    },
+    handleSubmit() {
+      this.$emit("handleSubmit");
+      this.unfocusInput();
+    },
+  },
+  watch: {
+    value() {
+      if (this.value && !this.inputIsOnFocus) {
+        this.inputIsOnFocus = true;
+      }
     },
   },
 };

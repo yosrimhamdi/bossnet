@@ -8,33 +8,20 @@
         :key="i"
         :title="advertissment.title"
       >
-        <img
-          v-if="advertissment.image"
-          :data-src="
-            generateMediaFileSrc(
-              advertissment.image.bucket,
-              advertissment.image.path
-            )
-          "
-          :alt="advertissment.title"
-          v-lazy-load
-        />
+        <bucket-image :image="advertissment.image" :alt="advertissment.title" />
       </router-link>
     </swiper>
   </div>
 </template>
 
 <script>
-import generateMediaFileSrc from "../../utils/generateMediaFileSrc";
+import BucketImage from "../utilities/BucketImage.vue";
 import Swiper from "../utilities/Swiper.vue";
 
 export default {
-  components: { Swiper },
+  components: { Swiper, BucketImage },
   props: {
     advertissments: Array,
-  },
-  methods: {
-    generateMediaFileSrc,
   },
 };
 </script>

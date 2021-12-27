@@ -1,35 +1,24 @@
 <template>
-  <div class="offer">
-    <img
-      v-if="offer.image"
-      :data-src="generateMediaFileSrc(offer.image.bucket, offer.image.path)"
-      :alt="offer.title"
-      v-lazy-load
-    />
+  <router-link :to="`/partners/offers/${offer._id}`" class="offer">
+    <bucket-image :image="offer.image" :alt="offer.title" />
     <div class="details">
       <h3 :title="offer.title">{{ offer.title }}</h3>
-      <router-link
-        :to="`/offers/${offer._id}`"
-        class="btn no-sh white-primary no-pad"
-      >
+      <button class="btn no-sh white-primary no-pad">
         Voir plus <arrow-right-icon />
-      </router-link>
+      </button>
     </div>
-  </div>
+  </router-link>
 </template>
 
 <script>
-import generateMediaFileSrc from "../../utils/generateMediaFileSrc";
 import ArrowRightIcon from "../icons/ArrowRightIcon.vue";
+import BucketImage from "../utilities/BucketImage.vue";
 export default {
-  components: { ArrowRightIcon },
+  components: { ArrowRightIcon, BucketImage },
   props: {
     offer: Object,
   },
   computed: {},
-  methods: {
-    generateMediaFileSrc,
-  },
 };
 </script>
 
@@ -43,6 +32,11 @@ export default {
   // max-width: 300px;
   @apply bg-white border rounded mr-6
    max-w-full overflow-hidden p-4 mb-2 shadow-sm;
+  &:hover {
+    h3 {
+      @apply underline;
+    }
+  }
 }
 img {
   @screen md {

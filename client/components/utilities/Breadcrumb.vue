@@ -30,7 +30,7 @@ export default {
 .link {
   @apply text-gray-600 mr-1;
   a:hover {
-    @apply underline;
+    @apply underline text-primary;
   }
   span {
     @apply text-gray-400 cursor-default;

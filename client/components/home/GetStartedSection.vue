@@ -34,7 +34,7 @@ export default {
 <style lang="scss" scoped>
 .get-started {
   @screen lg {
-    @apply px-8 pt-24 pb-12 items-start w-max;
+    @apply px-8 pt-24 pb-12 items-start w-full;
   }
   @apply relative flex items-center justify-center
   p-4 bg-gray-100 rounded-md shadow-md border flex-wrap;

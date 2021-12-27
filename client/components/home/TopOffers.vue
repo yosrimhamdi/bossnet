@@ -1,5 +1,5 @@
 <template>
-  <section class="top-offers">
+  <section v-if="offers.length" class="top-offers">
     <h2><span>Meilleures</span> offres</h2>
     <swiper :allowScroll="true" :autoHideBtns="true">
       <top-offer-card v-for="(offer, i) in offers" :key="i" :offer="offer" />
@@ -9,7 +9,7 @@
 
 <script>
 import Swiper from "../utilities/Swiper.vue";
-import TopOfferCard from "./TopOfferCard.vue";
+import TopOfferCard from "../partners/OfferSmallCard.vue";
 export default {
   components: { Swiper, TopOfferCard },
   props: {

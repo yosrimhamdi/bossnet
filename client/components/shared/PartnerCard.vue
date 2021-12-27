@@ -2,14 +2,7 @@
   <router-link :to="`/partners/${partner._id}`" class="partner-card">
     <div class="content">
       <div class="img">
-        <img
-          v-if="partner.logo"
-          :data-src="
-            generateMediaFileSrc(partner.logo.bucket, partner.logo.path)
-          "
-          :alt="partner.name"
-          v-lazy-load
-        />
+        <bucket-image :image="partner.logo" :alt="partner.name" />
       </div>
       <div class="details">
         <h3 :title="partner.name">{{ partner.name }}</h3>
@@ -27,16 +20,13 @@
 </template>
 
 <script>
-import generateMediaFileSrc from "../../utils/generateMediaFileSrc";
 import ArrowRightIcon from "../icons/ArrowRightIcon.vue";
+import BucketImage from "../utilities/BucketImage.vue";
 
 export default {
-  components: { ArrowRightIcon },
+  components: { ArrowRightIcon, BucketImage },
   props: {
     partner: Object,
-  },
-  methods: {
-    generateMediaFileSrc,
   },
 };
 </script>

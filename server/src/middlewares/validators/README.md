@@ -1,1 +1,1 @@
-this folder contains request validators middlewares for controllers
+This folder contains request validators as middlewares for controllers

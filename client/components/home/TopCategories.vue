@@ -1,5 +1,5 @@
 <template>
-  <div class="top-categories">
+  <div v-if="categories.length" class="top-categories">
     <div class="shape" />
     <div class="content">
       <h2>Catégories</h2>

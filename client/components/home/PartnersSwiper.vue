@@ -8,10 +8,10 @@
         :title="partner.name"
       >
         <div class="img">
-          <img
-            v-if="partner.logo"
-            :src="generateMediaFileSrc(partner.logo.bucket, partner.logo.path)"
+          <bucket-image
+            :image="partner.logo"
             :alt="partner.name"
+            :isLazy="false"
           />
         </div>
       </router-link>
@@ -21,14 +21,12 @@
 
 <script>
 import Swiper from "../utilities/Swiper.vue";
-import generateMediaFileSrc from "../../utils/generateMediaFileSrc";
+import BucketImage from "../utilities/BucketImage.vue";
+
 export default {
-  components: { Swiper },
+  components: { Swiper, BucketImage },
   props: {
     partners: Array,
-  },
-  methods: {
-    generateMediaFileSrc,
   },
 };
 </script>

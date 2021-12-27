@@ -1,4 +1,5 @@
 const partnerService = require("./../services/partnerService");
+const responseErrorsMsgs = require("./configs/responseErrorsMsgs");
 
 /*
     params: [categoryId, page]
@@ -12,21 +13,24 @@ const getPartnersByCategory = async (req, res) => {
 };
 
 /*
-    params: [searchQuery, page]
-    query: []
+    params: [page]
+    query: [searchQuery?]
 */
 const getPartnersBySearchQuery = async (req, res) => {
-  const { searchQuery, page } = req.params;
-  const partners = await partnerService.getPartnersBySearchQuery(
-    searchQuery,
-    page
-  );
+  const { page } = req.params;
+  const { searchQuery } = req.query;
+  let partners;
+  if (searchQuery) {
+    partners = await partnerService.getPartnersBySearchQuery(searchQuery, page);
+  } else {
+    partners = await partnerService.getPartners(page);
+  }
   res.send({
     partners,
   });
 };
 /*
-    params: [searchQuery, page]
+    params: [searchQuery]
 */
 const getPartnersSuggestionsBySearchQuery = async (req, res) => {
   const partners = await partnerService.getPartnersBySearchQuery(
@@ -40,8 +44,22 @@ const getPartnersSuggestionsBySearchQuery = async (req, res) => {
   });
 };
 
+const getPartnerById = async (req, res) => {
+  const partner = await partnerService.getPartnerById(req.params.partnerId);
+  if (partner) {
+    res.send({
+      partner,
+    });
+    return;
+  }
+  res.status(404).send({
+    error: responseErrorsMsgs.NOT_FOUND_MSG,
+  });
+};
+
 module.exports = {
   getPartnersByCategory,
   getPartnersBySearchQuery,
   getPartnersSuggestionsBySearchQuery,
+  getPartnerById,
 };

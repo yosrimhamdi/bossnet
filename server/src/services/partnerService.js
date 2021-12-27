@@ -7,7 +7,9 @@ const PAGINATION_LIMIT = 8;
 const getHomePagePartners = async () => {
   const platiniumPartners = await Partner.find({
     type: PARTNER_TYPE_CHOICES[0].value,
-  }).select(["_id", "logo", "name"]);
+  })
+    .sort("type -updatedAt")
+    .select(["_id", "logo", "name"]);
 
   return platiniumPartners;
 };
@@ -20,6 +22,7 @@ const getPartnersByCategory = async (categoryId, page = 1) => {
     {
       page,
       limit: PAGINATION_LIMIT,
+      sort: "type -updatedAt",
       select: ["_id", "name", "logo", "description"],
     }
   );
@@ -27,10 +30,26 @@ const getPartnersByCategory = async (categoryId, page = 1) => {
   return paginatedPartners;
 };
 
+const getPartners = async (
+  page,
+  select = ["_id", "name", "logo", "description", "discountRate"]
+) => {
+  const partners = await Partner.paginate(
+    {},
+    {
+      page,
+      limit: PAGINATION_LIMIT,
+      sort: "type -updatedAt",
+      select,
+    }
+  );
+  return partners;
+};
+
 const getPartnersBySearchQuery = async (
   searchQuery,
   page = 1,
-  select = ["_id", "name", "logo", "description"]
+  select = ["_id", "name", "logo", "description", "discountRate"]
 ) => {
   const categories = await categoryService.getCategoriesIdsBySearchQuery(
     searchQuery
@@ -45,14 +64,25 @@ const getPartnersBySearchQuery = async (
     {
       page,
       limit: PAGINATION_LIMIT,
+      sort: "type -updatedAt",
       select,
     }
   );
   return partners;
 };
 
+const getPartnerById = async (partnerId) => {
+  const partner = await Partner.findById(partnerId).populate({
+    path: "categories",
+    select: ["_id", "name"],
+  });
+  return partner;
+};
+
 module.exports = {
   getHomePagePartners,
   getPartnersByCategory,
+  getPartners,
   getPartnersBySearchQuery,
+  getPartnerById,
 };
