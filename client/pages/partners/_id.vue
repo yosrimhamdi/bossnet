@@ -4,7 +4,7 @@
     <div
       class="map"
       v-if="partner.location.embedMapIframe"
-      v-html="partner.location.embedMapIframe"
+      v-html="sanitizeHtml(partner.location.embedMapIframe)"
     />
     <partner-details :partner="partner" />
     <partner-images :images="partner.images" :partnerName="partner.name" />
@@ -20,7 +20,8 @@ import PartnerDetails from "../../components/partners/PartnerDetails.vue";
 import PartnerImages from "../../components/partners/PartnerImages.vue";
 import PartnerOffers from "../../components/partners/PartnerOffers.vue";
 import Breadcrumb from "../../components/utilities/Breadcrumb.vue";
-import generateMediaFileSrc from "../../utils/generateMediaFileSrc";
+import sanitizeHtml from "sanitize-html"; // clean html and prevent xss attacks
+
 const initData = (partner) => ({
   partner,
   offers: {
@@ -59,7 +60,14 @@ export default {
     },
   },
   methods: {
-    generateMediaFileSrc,
+    sanitizeHtml(htmlContent) {
+      return sanitizeHtml(htmlContent, {
+        allowedTags: ["iframe"],
+        allowedAttributes: {
+          iframe: ["src", "class", "style", "width", "height"],
+        },
+      });
+    },
   },
 };
 </script>

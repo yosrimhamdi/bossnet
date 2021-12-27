@@ -7,47 +7,55 @@ const timestampsProperties = require("./configs/timestampsProperties");
 const defaultOptions = require("./configs/defaultOptions");
 
 module.exports = {
-    resource: CustomPage,
-    options: {
-        ...defaultOptions,
-        navigation: PUBLIC_GROUP,
-        properties: {
-            ...timestampsProperties,
-            _id: {
-                isVisible: {
-                    list: false,
-                    show: true,
-                    filter: true
-                }
-            },
-            content: {
-                type: 'richtext',
-                isVisible: {
-                    list: false,
-                    show: true,
-                    edit: true
-                }
-            },
-            description: {
-                type: "textarea",
-            },
-            pageUrl: {
-                isVisible: {
-                    list: false,
-                    show: true
-                },
-                components: {
-                    show: adminBro.bundle('./components/pageUrl.jsx')
-                }
-            }
+  resource: CustomPage,
+  options: {
+    ...defaultOptions,
+    navigation: PUBLIC_GROUP,
+    properties: {
+      ...timestampsProperties,
+      _id: {
+        isVisible: {
+          list: false,
+          show: true,
+          filter: true,
         },
-        actions: {
-            new: { isAccessible: hasPermission(CUSTOM_PAGE, "canCreate") },
-            edit: { isAccessible: hasPermission(CUSTOM_PAGE, "canModify") },
-            delete: { isAccessible: hasPermission(CUSTOM_PAGE, "canDelete") },
-            bulkDelete: { isAccessible: hasPermission(CUSTOM_PAGE, "canDelete") },
-            show: { isAccessible: hasPermission(CUSTOM_PAGE, "canView") },
-            list: { isAccessible: hasPermission(CUSTOM_PAGE, "canView") },
-        }
-    }
-}
+      },
+      content: {
+        type: "richtext",
+        custom: {
+          modules: {
+            toolbar: [
+              ["bold", "italic"],
+              ["link", "image"],
+            ],
+          },
+        },
+        isVisible: {
+          list: false,
+          show: true,
+          edit: true,
+        },
+      },
+      description: {
+        type: "textarea",
+      },
+      pageUrl: {
+        isVisible: {
+          list: false,
+          show: true,
+        },
+        components: {
+          show: adminBro.bundle("./components/pageUrl.jsx"),
+        },
+      },
+    },
+    actions: {
+      new: { isAccessible: hasPermission(CUSTOM_PAGE, "canCreate") },
+      edit: { isAccessible: hasPermission(CUSTOM_PAGE, "canModify") },
+      delete: { isAccessible: hasPermission(CUSTOM_PAGE, "canDelete") },
+      bulkDelete: { isAccessible: hasPermission(CUSTOM_PAGE, "canDelete") },
+      show: { isAccessible: hasPermission(CUSTOM_PAGE, "canView") },
+      list: { isAccessible: hasPermission(CUSTOM_PAGE, "canView") },
+    },
+  },
+};

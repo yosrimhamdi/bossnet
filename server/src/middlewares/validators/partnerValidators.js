@@ -2,7 +2,7 @@ const createJoiValidatorMiddleware = require("./utils/createJoiValidatorMiddlewa
 const Joi = require("joi");
 const JoiObjectIdValidator = require("joi-objectid")(Joi);
 
-const NOT_SPACE_OR_ALPHANUM_REGEX = /[^\w\s]/gi;
+const NOT_SPACE_OR_ALPHANUM_REGEX = /[^\w\s\zàâçéèêëîïôûùüÿñæœ]/gi;
 
 const getPartnersByCategory = createJoiValidatorMiddleware(
   Joi.object({

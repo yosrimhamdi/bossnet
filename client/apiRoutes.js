@@ -10,9 +10,10 @@ const API_ROUTES = {
     `/partners/search/${page}${
       searchQuery ? `?searchQuery=${searchQuery}` : ""
     }`,
-  getPartnerById: (partnerId) => `/partners/${partnerId}`,
+  getPartnerById: (id) => `/partners/${id}`,
   getOffersByPartnerId: (partnerId, page) =>
     `/partners/offers/${partnerId}/${page}`,
-  getPartnerOfferById: (offerId) => `/partners/offers/${offerId}`,
+  getPartnerOfferById: (id) => `/partners/offers/${id}`,
+  getCustomPageById: (id) => `/custom-pages/${id}`,
 };
 export default API_ROUTES;
