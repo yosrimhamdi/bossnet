@@ -1,4 +1,4 @@
-export default function ({ $axios, redirect }, inject) {
+export default function ({ $axios, redirect, $config }, inject) {
   const api = $axios.create({
     baseURL: process.env.apiEndpoint,
   });
@@ -12,8 +12,9 @@ export default function ({ $axios, redirect }, inject) {
     const code = parseInt(err.response && err.response.status);
     if (code == 404) {
       redirect("/404");
-    } else if (code == 400) {
-      redirect("/"); // for unhandled errors like (url params errors, ...)
     }
+    // else if (code == 400) {
+    //   redirect("/"); // for unhandled errors like (url params errors, ...)
+    // }
   });
 }

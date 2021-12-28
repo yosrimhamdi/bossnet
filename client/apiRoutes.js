@@ -15,5 +15,7 @@ const API_ROUTES = {
     `/partners/offers/${partnerId}/${page}`,
   getPartnerOfferById: (id) => `/partners/offers/${id}`,
   getCustomPageById: (id) => `/custom-pages/${id}`,
+
+  createContact: "/contact/create",
 };
 export default API_ROUTES;

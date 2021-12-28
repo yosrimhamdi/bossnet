@@ -10,15 +10,37 @@
             <a href="tel:+21645567778">+216 45 567 778</a>
           </li>
           <li>
+            <location-icon class="foot-icon" />
+            <a>Rue saleh ben yousef <br />bennen، Monastir 5025 </a>
+          </li>
+          <li>
             <email-icon class="foot-icon" />
             <a href="mailto:bossnet@contact.com">bossnet@contact.com</a>
           </li>
           <li>
             <clock-icon class="foot-icon" />
             <span to="/">
-              Du lundi au vendredi<br />
-              09:00 a 18:00 heures
+              De samedi jusqu'a Vendredi<br />
+              8:00 - 16:00
             </span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-links">
+        <h3>Naviguer</h3>
+        <ul>
+          <li>
+            <router-link to="/partners">Partenaires</router-link>
+          </li>
+          <li>
+            <router-link to="/categories">Catégories</router-link>
+          </li>
+          <li>
+            <router-link to="/about">À propos</router-link>
+          </li>
+          <li>
+            <router-link to="/contact">Contact</router-link>
           </li>
         </ul>
       </div>
@@ -34,27 +56,16 @@
         </ul>
       </div>
       <div class="nav-links">
-        <h3>Partenaires</h3>
+        <h3>Autres</h3>
         <ul>
           <li>
-            <router-link to="/">Categories</router-link>
+            <router-link to="/">Custom page 1</router-link>
           </li>
           <li>
-            <router-link to="/">Offres</router-link>
-          </li>
-        </ul>
-      </div>
-      <div class="nav-links">
-        <h3>Naviguer</h3>
-        <ul>
-          <li>
-            <router-link to="/">Partenaires</router-link>
+            <router-link to="/">Custom page 2</router-link>
           </li>
           <li>
-            <router-link to="/">À propos</router-link>
-          </li>
-          <li>
-            <router-link to="/">Contact</router-link>
+            <router-link to="/">Custom page 3</router-link>
           </li>
         </ul>
       </div>
@@ -79,6 +90,7 @@
 <script>
 import ClockIcon from "./icons/ClockIcon.vue";
 import EmailIcon from "./icons/EmailIcon.vue";
+import LocationIcon from "./icons/LocationIcon.vue";
 import PhoneIcon from "./icons/PhoneIcon.vue";
 import FacebookIcon from "./icons/social/FacebookIcon.vue";
 import TwitterIcon from "./icons/social/TwitterIcon.vue";
@@ -100,6 +112,7 @@ export default {
     WhatsIcon,
     TwitterIcon,
     YoutubeIcon,
+    LocationIcon,
   },
 };
 </script>
@@ -123,7 +136,10 @@ nav {
 }
 .nav-links {
   min-width: 300px;
-  @apply relative py-4 max-w-full z-10;
+  @scree lg {
+    max-width: 300px;
+  }
+  @apply relative p-4 max-w-full z-10;
   h3 {
     @apply text-xl uppercase font-semibold my-4;
   }
@@ -159,7 +175,7 @@ nav {
   }
   @apply flex items-center my-4;
   a {
-    @apply mr-4;
+    @apply mr-4 break-words;
     svg {
       @apply w-8 h-8;
     }

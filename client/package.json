@@ -11,10 +11,13 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.13.6",
+    "@nuxtjs/recaptcha": "^1.0.4",
     "core-js": "^3.15.1",
     "nuxt": "^2.15.7",
     "nuxt-lazy-load": "^1.2.9",
-    "sanitize-html": "^2.6.1"
+    "sanitize-html": "^2.6.1",
+    "vue-recaptcha-v3": "^1.9.0",
+    "vuelidate": "^0.7.7"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^4.2.1",

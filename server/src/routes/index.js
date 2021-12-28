@@ -4,4 +4,5 @@ module.exports = [
   require("./categoryRoute"),
   require("./partnerRoute"),
   require("./customPageRoute"),
+  require("./contactRoute"),
 ];

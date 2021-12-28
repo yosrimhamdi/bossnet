@@ -59,7 +59,7 @@ const partnerSchema = new mongoose.Schema(
     },
     timing: {
       type: String,
-      required: [true, REQUIRED_ERROR_MSG],
+      // required: [true, REQUIRED_ERROR_MSG],
     },
     discountRate: {
       type: Number,

@@ -57,10 +57,14 @@
                 </dropdown>
               </li>
               <li>
-                <router-link to="/" class="header-link">À propos</router-link>
+                <router-link to="/about" class="header-link"
+                  >À propos</router-link
+                >
               </li>
               <li>
-                <router-link to="/" class="header-link">Contact</router-link>
+                <router-link to="/contact" class="header-link"
+                  >Contact</router-link
+                >
               </li>
             </ul>
           </nav>
@@ -222,6 +226,9 @@ li {
     @apply my-0;
   }
   @apply mx-3 my-2 block;
+  a.nuxt-link-active {
+    @apply text-primary font-semibold;
+  }
 }
 .header-link {
   @apply flex items-center;

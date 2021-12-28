@@ -28,7 +28,7 @@
           partner.webSiteURL
         }}</a>
       </div>
-      <div class="icon-text">
+      <div class="icon-text" v-if="partner.timing">
         <clock-icon />
         <small>{{ partner.timing }}</small>
       </div>
