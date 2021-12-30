@@ -38,7 +38,7 @@ module.exports = new mongoose.Schema(
       // required: [true, REQUIRED_ERROR_MSG],
       trim: true,
       validate: createJoiMongooseFieldValidate(
-        Joi.string().uri({ allowRelative: true }),
+        Joi.string().uri({ allowRelative: true }).allow(""),
         INVALID_ERROR_MSG
       ),
     },

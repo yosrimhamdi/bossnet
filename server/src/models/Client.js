@@ -36,7 +36,7 @@ const clientSchema = new mongoose.Schema(
       // required: [true, REQUIRED_ERROR_MSG],
       trim: true,
       validate: createJoiMongooseFieldValidate(
-        Joi.string().min(20).max(30),
+        Joi.string().min(20).max(30).allow(""),
         INVALID_ERROR_MSG
       ),
     },

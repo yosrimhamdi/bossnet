@@ -14,7 +14,7 @@ const signUp = createJoiValidatorMiddleware(
       .replace("+216", "")
       .regex(VALID_PHONE_NUMBER_REGEX)
       .required(),
-    facebookAccountLink: Joi.string().uri({ allowRelative: true }),
+    facebookAccountLink: Joi.string().uri({ allowRelative: true }).allow(""),
     gender: Joi.string()
       .valid(...CLIENT_PROFILE_GENDER_CHOICES.map(({ value }) => value))
       .required(),
