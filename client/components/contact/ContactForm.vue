@@ -78,7 +78,7 @@
       <text-input
         :class="{ 'has-err': $v.mobilePhone.$error && submited }"
         v-model.trim="$v.mobilePhone.$model"
-        label="Téléphone mobile (optionnel)"
+        label="Téléphone (optionnel)"
         name="mobilePhone"
         placeholder="+216 xx xxx xxx"
       >
@@ -108,6 +108,7 @@
           >
         </template>
       </text-input>
+
       <button :disabled="isLoading" type="submit" class="btn primary lg flat">
         <spinner-loading v-if="isLoading" />
         <span v-else>Envoyer</span>
@@ -119,6 +120,7 @@
 <script>
 import TextInput from "../forms/TextInput.vue";
 import { validationMixin } from "vuelidate";
+import { validatePhoneNumber } from "./../../utils/formsValidators";
 
 import {
   required,
@@ -164,14 +166,7 @@ export default {
       maxLength: maxLength(50),
     },
     mobilePhone: {
-      validFormat: (v) => {
-        if (v) {
-          const VALID_NUMBER_REGEX = /^[0-9]{8,8}$/;
-          v = v.replaceAll(" ", "").replace("+216", "");
-          return VALID_NUMBER_REGEX.test(v);
-        }
-        return true;
-      },
+      validFormat: validatePhoneNumber,
     },
     message: {
       required,
@@ -187,10 +182,8 @@ export default {
         this.isLoading = true;
         try {
           const recaptchaToken = await this.$recaptcha.execute("contact");
-          console.log(recaptchaToken);
           await this.postContact({ ...this.$data, recaptchaToken });
         } catch (err) {
-          console.log("hii", err);
           this.$notify({ messageRef: "CAPTCHA_ERROR" });
         }
         this.isLoading = false;
@@ -215,7 +208,7 @@ export default {
           message,
           recaptchaToken,
         });
-        this.$notify({ messageRef: "CONTACT_SUCCESS" });
+        this.$notify({ messageRef: "CONTACT_SUCCESS", autoHide: false });
         this.$router.push("/");
       } catch (err) {
         this.handlePostContactApiErrors(err);

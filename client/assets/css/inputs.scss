@@ -1,7 +1,7 @@
 .form-input {
   @apply block w-full my-4;
   label {
-    @apply block font-semibold mb-1 ml-1;
+    @apply block font-normal mb-1 ml-1;
   }
   .input {
     @apply block w-full px-4 py-3 border rounded-md 
@@ -49,5 +49,9 @@
   svg {
     width: 28px;
     height: 28px;
+  }
+  &.has-err {
+    animation: shake 0.3s;
+    @apply text-red-400;
   }
 }

@@ -1,6 +1,6 @@
 <template>
   <div class="checkbox-input">
-    <button>
+    <button type="button">
       <svg
         v-if="value"
         @click="$emit('input', false)"
@@ -48,6 +48,3 @@ export default {
   },
 };
 </script>
-
-<style>
-</style>

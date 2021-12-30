@@ -17,5 +17,7 @@ const API_ROUTES = {
   getCustomPageById: (id) => `/custom-pages/${id}`,
 
   createContact: "/contact/create",
+
+  signUp: "/client/signup",
 };
 export default API_ROUTES;

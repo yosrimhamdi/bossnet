@@ -76,9 +76,15 @@ export default {
   @apply absolute right-0 top-0 m-2;
 }
 .icon {
-  @apply flex items-center justify-center h-20 w-20 rounded-md mr-4;
+  @apply flex items-center justify-center h-12 w-12 rounded-md mr-4;
   svg {
-    @apply w-14 h-14;
+    @apply w-6 h-6;
+  }
+  @screen sm {
+    @apply h-20 w-20;
+    svg {
+      @apply w-14 h-14;
+    }
   }
   &.error {
     background: #fff2f2;
