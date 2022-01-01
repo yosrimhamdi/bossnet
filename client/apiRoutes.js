@@ -1,4 +1,5 @@
 const API_ROUTES = {
+  getBaseData: "/base/data",
   getHomePageData: "/home/data",
   getAllCategories: "/categories/all",
   getCategoryById: (id) => `/categories/${id}`,

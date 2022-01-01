@@ -83,8 +83,8 @@ const signUp = async (req, res) => {
 */
 const signIn = async (req, res) => {
   try {
-    const authToken = await clientService.signIn(req.body);
-    res.send({ authToken });
+    const response = await clientService.signIn(req.body);
+    res.send(response);
   } catch (err) {
     if (err instanceof clientService.exceptions.ClientDoesNotExistsError) {
       res.status(401).send({

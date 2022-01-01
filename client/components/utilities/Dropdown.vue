@@ -98,7 +98,7 @@ export default {
     @apply p-2 px-4 w-full flex items-center font-normal 
     transition-colors bg-white;
     svg {
-      @apply mr-4;
+      @apply mr-4 w-5 h-5;
     }
     .spinner::after {
       @apply w-4 h-4 mr-4 border-dark;
@@ -114,7 +114,7 @@ export default {
     }
   }
   .info {
-    @apply block font-semibold px-4 pb-2 mb-2 border-b border-dashed;
+    @apply block px-4 pb-2 mb-2 border-b border-dashed;
   }
   small {
     @apply block font-semibold text-xs truncate;

@@ -85,7 +85,6 @@ export default {
   },
   computed: {
     swiperClassName() {
-      console.log(this.allowScroll);
       return `${this.autoHideBtns ? "a-h-btn" : ""} ${
         this.allowScroll ? "a-sc" : ""
       }`;

@@ -97,8 +97,11 @@ export default {
   }
 }
 .details {
-  min-height: var(--min-height);
-  @apply relative w-5/6 flex flex-col justify-center;
+  @apply relative w-5/6 flex flex-col justify-start;
+  @screen md {
+    min-height: var(--min-height);
+    @apply justify-center;
+  }
 }
 h3 {
   @apply uppercase font-bold text-lg;

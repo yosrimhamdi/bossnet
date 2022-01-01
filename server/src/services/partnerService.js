@@ -4,11 +4,22 @@ const categoryService = require("./categoryService");
 
 const PAGINATION_LIMIT = 8;
 
+const getHeaderPartners = async () => {
+  const partners = await Partner.find({
+    type: PARTNER_TYPE_CHOICES[0].value,
+  })
+    .sort("-updatedAt")
+    .select(["_id", "name"])
+    .limit(6);
+
+  return partners;
+};
+
 const getHomePagePartners = async () => {
   const platiniumPartners = await Partner.find({
     type: PARTNER_TYPE_CHOICES[0].value,
   })
-    .sort("type -updatedAt")
+    .sort("-updatedAt")
     .select(["_id", "logo", "name"]);
 
   return platiniumPartners;
@@ -85,4 +96,5 @@ module.exports = {
   getPartners,
   getPartnersBySearchQuery,
   getPartnerById,
+  getHeaderPartners,
 };

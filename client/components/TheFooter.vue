@@ -48,24 +48,20 @@
         <h3>Clients</h3>
         <ul>
           <li>
-            <router-link to="/">Mon compte</router-link>
+            <router-link to="/client">Mon compte</router-link>
           </li>
           <li>
-            <router-link to="/">S'inscrire</router-link>
+            <router-link to="/signup">S'inscrire</router-link>
           </li>
         </ul>
       </div>
       <div class="nav-links">
         <h3>Autres</h3>
         <ul>
-          <li>
-            <router-link to="/">Custom page 1</router-link>
-          </li>
-          <li>
-            <router-link to="/">Custom page 2</router-link>
-          </li>
-          <li>
-            <router-link to="/">Custom page 3</router-link>
+          <li v-for="(customPage, i) in customPages" :key="i">
+            <router-link :to="`/custom-pages/${customPage._id}`">{{
+              customPage.title
+            }}</router-link>
           </li>
         </ul>
       </div>
@@ -101,6 +97,9 @@ export default {
   computed: {
     currentDate() {
       return new Date().getFullYear();
+    },
+    customPages() {
+      return this.$store.state.footer.customPages;
     },
   },
   components: {

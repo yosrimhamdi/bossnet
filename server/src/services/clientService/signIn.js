@@ -7,14 +7,20 @@ const {
 } = require("./exceptions");
 
 module.exports = async ({ email, password }) => {
-  const client = await Client.findOne({ email, isVerified: true }).select([
-    "_id",
-    "encryptedPassword",
+  let client = await Client.findOne({ email, isVerified: true }).select([
+    "-__v",
+    "-ancestors",
+    "-isVerified",
+    "-isPaid",
   ]);
   if (!client) throw new ClientDoesNotExistsError();
   console.log(password, client.encryptedPassword);
   if (!(await bcrypt.compare(password, client.encryptedPassword)))
     throw new ClientPasswordAndEmailDoesNotMatchError();
-
-  return jwtAuth.getClientJwt(client);
+  client = client.toObject();
+  delete client.encryptedPassword;
+  return {
+    authToken: jwtAuth.getClientJwt(client),
+    client,
+  };
 };

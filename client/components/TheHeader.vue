@@ -41,9 +41,13 @@
                       </div>
                       <hr />
                       <div>
-                        <button class="drop-btn">Chaneb food</button>
-                        <button class="drop-btn">Monoprix</button>
-                        <button class="drop-btn">Carrefour</button>
+                        <router-link
+                          v-for="(partner, i) in partners"
+                          :key="i"
+                          :to="`/partners/${partner._id}`"
+                          class="drop-btn"
+                          >{{ partner.name }}</router-link
+                        >
                       </div>
                       <hr />
                       <div class="px-2">
@@ -71,9 +75,7 @@
         </div>
       </transition>
       <div class="end-side">
-        <router-link to="/signin" class="btn primary md">
-          Mon compte <account-arrow-right-icon />
-        </router-link>
+        <client-header />
       </div>
     </header>
   </transition>
@@ -81,6 +83,7 @@
 
 <script>
 import SearchInput from "./forms/SearchInput.vue";
+import ClientHeader from "./header/ClientHeader.vue";
 import PartnersSearch from "./header/PartnersSearch.vue";
 import AccountArrowRightIcon from "./icons/AccountArrowRightIcon.vue";
 import ArrowRightIcon from "./icons/ArrowRightIcon.vue";
@@ -109,6 +112,9 @@ export default {
         this.showCenterSideByBtn ||
         this.scrollPositionIsTop
       );
+    },
+    partners() {
+      return this.$store.state.header.partners;
     },
   },
   methods: {
@@ -150,6 +156,7 @@ export default {
     ArrowRightIcon,
     MenuIcon,
     PartnersSearch,
+    ClientHeader,
   },
 };
 </script>

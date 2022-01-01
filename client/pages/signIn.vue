@@ -105,9 +105,10 @@ export default {
     },
     async signIn({ email, password }) {
       try {
-        const { data } = await await this.$auth.loginWith("local", {
+        const { data } = await this.$auth.loginWith("local", {
           data: { email, password },
         });
+        this.$store.commit("setClient", data.client);
         this.$notify({ messageRef: "SIGNIN_SUCCESS" });
         this.redirect();
       } catch (err) {
