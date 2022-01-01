@@ -185,6 +185,7 @@
         <text-input
           :class="{ 'has-err': $v.password.$error && submited }"
           v-model.trim="$v.password.$model"
+          type="password"
           label="Mot de passe"
           name="password"
           placeholder="************"
@@ -253,6 +254,7 @@ import API_ROUTES from "../apiRoutes";
 import CheckboxInput from "../components/forms/CheckboxInput.vue";
 
 export default {
+  middleware: "notAuthenticated",
   components: { TextInput, SelectInput, SpinnerLoading, CheckboxInput },
   mixins: [validationMixin],
   data() {
@@ -396,9 +398,10 @@ export default {
 
 <style lang="scss" scoped>
 .signup {
-  @apply relative pt-6 pl-8 my-12 w-full;
+  @apply relative pt-4 pl-4 my-8 w-full;
   @screen lg {
     width: 500px;
+    @apply pt-6 pl-8 my-12;
   }
   @screen xl {
     width: 700px;

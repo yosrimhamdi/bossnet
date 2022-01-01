@@ -42,8 +42,7 @@ module.exports = async ({
   parentId,
 }) => {
   const direction = await validateParentAndGetDirection(parentId);
-  console.log({ direction });
-  const encryptedPassword = await bcrypt.hash(password, 10);
+  const encryptedPassword = await bcrypt.hash(password, 8);
   try {
     const client = new Client({
       profile: {

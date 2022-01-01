@@ -43,6 +43,42 @@ const signUp = createJoiValidatorMiddleware(
   })
 );
 
+const signIn = createJoiValidatorMiddleware(
+  Joi.object({
+    email: Joi.string()
+      .email({ tlds: { allow: false } })
+      .required(),
+    password: Joi.string()
+      .min(8)
+      .max(128)
+      .regex(/^[\S]+$/)
+      .required(),
+  })
+);
+
+const resetPasswordRequest = createJoiValidatorMiddleware(
+  Joi.object({
+    email: Joi.string()
+      .email({ tlds: { allow: false } })
+      .required(),
+  })
+);
+
+const resetPassword = createJoiValidatorMiddleware(
+  Joi.object({
+    clientId: JoiObjectIdValidator().required(),
+    password: Joi.string()
+      .min(8)
+      .max(128)
+      .regex(/^[\S]+$/)
+      .required(),
+    resetKey: Joi.string().length(30),
+  })
+);
+
 module.exports = {
   signUp,
+  signIn,
+  resetPasswordRequest,
+  resetPassword,
 };

@@ -1,3 +1,5 @@
+const apiEndpoint = process.env.API_ENDPOINT || "http://localhost:4000/api/v1";
+
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -16,7 +18,7 @@ export default {
 
   env: {
     mediaProviderUrl: process.env.MEDIA_PROVIDER_URL || "http://localhost:4000",
-    apiEndpoint: process.env.API_ENDPOINT || "http://localhost:4000/api/v1",
+    apiEndpoint,
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -53,7 +55,38 @@ export default {
         version: 3, // Version
       },
     ],
+    "@nuxtjs/auth-next",
   ],
+  auth: {
+    strategies: {
+      local: {
+        // scheme: "refresh",
+        token: {
+          property: "authToken",
+          global: true,
+          type: "Bearer",
+        },
+        // refreshToken: {
+        //   property: "refreshAuthToken",
+        //   data: "refreshAuthToken",
+        //   maxAge: 60 * 60 * 24 * 30,
+        // },
+        endpoints: {
+          login: { url: `${apiEndpoint}/client/signin`, method: "post" },
+          // refresh: {
+          //   url: `${apiEndpoint}/client/refresh-token`,
+          //   method: "post",
+          // },
+          // logout: { url: '/api/auth/logout', method: 'post' },
+          user: false,
+          logout: false,
+        },
+      },
+    },
+    redirect: false,
+    autoLogout: true,
+  },
+
   loading: {
     color: "#FFBA00",
     height: "2px",

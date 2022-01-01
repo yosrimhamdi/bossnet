@@ -1,11 +1,15 @@
-export default function ({ $axios, redirect, $config }, inject) {
+export default function ({ $axios, redirect, app }, inject) {
   const api = $axios.create({
     baseURL: process.env.apiEndpoint,
   });
   api.onRequest((config) => {
-    console.log("Making request to " + config.url);
+    if (app.$auth.loggedIn) {
+      const token = app.$auth.strategy.token.get().split(" ")[1];
+      api.setToken(token, "Bearer");
+    }
   });
-  // work with $api
+
+  // Work with $api
   inject("api", api);
 
   api.onError((err) => {

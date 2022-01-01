@@ -71,9 +71,9 @@
         </div>
       </transition>
       <div class="end-side">
-        <button class="btn primary md">
+        <router-link to="/signin" class="btn primary md">
           Mon compte <account-arrow-right-icon />
-        </button>
+        </router-link>
       </div>
     </header>
   </transition>

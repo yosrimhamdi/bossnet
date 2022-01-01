@@ -17,7 +17,9 @@ const API_ROUTES = {
   getCustomPageById: (id) => `/custom-pages/${id}`,
 
   createContact: "/contact/create",
-
   signUp: "/client/signup",
+  signIn: "/client/signin",
+  resetPasswordRequest: "/client/reset-password/request",
+  resetPassword: "/client/reset-password",
 };
 export default API_ROUTES;

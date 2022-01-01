@@ -1,7 +1,8 @@
 require("dotenv").config();
 module.exports = {
   DEBUG: process.env.MODE == "development",
-  SECRET_JWT_CODE: process.env.SECRET_JWT_CODE,
+  JWT_SECRET_CODE: process.env.SECRET_JWT_CODE,
+  JWT_EXPIRES_IN: "2d",
   SECRET_COOKIE_CODE: process.env.SECRET_COOKIE_CODE,
   ADMIN_PANEL_PATH: process.env.ADMIN_PANEL_PATH || "/admin",
   MONGO_URI:
@@ -13,5 +14,8 @@ module.exports = {
   INIT_ADMIN_PASSWORD: process.env.INIT_ADMIN_PASSWORD || "azerty",
   INIT_ADMIN_EMAIL: process.env.INIT_ADMIN_EMAIL || "bossnet@admin.com",
   GOOGLE_RECAPTCHA_SECRET_KEY: process.env.GOOGLE_RECAPTCHA_SECRET_KEY,
-  AXIOS_TIMEOUT: Number.parseInt(process.env.AXIOS_TIMEOUT) || 3000
+  AXIOS_TIMEOUT: Number.parseInt(process.env.AXIOS_TIMEOUT) || 3000,
+
+  EMAIL_USER: process.env.EMAIL_USER,
+  EMAIL_PASSWORD: process.env.EMAIL_PASSWORD,
 };

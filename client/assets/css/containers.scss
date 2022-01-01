@@ -14,3 +14,40 @@
       @apply text-lg font-semibold py-8;
     }
   }
+
+  .form-container {
+    @apply relative pt-4 pl-4 my-12 w-full;
+    @screen lg {
+      width: 500px;
+      @apply pt-6 pl-8;
+    }
+    @screen xl {
+      width: 550px;
+    }
+
+    .shape {
+      @apply absolute bg-dark top-0 left-0 z-0 w-4/6 h-1/3 rounded;
+    }
+    .content {
+      @apply relative p-8 py-12 bg-white border 
+      rounded shadow-md;
+      @screen md {
+        @apply p-12;
+      }
+    }
+    h1 {
+      @apply text-4xl font-extrabold mb-12 text-primary;
+      @screen md {
+        @apply text-5xl;
+      }
+      @screen lg {
+        @apply text-6xl;
+      }
+    }
+    h2 {
+      @apply text-4xl font-extrabold mb-4 text-primary;
+    }
+    p{
+      @apply mb-8;
+    }
+  }
