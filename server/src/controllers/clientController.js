@@ -113,29 +113,46 @@ const getAuthClientData = async (req, res) => {
 };
 
 /*
-  body: {email}
+  body: {email, recaptchaToken}
 */
 const resetPasswordRequest = async (req, res) => {
+  const { recaptchaToken } = req.body;
   try {
-    await clientService.resetPasswordRequest(req.body.email);
-    res.status(204).send();
-  } catch (err) {
-    if (err instanceof clientService.exceptions.ClientDoesNotExistsError) {
-      res.status(400).send({
-        error: CLIENT_DOES_NOT_EXISTS_ERROR_MSG,
-      });
-    } else if (
-      err instanceof clientService.exceptions.ClientSendResetPasswordEmailError
+    if (
+      await validateGoogleRecaptchaToken(recaptchaToken, "resetPasswordRequest")
     ) {
-      res.status(500).send({
-        error: CLIENT_SEND_RESET_PASSWORD_EMAIL_ERROR_MSG,
-      });
-    } else {
-      console.log(err);
-      res.status(500).send({
-        error: UNEXPECTED_ERROR_MSG,
-      });
+      try {
+        await clientService.resetPasswordRequest(req.body.email);
+        res.status(204).send();
+      } catch (err) {
+        if (err instanceof clientService.exceptions.ClientDoesNotExistsError) {
+          res.status(400).send({
+            error: CLIENT_DOES_NOT_EXISTS_ERROR_MSG,
+          });
+        } else if (
+          err instanceof
+          clientService.exceptions.ClientSendResetPasswordEmailError
+        ) {
+          res.status(500).send({
+            error: CLIENT_SEND_RESET_PASSWORD_EMAIL_ERROR_MSG,
+          });
+        } else {
+          console.log(err);
+          res.status(500).send({
+            error: UNEXPECTED_ERROR_MSG,
+          });
+        }
+      }
+      return;
     }
+    res.status(400).send({
+      error: CAPTCHA_ERROR_MSG,
+    });
+  } catch (err) {
+    // captcha unexpected error
+    res.status(500).send({
+      error: UNEXPECTED_ERROR_MSG,
+    });
   }
 };
 

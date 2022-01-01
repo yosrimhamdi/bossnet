@@ -21,7 +21,7 @@ import PartnerImages from "../../components/partners/PartnerImages.vue";
 import PartnerOffers from "../../components/partners/PartnerOffers.vue";
 import Breadcrumb from "../../components/utilities/Breadcrumb.vue";
 import sanitizeHtml from "sanitize-html"; // clean html and prevent xss attacks
-
+import { validateId } from "./../../utils/routeParamsValidators";
 const initData = (partner) => ({
   partner,
   offers: {
@@ -37,6 +37,9 @@ const initData = (partner) => ({
   },
 });
 export default {
+  validate({ params: { id } }) {
+    return validateId(id);
+  },
   components: {
     Breadcrumb,
     ClockIcon,

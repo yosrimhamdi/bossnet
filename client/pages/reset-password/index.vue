@@ -99,14 +99,25 @@ export default {
       this.$v.$touch();
       if (!this.$v.$invalid) {
         this.isLoading = true;
-        await this.sendResetPasswordRequest(this.$data);
+        try {
+          const recaptchaToken = await this.$recaptcha.execute(
+            "resetPasswordRequest"
+          );
+          await this.sendResetPasswordRequest({
+            email: this.email,
+            recaptchaToken,
+          });
+        } catch (err) {
+          this.$notify({ messageRef: "CAPTCHA_ERROR" });
+        }
         this.isLoading = false;
       }
     },
-    async sendResetPasswordRequest({ email }) {
+    async sendResetPasswordRequest({ email, recaptchaToken }) {
       try {
         await this.$api.$post(API_ROUTES.resetPasswordRequest, {
           email,
+          recaptchaToken,
         });
         this.submitComplete = true;
       } catch (err) {
@@ -114,6 +125,16 @@ export default {
         this.$notify({ messageRef: error });
       }
     },
+  },
+  async mounted() {
+    try {
+      await this.$recaptcha.init();
+    } catch (e) {
+      this.$notify({ messageRef: "CAPTCHA_ERROR" });
+    }
+  },
+  beforeDestroy() {
+    this.$recaptcha.destroy();
   },
 };
 </script>

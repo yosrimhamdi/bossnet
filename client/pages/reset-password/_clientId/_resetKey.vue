@@ -70,11 +70,17 @@ import TextInput from "../../../components/forms/TextInput.vue";
 import { validationMixin } from "vuelidate";
 import { required } from "vuelidate/lib/validators";
 import { validatePassword } from "../../../utils/formsValidators";
-
+import {
+  validateId,
+  validatePasswordResetKey,
+} from "./../../../utils/routeParamsValidators";
 import SpinnerLoading from "../../../components/utilities/SpinnerLoading.vue";
 import API_ROUTES from "../../../apiRoutes";
 export default {
   middleware: "notAuthenticated",
+  validate({ params: { clientId, resetKey } }) {
+    return validateId(clientId) && validatePasswordResetKey(resetKey);
+  },
   components: { TextInput, SpinnerLoading, SpinnerLoading },
   mixins: [validationMixin],
   data() {

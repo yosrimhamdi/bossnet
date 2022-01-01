@@ -34,8 +34,13 @@ import Breadcrumb from "../../../components/utilities/Breadcrumb.vue";
 import BucketImage from "../../../components/utilities/BucketImage.vue";
 import Swiper from "../../../components/utilities/Swiper.vue";
 import OfferSmallCard from "../../../components/partners/OfferSmallCard.vue";
+import { validateId } from "./../../../utils/routeParamsValidators";
+
 const initData = (offer) => ({ offer });
 export default {
+  validate({ params: { id } }) {
+    return validateId(id);
+  },
   components: { BucketImage, Breadcrumb, Swiper, OfferSmallCard },
   async asyncData({ $api, params }) {
     const response = await $api.$get(API_ROUTES.getPartnerOfferById(params.id));

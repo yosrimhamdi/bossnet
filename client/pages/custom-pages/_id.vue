@@ -6,8 +6,13 @@
 
 <script>
 import API_ROUTES from "../../apiRoutes";
+import { validateId } from "./../../utils/routeParamsValidators";
 import sanitizeHtml from "sanitize-html"; // clean html and prevent xss attacks
+
 export default {
+  validate({ params: { id } }) {
+    return validateId(id);
+  },
   async asyncData({ $api, params }) {
     const response = await $api.$get(API_ROUTES.getCustomPageById(params.id));
     return { page: response.page };

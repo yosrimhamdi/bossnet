@@ -61,6 +61,7 @@ const resetPasswordRequest = createJoiValidatorMiddleware(
     email: Joi.string()
       .email({ tlds: { allow: false } })
       .required(),
+    recaptchaToken: Joi.string().required(),
   })
 );
 
@@ -72,7 +73,9 @@ const resetPassword = createJoiValidatorMiddleware(
       .max(128)
       .regex(/^[\S]+$/)
       .required(),
-    resetKey: Joi.string().length(30),
+    resetKey: Joi.string()
+      .regex(/^[a-zA-Z0-9]{30}$/)
+      .required(),
   })
 );
 

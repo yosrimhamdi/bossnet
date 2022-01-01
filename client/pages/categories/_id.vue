@@ -38,6 +38,8 @@ import Breadcrumb from "../../components/utilities/Breadcrumb.vue";
 import Paginator from "../../components/utilities/Paginator.vue";
 import SpinnerLoading from "../../components/utilities/SpinnerLoading.vue";
 import { scrollToElement } from "../../utils/userInteractions";
+import { validateId } from "./../../utils/routeParamsValidators";
+
 const initData = (category) => ({
   category,
   partners: {
@@ -53,6 +55,9 @@ const initData = (category) => ({
   },
 });
 export default {
+  validate({ params: { id } }) {
+    return validateId(id);
+  },
   components: { SpinnerLoading, PartnerCard, EmptyData, Breadcrumb, Paginator },
   async asyncData({ $api, params }) {
     const response = await $api.$get(API_ROUTES.getCategoryById(params.id));
