@@ -42,7 +42,6 @@ export default {
     const homePageData = await $api.$get(API_ROUTES.getHomePageData);
     return initData(homePageData);
   },
-
   computed: {
     swiperAdvertissments() {
       return this.advertissments.filter((item) => item.position == "1");

@@ -79,9 +79,17 @@ const resetPassword = createJoiValidatorMiddleware(
   })
 );
 
+const getTreeByClientId = createJoiValidatorMiddleware(
+  Joi.object({
+    clientId: JoiObjectIdValidator().required(),
+  }),
+  "params"
+);
+
 module.exports = {
   signUp,
   signIn,
   resetPasswordRequest,
   resetPassword,
+  getTreeByClientId,
 };

@@ -48,6 +48,11 @@ import WhatsIcon from "../components/icons/social/WhatsIcon.vue";
 import YoutubeIcon from "../components/icons/social/YoutubeIcon.vue";
 
 export default {
+  head() {
+    return {
+      titleTemplate: `Contact | %s`,
+    };
+  },
   components: {
     PhoneIcon,
     EmailIcon,

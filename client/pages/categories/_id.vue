@@ -58,10 +58,28 @@ export default {
   validate({ params: { id } }) {
     return validateId(id);
   },
+
   components: { SpinnerLoading, PartnerCard, EmptyData, Breadcrumb, Paginator },
   async asyncData({ $api, params }) {
     const response = await $api.$get(API_ROUTES.getCategoryById(params.id));
     return initData(response.category);
+  },
+  head() {
+    return {
+      titleTemplate: `${this.category.name} | %s`,
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: this.category.description,
+        },
+        {
+          hid: "og:description",
+          name: "og:description",
+          content: this.category.description,
+        },
+      ],
+    };
   },
   computed: {
     breadcrumbPaths() {

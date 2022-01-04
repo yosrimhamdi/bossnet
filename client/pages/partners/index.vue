@@ -68,22 +68,46 @@ export default {
     const response = await $api.$get(API_ROUTES.getAllCategories);
     return initData(response.categories);
   },
+  head() {
+    const { searchQuery } = this.$route.query;
+    return {
+      titleTemplate: `Partenaires ${
+        searchQuery ? `- ${searchQuery} ` : ""
+      }| %s`,
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: "Partenaires de Bossnet.",
+        },
+        {
+          hid: "og:description",
+          name: "og:description",
+          content: searchQuery
+            ? `Résultats de la recherche de la clé ${searchQuery}`
+            : "Partenaires de Bossnet.",
+        },
+        {
+          hid: "keywords",
+          name: "keywords",
+          content:
+            (searchQuery ? `${searchQuery}, ` : "") +
+            `${this.categories.map(({ name }) => name).join(", ")}`,
+        },
+      ],
+    };
+  },
   computed: {
     breadcrumbPaths() {
       const searchQuery =
-        this.$route.query.searchQuery &&
-        this.$route.query.searchQuery.replaceAll(" ", "");
-      if (searchQuery) {
+        this.$route.query.searchQuery && this.$route.query.searchQuery;
+      if (searchQuery)
         return [
           { name: "Partenaires", to: "/partners" },
           { name: "Recherche" },
           { name: searchQuery },
         ];
-      } else {
-        return [{ name: "Partenaires" }];
-      }
-      const basic = [];
-      return;
+      return [{ name: "Partenaires" }];
     },
   },
   methods: {

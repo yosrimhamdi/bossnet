@@ -126,6 +126,9 @@
       @apply border-primary;
     }
   }
+  &.danger{
+    @apply bg-red-200 text-red-500;
+  }
   &:disabled {
     @apply opacity-90 pointer-events-none;
   }

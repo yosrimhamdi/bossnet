@@ -7,12 +7,12 @@ const {
 } = require("./exceptions");
 
 module.exports = async ({ email, password }) => {
-  let client = await Client.findOne({ email, isVerified: true }).select([
-    "-__v",
-    "-ancestors",
-    "-isVerified",
-    "-isPaid",
-  ]);
+  let client = await Client.findOne({ email, isVerified: true })
+    .select(["-__v", "-ancestors", "-isVerified", "-isPaid"])
+    .populate({
+      path: "parent",
+      select: ["profile", "_id"],
+    });
   if (!client) throw new ClientDoesNotExistsError();
   console.log(password, client.encryptedPassword);
   if (!(await bcrypt.compare(password, client.encryptedPassword)))

@@ -255,6 +255,11 @@ import CheckboxInput from "../components/forms/CheckboxInput.vue";
 
 export default {
   middleware: "notAuthenticated",
+  head() {
+    return {
+      titleTemplate: `Créer un compte client | %s`,
+    };
+  },
   components: { TextInput, SelectInput, SpinnerLoading, CheckboxInput },
   mixins: [validationMixin],
   data() {

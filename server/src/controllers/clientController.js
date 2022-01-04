@@ -11,6 +11,7 @@ const {
   CLIENT_SEND_RESET_PASSWORD_EMAIL_ERROR_MSG,
   CLIENT_PASSWORD_RESET_DOES_NOT_EXISTS_ERROR_MSG,
   CLIENT_PASSWORD_RESET_EXPIRED_ERROR_MSG,
+  GET_CLIENT_TREE_NOT_ALLOWED_ERROR_MSG,
 } = require("./configs/responseErrorsMsgs");
 
 /*
@@ -190,10 +191,36 @@ const resetPassword = async (req, res) => {
   }
 };
 
+/*
+  params: {clientId}
+*/
+const getTreeByClientId = async (req, res) => {
+  try {
+    const tree = await clientService.getTreeByClientId(
+      req.params.clientId,
+      req.client._id
+    );
+    res.send({
+      tree,
+    });
+  } catch (err) {
+    if (err instanceof clientService.exceptions.GetClientTreeNotAllowedError) {
+      res.status(403).send({
+        error: GET_CLIENT_TREE_NOT_ALLOWED_ERROR_MSG,
+      });
+    } else {
+      res.status(500).send({
+        error: UNEXPECTED_ERROR_MSG,
+      });
+    }
+  }
+};
+
 module.exports = {
   signUp,
   signIn,
   getAuthClientData,
   resetPasswordRequest,
   resetPassword,
+  getTreeByClientId,
 };

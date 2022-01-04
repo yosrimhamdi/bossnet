@@ -78,6 +78,11 @@ import SpinnerLoading from "../../../components/utilities/SpinnerLoading.vue";
 import API_ROUTES from "../../../apiRoutes";
 export default {
   middleware: "notAuthenticated",
+  head() {
+    return {
+      titleTemplate: `Réinitialiser votre mot de passe | %s`,
+    };
+  },
   validate({ params: { clientId, resetKey } }) {
     return validateId(clientId) && validatePasswordResetKey(resetKey);
   },

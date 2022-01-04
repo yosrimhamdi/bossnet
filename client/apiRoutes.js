@@ -22,5 +22,6 @@ const API_ROUTES = {
   signIn: "/client/signin",
   resetPasswordRequest: "/client/reset-password/request",
   resetPassword: "/client/reset-password",
+  getTreeByClientId: (clientId) => `/client/tree/${clientId}`,
 };
 export default API_ROUTES;

@@ -46,6 +46,28 @@ export default {
     const response = await $api.$get(API_ROUTES.getPartnerOfferById(params.id));
     return initData(response.offer);
   },
+  head() {
+    return {
+      titleTemplate: `${this.offer.title} | %s`,
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: this.offer.description,
+        },
+        {
+          hid: "og:description",
+          name: "og:description",
+          content: this.offer.description,
+        },
+        {
+          hid: "keywords",
+          name: "keywords",
+          content: `${this.offer.partner.name}, offre`,
+        },
+      ],
+    };
+  },
   computed: {
     endDate() {
       if (this.offer.duration.endDate) {

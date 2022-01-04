@@ -45,6 +45,12 @@ class ClientPasswordResetExpiredError extends Error {
   }
 }
 
+class GetClientTreeNotAllowedError extends Error {
+  constructor() {
+    super("Get client tree not allowed");
+  }
+}
+
 module.exports = {
   ParentDoesNotExistsError,
   ParentHasFullChildrenError,
@@ -54,4 +60,5 @@ module.exports = {
   ClientSendResetPasswordEmailError,
   ClientPasswordResetDoesNotExistsError,
   ClientPasswordResetExpiredError,
+  GetClientTreeNotAllowedError,
 };

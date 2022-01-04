@@ -39,6 +39,28 @@ export default {
     const response = await $api.$get(API_ROUTES.getAllCategories);
     return initData(response.categories);
   },
+  head() {
+    return {
+      titleTemplate: `Catégories | %s`,
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: "Catégories de partenaires de Bossnet.",
+        },
+        {
+          hid: "og:description",
+          name: "og:description",
+          content: "Catégories de partenaires de Bossnet.",
+        },
+        {
+          hid: "keywords",
+          name: "keywords",
+          content: `${this.categories.map(({ name }) => name).join(", ")}`,
+        },
+      ],
+    };
+  },
   computed: {
     filteredCategories() {
       const searchQuery = this.searchQuery.replaceAll("  ", "").toUpperCase();

@@ -7,4 +7,7 @@ export default {
     state.footer = { customPages };
     state.header = { partners };
   },
+  setClientTree(state, clientTree) {
+    state.clientTree = { ...state.clientTree, ...clientTree };
+  },
 };

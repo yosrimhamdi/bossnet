@@ -77,6 +77,11 @@ import SpinnerLoading from "../../components/utilities/SpinnerLoading.vue";
 import API_ROUTES from "../../apiRoutes";
 export default {
   middleware: "notAuthenticated",
+  head() {
+    return {
+      titleTemplate: `Mot de passe oublié | %s`,
+    };
+  },
   components: { TextInput, SpinnerLoading, SpinnerLoading },
   mixins: [validationMixin],
   data() {

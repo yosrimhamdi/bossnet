@@ -3,7 +3,7 @@ const apiEndpoint = process.env.API_ENDPOINT || "http://localhost:4000/api/v1";
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: "bossnet-client",
+    title: "Bossnet",
     htmlAttrs: {
       lang: "fr",
     },
@@ -12,6 +12,10 @@ export default {
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { hid: "description", name: "description", content: "" },
       { name: "format-detection", content: "telephone=no" },
+      {
+        name: "og:locale",
+        content: "fr_TN",
+      },
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
   },
@@ -58,6 +62,7 @@ export default {
     "@nuxtjs/auth-next",
   ],
   auth: {
+    localStorage: false,
     strategies: {
       local: {
         // scheme: "refresh",

@@ -49,8 +49,32 @@ export default {
     PartnerOffers,
   },
   async asyncData({ $api, params }) {
-    const response = await $api.$get(API_ROUTES.getPartnerById(params.id));
-    return initData(response.partner);
+    const { partner } = await $api.$get(API_ROUTES.getPartnerById(params.id));
+    return initData(partner);
+  },
+  head() {
+    return {
+      titleTemplate: `${this.partner.name} | %s`,
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: this.partner.description,
+        },
+        {
+          hid: "og:description",
+          name: "og:description",
+          content: this.partner.description,
+        },
+        {
+          hid: "keywords",
+          name: "keywords",
+          content: `${this.partner.categories
+            .map(({ name }) => name)
+            .join(", ")}`,
+        },
+      ],
+    };
   },
   computed: {
     breadcrumbPaths() {

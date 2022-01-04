@@ -72,6 +72,11 @@ import { required, email } from "vuelidate/lib/validators";
 import SpinnerLoading from "../components/utilities/SpinnerLoading.vue";
 export default {
   middleware: "notAuthenticated",
+  head() {
+    return {
+      titleTemplate: `Se connecter | %s`,
+    };
+  },
   components: { TextInput, SpinnerLoading },
   mixins: [validationMixin],
   data() {

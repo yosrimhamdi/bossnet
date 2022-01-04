@@ -10,13 +10,18 @@ module.exports = async (req, res, next) => {
     try {
       const client = await Client.findById(
         jwtAuth.getClientIdFromJwt(authToken)
-      ).select([
-        "-encryptedPassword",
-        "-__v",
-        "-ancestors",
-        "-isVerified",
-        "-isPaid",
-      ]);
+      )
+        .select([
+          "-encryptedPassword",
+          "-__v",
+          "-ancestors",
+          "-isVerified",
+          "-isPaid",
+        ])
+        .populate({
+          path: "parent",
+          select: ["profile", "_id"],
+        });
       if (client) {
         req.client = client;
         req.isAuthenticated = true;

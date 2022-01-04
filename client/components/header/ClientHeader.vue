@@ -18,11 +18,11 @@
         </div>
         <router-link to="/client" class="drop-btn">
           <tree-icon />
-          Mon arbre</router-link
+          <span>Mon arbre</span></router-link
         >
         <router-link to="/client" class="drop-btn">
           <pocket-icon />
-          Mon solde</router-link
+          <span>Mon solde</span></router-link
         >
         <hr />
         <router-link to="/client" class="drop-btn">

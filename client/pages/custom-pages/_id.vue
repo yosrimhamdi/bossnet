@@ -13,9 +13,27 @@ export default {
   validate({ params: { id } }) {
     return validateId(id);
   },
+
   async asyncData({ $api, params }) {
     const response = await $api.$get(API_ROUTES.getCustomPageById(params.id));
     return { page: response.page };
+  },
+  head() {
+    return {
+      titleTemplate: `${this.page.title} | %s`,
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: this.page.description,
+        },
+        {
+          hid: "og:description",
+          name: "og:description",
+          content: this.page.description,
+        },
+      ],
+    };
   },
   methods: {
     sanitizeHtml(htmlContent) {

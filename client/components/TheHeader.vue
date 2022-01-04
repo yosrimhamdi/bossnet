@@ -52,7 +52,7 @@
                       <hr />
                       <div class="px-2">
                         <router-link to="/partners" class="btn flat light">
-                          Voir tous
+                          <span>Voir tous</span>
                           <arrow-right-icon class="transform -rotate-45" />
                         </router-link>
                       </div>

@@ -23,6 +23,13 @@ clientRouter
     "/reset-password",
     clientValidators.resetPassword,
     clientController.resetPassword
+  )
+  .get(
+    "/tree/:clientId",
+    clientValidators.getTreeByClientId,
+    provideAuthMiddleware,
+    ensureAuthMiddleware,
+    clientController.getTreeByClientId
   );
 
 module.exports = {
