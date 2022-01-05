@@ -1,6 +1,6 @@
 // const Client = require("../../../models/Client");
 const mongoose = require("mongoose");
-const TreeChildsLimit = 4;
+const TreeChildsLimit = 8;
 
 module.exports = (clientId) => [
   // find client and his children

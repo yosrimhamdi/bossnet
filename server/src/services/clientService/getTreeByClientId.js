@@ -14,8 +14,8 @@ module.exports = async (clientId, authClientId) => {
   if (!getClientTreeIsAllowed(clientId, authClientId))
     throw new GetClientTreeNotAllowedError();
 
-  const clientTree = await Client.aggregate(
+  const clients = await Client.aggregate(
     getFindClientTreeWithChildsCountPipeline(clientId)
   );
-  return clientTree;
+  return clients;
 };

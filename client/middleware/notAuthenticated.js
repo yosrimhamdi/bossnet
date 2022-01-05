@@ -1,3 +1,3 @@
 export default ({ store: { state }, redirect }) => {
-  if (state.auth.loggedIn) redirect("/client");
+  if (state.auth.loggedIn) redirect("/client/tree");
 };

@@ -22,9 +22,9 @@ export default {
   @screen lg {
     @apply mt-24;
   }
-  @screen md {
-    @apply px-12;
-  }
+  // @screen md {
+  //   @apply px-12;
+  // }
   @apply relative py-12 px-4 mt-52  flex flex-col items-center;
 }
 </style>

@@ -123,7 +123,7 @@ export default {
       }
     },
     redirect() {
-      const redirectPath = this.$route.query.redirect || "/client";
+      const redirectPath = this.$route.query.redirect || "/client/tree";
       this.$router.push(redirectPath);
     },
   },

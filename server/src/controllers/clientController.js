@@ -196,12 +196,12 @@ const resetPassword = async (req, res) => {
 */
 const getTreeByClientId = async (req, res) => {
   try {
-    const tree = await clientService.getTreeByClientId(
+    const clients = await clientService.getTreeByClientId(
       req.params.clientId,
       req.client._id
     );
     res.send({
-      tree,
+      clients,
     });
   } catch (err) {
     if (err instanceof clientService.exceptions.GetClientTreeNotAllowedError) {

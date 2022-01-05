@@ -1,7 +1,10 @@
 <template>
-  <section class="client" v-if="client">
+  <section class="client" v-if="client" :class="{ 'hide-aside': !showAside }">
     <client-only placeholder="Chargement...">
-      <client-aside />
+      <client-aside
+        :showAside="showAside"
+        @toggleAside="showAside = !showAside"
+      />
       <div class="content">
         <nuxt-child />
       </div>
@@ -10,14 +13,11 @@
 </template>
 
 <script>
-import ClientsBinaryTree from "../components/client/ClientsBinaryTree.vue";
 export default {
-  components: { ClientsBinaryTree },
   middleware: "authenticated",
   data() {
     return {
-      arrayTree: [],
-      isLoading: true,
+      showAside: true,
     };
   },
   computed: {
@@ -25,13 +25,15 @@ export default {
       return this.$store.state.client;
     },
   },
-  methods: {},
 };
 </script>
 
 <style lang="scss" scoped>
 .client {
   --aside-width: 300px;
+  &.hide-aside {
+    --aside-width: 80px;
+  }
   @apply flex items-start w-full;
 }
 .content {
