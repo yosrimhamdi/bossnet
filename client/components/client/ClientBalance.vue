@@ -20,12 +20,15 @@ export default {
 
 <style lang="scss" scoped>
 .client-balance {
-  @apply w-2/6 rounded border shadow p-6
+  @apply w-full rounded border shadow p-6 mb-4
   flex items-start border-dashed;
+  @screen lg {
+    @apply w-2/6 mb-0;
+  }
 }
 svg {
-  width: 32px;
-  height: 32px;
+  width: 42px;
+  height: 42px;
 }
 .details {
   @apply pl-4;
@@ -35,5 +38,13 @@ h3 {
 }
 h4 {
   @apply text-xl font-bold my-2;
+}
+</style>
+<style lang="scss">
+.client-balance {
+  svg path {
+    stroke: var(--dark-cl);
+    stroke-width: 1.2px;
+  }
 }
 </style>

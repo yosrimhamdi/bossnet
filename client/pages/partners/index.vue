@@ -146,7 +146,7 @@ export default {
   @apply w-full flex items-start flex-wrap;
 }
 .categories {
-  @apply inline-block sticky top-0 w-full bg-white z-10 pt-2 border-b;
+  @apply inline-block sticky top-0 w-full bg-white z-10 pt-2 border-b mb-4;
   h2 {
     @apply text-2xl mb-2 font-semibold;
   }
@@ -159,8 +159,8 @@ export default {
      bg-gray-50 p-2 rounded-md m-2 border shadow-sm;
   }
   @screen md {
-    width: 200px;
-    @apply inline-block border-none;
+    width: 250px;
+    @apply inline-block min-h-screen border-r-2 border-b-0 pr-8 mb-0;
     h2 {
       @apply font-bold text-4xl mb-8;
     }
@@ -178,7 +178,7 @@ export default {
 }
 .partners-list {
   @screen md {
-    width: calc(100% - 200px);
+    width: calc(100% - 250px);
   }
   @screen lg {
     @apply pl-12;

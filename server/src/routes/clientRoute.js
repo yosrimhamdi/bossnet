@@ -30,6 +30,13 @@ clientRouter
     provideAuthMiddleware,
     ensureAuthMiddleware,
     clientController.getTreeByClientId
+  )
+  .get(
+    "/children/:page",
+    clientValidators.getAuthClientChildren,
+    provideAuthMiddleware,
+    ensureAuthMiddleware,
+    clientController.getAuthClientChildren
   );
 
 module.exports = {

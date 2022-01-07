@@ -15,7 +15,7 @@ module.exports = (clientId) => [
   // remove unused fields
   {
     $unset: [
-      "cindId",
+      "cinId",
       "rib",
       "encryptedPassword",
       "isVerified",
@@ -37,7 +37,7 @@ module.exports = (clientId) => [
       ancestorsSize: 1,
     },
   },
-  // Limit children (pagination)
+  // Limit children
   {
     $limit: TreeChildsLimit,
   },

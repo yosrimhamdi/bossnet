@@ -8,53 +8,64 @@
         </h1>
         <small>Format d'affichage</small>
         <tabs-nav
-          v-model="treeShowFormat"
           :tabs="[
             {
-              id: 'tree',
               title: 'Arbre',
+              path: '/client/tree',
             },
             {
-              id: 'table',
               title: 'Tableau',
+              path: '/client/tree/table',
             },
           ]"
         />
       </div>
       <client-balance />
     </div>
-    <client-tree v-if="treeShowFormat == 'tree'" />
+    <nuxt-child />
   </section>
 </template>
 
 <script>
 import ClientBalance from "../../components/client/ClientBalance.vue";
-import ClientTree from "../../components/client/ClientTree.vue";
 import TabsNav from "../../components/utilities/TabsNav.vue";
+import { scrollToElement } from "../../utils/userInteractions";
 
 export default {
-  components: { TabsNav, ClientBalance, ClientTree },
-  data() {
+  head() {
     return {
-      treeShowFormat: "tree",
+      titleTemplate: `Espace client - Mon arbre | %s`,
     };
   },
+  components: { TabsNav, ClientBalance },
   computed: {
     client() {
       return this.$store.state.client;
     },
+  },
+  mounted() {
+    scrollToElement(document.scrollingElement);
   },
 };
 </script>
 
 <style lang="scss" scoped>
 .tree-header {
-  @apply flex items-end w-full;
+  @apply flex flex-col-reverse items-end w-full;
+  @screen lg {
+    @apply flex-row;
+  }
   .info {
-    @apply w-4/6 pr-4;
+    @apply w-full;
+    @screen lg {
+      @apply w-4/6 pr-4;
+    }
   }
   h1 {
-    @apply text-4xl font-bold;
+    @apply text-3xl font-bold;
+    @screen md {
+      @apply text-4xl font-bold;
+    }
   }
   small {
     @apply block text-base font-semibold mt-8 text-gray-400;

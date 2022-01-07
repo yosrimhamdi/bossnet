@@ -52,10 +52,10 @@
 </template>
 
 <script>
-import API_ROUTES from "../../apiRoutes";
-import { scrollToElement } from "../../utils/userInteractions";
-import SpinnerLoading from "../utilities/SpinnerLoading.vue";
-import ClientTreeNode from "./ClientTreeNode.vue";
+import API_ROUTES from "../../../apiRoutes";
+import { scrollToElement } from "../../../utils/userInteractions";
+import SpinnerLoading from "../../../components/utilities/SpinnerLoading.vue";
+import ClientTreeNode from "../../../components/client/ClientTreeNode.vue";
 export default {
   components: { ClientTreeNode, SpinnerLoading },
   data() {
@@ -87,14 +87,16 @@ export default {
     },
   },
   methods: {
-    scrollTreeContainerToTopCenter() {
+    scrollTreeContainerToCenter() {
       const { treeContainer } = this.$refs;
       this.$nextTick(() => {
-        scrollToElement(treeContainer);
         const scrollToXCenter =
           treeContainer.scrollWidth / 2 - treeContainer.clientWidth / 2;
         treeContainer.scrollTo(scrollToXCenter, 0);
       });
+    },
+    scrollToTopContainer() {
+      scrollToElement(this.$refs.treeContainer);
     },
     async fetchAndSetClientsTreeByClientId(clientId) {
       this.isLoading = true;
@@ -103,16 +105,17 @@ export default {
       );
       this.clients = response.clients;
       this.isLoading = false;
+      this.scrollTreeContainerToCenter();
     },
     async fetchPreviousTree() {
-      this.scrollTreeContainerToTopCenter();
+      this.scrollToTopContainer();
       // pop last parent and get its id
       const lastParentId = this.lastParents.pop()._id;
       // fetch by last parent
       await this.fetchAndSetClientsTreeByClientId(lastParentId);
     },
     async fetchMore(client) {
-      this.scrollTreeContainerToTopCenter();
+      this.scrollToTopContainer();
       // push last tree parent
       this.lastParents.push(this.clients[0]);
       // fetch new tree

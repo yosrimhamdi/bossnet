@@ -86,10 +86,18 @@ const getTreeByClientId = createJoiValidatorMiddleware(
   "params"
 );
 
+const getAuthClientChildren = createJoiValidatorMiddleware(
+  Joi.object({
+    page: Joi.number().min(1),
+  }),
+  "params"
+);
+
 module.exports = {
   signUp,
   signIn,
   resetPasswordRequest,
   resetPassword,
   getTreeByClientId,
+  getAuthClientChildren,
 };

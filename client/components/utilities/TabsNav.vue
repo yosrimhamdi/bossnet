@@ -1,21 +1,20 @@
 <template>
   <div class="tabs-nav">
-    <button
-      v-for="tab in tabs"
-      :key="tab.id"
-      @click="$emit('input', tab.id)"
-      :class="{ active: tab.id == value }"
+    <router-link
+      v-for="(tab, i) in tabs"
+      :key="i"
+      :to="tab.path"
+      :class="{ active: $route.path == tab.path }"
     >
       {{ tab.title }}
-    </button>
+    </router-link>
   </div>
 </template>
 
 <script>
 export default {
   props: {
-    value: String, // selected id (pass by v-model)
-    tabs: Array, // {id, title}
+    tabs: Array, // {title, path}
   },
 };
 </script>
@@ -36,7 +35,7 @@ export default {
     }
   }
 }
-button {
+a {
   top: 2px;
   @apply block relative font-semibold pl-2 pr-6 py-2
   border-b-2 transition-colors;

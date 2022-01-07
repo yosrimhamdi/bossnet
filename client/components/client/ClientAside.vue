@@ -25,7 +25,7 @@
             <router-link
               to="/client/tree"
               class="btn flat start md no-sh"
-              :class="{ primary: $route.path == '/client/tree' }"
+              :class="{ primary: $route.path.startsWith('/client/tree') }"
             >
               <tree-icon class="left" />
               <span>Arbre bossnet</span></router-link
@@ -126,7 +126,7 @@ aside {
   height: 80px;
   @apply text-4xl font-extrabold text-primary 
   flex items-center justify-center
-  bg-primary-light rounded shadow-sm;
+  bg-primary-light rounded shadow-sm capitalize;
 }
 nav {
   @apply mt-14;

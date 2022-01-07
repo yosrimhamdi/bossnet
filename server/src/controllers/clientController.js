@@ -216,6 +216,19 @@ const getTreeByClientId = async (req, res) => {
   }
 };
 
+/*
+  params: {page}
+*/
+const getAuthClientChildren = async (req, res) => {
+  const clients = await clientService.getClientChildren(
+    req.client._id,
+    req.params.page
+  );
+  res.send({
+    clients,
+  });
+};
+
 module.exports = {
   signUp,
   signIn,
@@ -223,4 +236,5 @@ module.exports = {
   resetPasswordRequest,
   resetPassword,
   getTreeByClientId,
+  getAuthClientChildren,
 };
