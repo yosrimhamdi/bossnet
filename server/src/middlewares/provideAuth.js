@@ -8,9 +8,10 @@ module.exports = async (req, res, next) => {
 
   if (authToken && authToken.startsWith("Bearer ")) {
     try {
-      const client = await Client.findById(
-        jwtAuth.getClientIdFromJwt(authToken)
-      )
+      const client = await Client.findOne({
+        _id: jwtAuth.getClientIdFromJwt(authToken),
+        isVerified: true,
+      })
         .select([
           "-encryptedPassword",
           "-__v",

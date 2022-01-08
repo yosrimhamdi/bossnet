@@ -1,40 +1,20 @@
-// const Client = require("../../../models/Client");
 const mongoose = require("mongoose");
-const TreeChildsLimit = 8;
+
+const PAY_AMOUNT_BY_CHILD = 7.5; // 7.5 TND
 
 module.exports = (clientId) => [
-  // find client and his children
   {
     $match: {
-      $or: [
-        { _id: new mongoose.Types.ObjectId(clientId) },
-        { ancestors: new mongoose.Types.ObjectId(clientId) },
-      ],
+      _id: new mongoose.Types.ObjectId(clientId),
     },
   },
   // remove unused fields
   {
-    $unset: ["cinId", "rib", "encryptedPassword", "isPaid", "updatedAt"],
-  },
-  // sort children by ancestorsSize
-  // to make the left childs parallel to right childs
-  {
-    $addFields: {
-      ancestorsSize: {
-        $size: "$ancestors",
-      },
+    $project: {
+      _id: "$_id",
     },
   },
-  {
-    $sort: {
-      ancestorsSize: 1,
-    },
-  },
-  // Limit children
-  {
-    $limit: TreeChildsLimit,
-  },
-  // find leftChild and rightChild for each one
+  // find leftChild and rightChild to count children
   {
     $lookup: {
       from: "clients",
@@ -73,7 +53,7 @@ module.exports = (clientId) => [
       as: "rightChild",
     },
   },
-  // count left / right children for each one
+  // count left / right verified children for each one
   {
     $lookup: {
       from: "clients",
@@ -85,6 +65,7 @@ module.exports = (clientId) => [
       pipeline: [
         {
           $match: {
+            isVerified: true,
             $expr: {
               $or: [
                 {
@@ -115,6 +96,7 @@ module.exports = (clientId) => [
       pipeline: [
         {
           $match: {
+            isVerified: true,
             $expr: {
               $or: [
                 {
@@ -134,10 +116,6 @@ module.exports = (clientId) => [
       as: "rightChildsCount",
     },
   },
-  // format result
-  {
-    $unset: ["leftChild", "rightChild", "ancestors"],
-  },
   {
     $set: {
       leftChildsCount: {
@@ -155,6 +133,52 @@ module.exports = (clientId) => [
           },
           0,
         ],
+      },
+    },
+  },
+  // calc total amount
+  {
+    $project: {
+      totalAmount: {
+        $multiply: [
+          { $min: ["$leftChildsCount", "$rightChildsCount"] },
+          PAY_AMOUNT_BY_CHILD * 2,
+        ],
+      },
+    },
+  },
+  // calc paid amount
+  {
+    $lookup: {
+      from: "clientpayments",
+      let: {
+        varId: "$_id",
+      },
+      pipeline: [
+        {
+          $match: {
+            isPaid: true,
+            $expr: {
+              $eq: ["$client", "$$varId"],
+            },
+          },
+        },
+        {
+          $group: {
+            _id: null,
+            amount: {
+              $sum: "$amount",
+            },
+          },
+        },
+      ],
+      as: "paidAmount",
+    },
+  },
+  {
+    $set: {
+      paidAmount: {
+        $ifNull: [{ $arrayElemAt: ["$paidAmount.amount", 0] }, 0],
       },
     },
   },

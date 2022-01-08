@@ -5,7 +5,7 @@ const resetPasswordRequest = require("./resetPasswordRequest");
 const resetPassword = require("./resetPassword");
 const getTreeByClientId = require("./getTreeByClientId");
 const getClientChildren = require("./getClientChildren");
-
+const getClientBalance = require("./getClientBalance");
 module.exports = {
   signUp,
   signIn,
@@ -14,4 +14,5 @@ module.exports = {
   exceptions,
   getTreeByClientId,
   getClientChildren,
+  getClientBalance,
 };

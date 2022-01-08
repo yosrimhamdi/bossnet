@@ -7,6 +7,7 @@ const {
 const handleEncryptedPasswordErrors = require("../utils/handleEncryptedPasswordErrors");
 const handlePasswordEncryption = require("../utils/handlePasswordEncryption");
 const handleUniqueEmailError = require("../utils/handleUniqueEmailError");
+const clientService = require("./../../../services/clientService");
 
 const preventParentAndDirectionUpdate = async (payload) => {
   const clientToUpdate = await Client.findById(payload._id);
@@ -53,5 +54,14 @@ module.exports = {
       handleUniqueEmailError(errors);
     }
     return res;
+  },
+  handleGetClientBalanceAction: async (req, res, data) => {
+    data.record.params.balance = await clientService.getClientBalance(
+      data.record.params._id
+    );
+    const record = data.record.toJSON(data.currentAdmin);
+    return {
+      record,
+    };
   },
 };
