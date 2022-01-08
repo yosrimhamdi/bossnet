@@ -100,7 +100,4 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.top-right {
-  @apply absolute top-0 right-0;
-}
 </style>

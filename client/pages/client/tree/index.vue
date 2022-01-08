@@ -15,7 +15,10 @@
         <template v-if="lastParents.length">
           <div class="parent">
             <div class="node bottom-line-dashed">
-              <h4>{{ lastParent.fullName }}</h4>
+              <h4>
+                {{ lastParent.profile.firstName }}
+                {{ lastParent.profile.lastName }}
+              </h4>
               <small>
                 <span class="left-text">{{ lastParent.leftChildsCount }} </span>
                 /
@@ -23,6 +26,8 @@
                   lastParent.rightChildsCount
                 }}</span>
               </small>
+
+              <client-actions-modal class="top-right" :client="lastParent" />
             </div>
             <div class="children">
               <div class="parent">
@@ -77,13 +82,7 @@ export default {
         };
     },
     lastParent() {
-      const lastParent = this.lastParents[this.lastParents.length - 1];
-      if (lastParent)
-        return {
-          fullName: `${lastParent.profile.firstName} ${lastParent.profile.lastName}`,
-          leftChildsCount: lastParent.leftChildsCount,
-          rightChildsCount: lastParent.rightChildsCount,
-        };
+      return this.lastParents[this.lastParents.length - 1];
     },
   },
   methods: {
@@ -170,7 +169,7 @@ export default {
   }
 
   .node {
-    --node-height: 96px;
+    --node-height: 112px;
     --node-width: 160px;
     height: var(--node-height);
     width: var(--node-width);
@@ -182,6 +181,23 @@ export default {
     }
     &.red-border {
       @apply border-red-500;
+    }
+    h4 {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      @apply font-semibold break-words;
+    }
+    small {
+      @apply font-semibold mt-2;
+      .left-text {
+        @apply text-blue-500;
+      }
+      .right-text {
+        @apply text-green-600;
+      }
     }
   }
   .node::before {
@@ -201,19 +217,6 @@ export default {
     }
   }
 
-  .node h4 {
-    @apply font-semibold;
-  }
-  .node small {
-    @apply font-semibold mt-2;
-    .left-text {
-      @apply text-blue-500;
-    }
-    .right-text {
-      @apply text-green-600;
-    }
-  }
-
   .parent > button {
     margin-top: 1px;
     @apply font-normal;
@@ -225,6 +228,9 @@ export default {
       @apply block absolute rounded-full border-l-2 border-dashed
      border-gray-400 top-full;
     }
+  }
+  .top-right {
+    @apply absolute top-0 right-0;
   }
 }
 </style>
