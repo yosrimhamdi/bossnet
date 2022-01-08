@@ -6,6 +6,8 @@ const resetPassword = require("./resetPassword");
 const getTreeByClientId = require("./getTreeByClientId");
 const getClientChildren = require("./getClientChildren");
 const getClientBalance = require("./getClientBalance");
+const getClientChildrenCount = require("./getClientChildrenCount");
+
 module.exports = {
   signUp,
   signIn,
@@ -15,4 +17,5 @@ module.exports = {
   getTreeByClientId,
   getClientChildren,
   getClientBalance,
+  getClientChildrenCount,
 };

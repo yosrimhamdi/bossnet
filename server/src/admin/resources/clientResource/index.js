@@ -7,7 +7,7 @@ const {
   handleBeforeCreateAction,
   handleBeforeUpdateAction,
   handleAfterSaveAction,
-  handleGetClientBalanceAction,
+  showHandler,
 } = require("./actions");
 const {
   CLIENT_CHILD_DIRECTION_CHOICES,
@@ -78,6 +78,15 @@ module.exports = {
       "profile.gender": {
         availableValues: CLIENT_PROFILE_GENDER_CHOICES,
       },
+      clientDetails: {
+        isVisible: {
+          list: false,
+          show: true,
+        },
+        components: {
+          show: adminBro.bundle("../components/clientDetails.jsx"),
+        },
+      },
     },
     actions: {
       new: {
@@ -89,23 +98,14 @@ module.exports = {
         before: handleBeforeUpdateAction,
         after: handleAfterSaveAction,
         isAccessible: hasPermission(CLIENT, "canModify"),
-        hideActionHeader: true,
       },
       delete: { isAccessible: hasPermission(CLIENT, "canDelete") },
       bulkDelete: { isAccessible: false },
       show: {
         isAccessible: hasPermission(CLIENT, "canView"),
-        handler: handleGetClientBalanceAction,
+        handler: showHandler,
       },
       list: { isAccessible: hasPermission(CLIENT, "canView") },
-      showClientBalance: {
-        // create a totally new action
-        label: "Voir solde",
-        actionType: "record",
-        icon: "Money",
-        component: adminBro.bundle("./../components/clientBalance.jsx"),
-        handler: handleGetClientBalanceAction,
-      },
     },
   },
 };

@@ -55,10 +55,12 @@ module.exports = {
     }
     return res;
   },
-  handleGetClientBalanceAction: async (req, res, data) => {
-    data.record.params.balance = await clientService.getClientBalance(
-      data.record.params._id
-    );
+  showHandler: async (req, res, data) => {
+    const clientId = data.record.params._id;
+    data.record.params.balance = await clientService.getClientBalance(clientId);
+    data.record.params.childrenCount =
+      await clientService.getClientChildrenCount(clientId);
+
     const record = data.record.toJSON(data.currentAdmin);
     return {
       record,
