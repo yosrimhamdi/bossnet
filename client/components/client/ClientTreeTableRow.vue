@@ -1,5 +1,5 @@
 <template>
-  <tr>
+  <tr :class="{ 'red-border': !client.isVerified }">
     <td>{{ fullName }}</td>
     <td>{{ client.email }}</td>
     <td class="left-text">{{ client.leftChildsCount }}</td>
@@ -33,6 +33,10 @@ export default {
 
 <style lang="scss" scoped>
 tr {
+  &.red-border {
+    @apply border-l;
+    border-left-color: rgb(239, 68, 68);
+  }
   td {
     @apply px-4 py-6 text-left font-normal;
     @apply text-sm select-text;

@@ -180,6 +180,9 @@ export default {
     &.bottom-line-dashed::before {
       @apply border-dashed;
     }
+    &.red-border {
+      @apply border-red-500;
+    }
   }
   .node::before {
     content: "";

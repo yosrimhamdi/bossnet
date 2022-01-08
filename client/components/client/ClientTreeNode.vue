@@ -1,6 +1,6 @@
 <template>
   <div class="parent">
-    <div class="node">
+    <div class="node" :class="{ 'red-border': !currentClient.isVerified }">
       <h4>{{ fullName }}</h4>
       <small>
         <span class="left-text">{{ currentClient.leftChildsCount }}</span>

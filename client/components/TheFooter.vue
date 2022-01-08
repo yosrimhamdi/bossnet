@@ -48,7 +48,7 @@
         <h3>Clients</h3>
         <ul>
           <li>
-            <router-link to="/client">Mon compte</router-link>
+            <router-link to="/client/tree">Mon compte</router-link>
           </li>
           <li>
             <router-link to="/signup">S'inscrire</router-link>

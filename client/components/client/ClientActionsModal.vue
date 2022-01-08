@@ -14,6 +14,7 @@
               <p>{{ client.email }}</p>
             </div>
             <p><strong>ID:</strong> {{ client._id }}</p>
+            <!-- <small></small> -->
           </div>
           <div class="right-side">
             <small>
@@ -34,7 +35,7 @@
           class="action"
           >Facebook de {{ fullName }}</a
         >
-        <template v-if="hasEmptyChild">
+        <template v-if="hasEmptyChild && client.isVerified">
           <button class="action" @click="copySignUpLink">
             <span v-if="linkIsCopied">Le lien est copié!</span>
             <span v-else>Copier le lien d’inscription</span>

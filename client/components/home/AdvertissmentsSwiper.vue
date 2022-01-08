@@ -27,7 +27,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .ads-swiper {
-  @apply block bg-gray-300 relative w-full overflow-hidden rounded;
+  @apply block relative w-full overflow-hidden rounded;
 }
 .ad {
   @apply w-full min-w-full overflow-hidden;
