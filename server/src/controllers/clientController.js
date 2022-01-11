@@ -12,6 +12,7 @@ const {
   CLIENT_PASSWORD_RESET_DOES_NOT_EXISTS_ERROR_MSG,
   CLIENT_PASSWORD_RESET_EXPIRED_ERROR_MSG,
   GET_CLIENT_TREE_NOT_ALLOWED_ERROR_MSG,
+  CLIENT_UPDATE_NOT_ALLOWED_ERROR_MSG,
 } = require("./configs/responseErrorsMsgs");
 
 /*
@@ -229,6 +230,60 @@ const getAuthClientChildren = async (req, res) => {
   });
 };
 
+/*
+  body: {
+    password,
+    firstName,
+    lastName,
+    gender,
+    mobilePhone,
+    facebookAccountLink,
+    cinId,
+    rib
+  }
+*/
+const updateData = async (req, res) => {
+  try {
+    await clientService.updateData(req.client._id, req.body);
+    res.status(204).send();
+  } catch (err) {
+    if (err instanceof clientService.exceptions.ClientUpdateNotAllowedError) {
+      res.status(403).send({
+        error: CLIENT_UPDATE_NOT_ALLOWED_ERROR_MSG,
+      });
+    } else {
+      console.log(err);
+      res.status(500).send({
+        error: UNEXPECTED_ERROR_MSG,
+      });
+    }
+  }
+};
+
+/*
+  body: {
+    currentPassword,
+    newPassword
+  }
+*/
+const updatePassword = async (req, res) => {
+  try {
+    await clientService.updatePassword(req.client._id, req.body);
+    res.status(204).send();
+  } catch (err) {
+    if (err instanceof clientService.exceptions.ClientUpdateNotAllowedError) {
+      res.status(403).send({
+        error: CLIENT_UPDATE_NOT_ALLOWED_ERROR_MSG,
+      });
+    } else {
+      console.log(err);
+      res.status(500).send({
+        error: UNEXPECTED_ERROR_MSG,
+      });
+    }
+  }
+};
+
 module.exports = {
   signUp,
   signIn,
@@ -237,4 +292,6 @@ module.exports = {
   resetPassword,
   getTreeByClientId,
   getAuthClientChildren,
+  updateData,
+  updatePassword,
 };

@@ -25,7 +25,7 @@
             <router-link
               to="/client/tree"
               class="btn flat start md no-sh"
-              :class="{ primary: $route.path.startsWith('/client/tree') }"
+              :class="{ light: $route.path.startsWith('/client/tree') }"
             >
               <tree-icon class="left" />
               <span>Arbre bossnet</span></router-link
@@ -35,7 +35,7 @@
             <router-link
               to="/client/payments"
               class="btn flat start md no-sh"
-              :class="{ primary: $route.path == '/client/payments' }"
+              :class="{ light: $route.path == '/client/payments' }"
             >
               <pocket-icon class="left" />
               <span>Mon solde</span></router-link
@@ -45,7 +45,7 @@
             <router-link
               to="/client/settings"
               class="btn flat start md no-sh"
-              :class="{ primary: $route.path == '/client/settings' }"
+              :class="{ light: $route.path.startsWith('/client/settings') }"
             >
               <settings-icon class="left" />
               <span>Paramètres</span></router-link

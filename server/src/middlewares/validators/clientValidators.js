@@ -93,6 +93,51 @@ const getAuthClientChildren = createJoiValidatorMiddleware(
   "params"
 );
 
+const updateData = createJoiValidatorMiddleware(
+  Joi.object({
+    firstName: Joi.string().trim().min(2).max(50).required(),
+    lastName: Joi.string().trim().min(2).max(50).required(),
+    mobilePhone: Joi.string()
+      .replace(" ", "")
+      .replace("+216", "")
+      .regex(VALID_PHONE_NUMBER_REGEX)
+      .required(),
+    facebookAccountLink: Joi.string().uri({ allowRelative: true }).allow(""),
+    gender: Joi.string()
+      .valid(...CLIENT_PROFILE_GENDER_CHOICES.map(({ value }) => value))
+      .required(),
+    cinId: Joi.string()
+      .length(8)
+      .pattern(/^[0-9]+$/)
+      .required(),
+    rib: Joi.string()
+      .replace(" ", "")
+      .length(20)
+      .pattern(/^[0-9]+$/)
+      .allow(""),
+    password: Joi.string()
+      .min(8)
+      .max(128)
+      .regex(/^[\S]+$/)
+      .required(),
+  })
+);
+
+const updatePassword = createJoiValidatorMiddleware(
+  Joi.object({
+    currentPassword: Joi.string()
+      .min(8)
+      .max(128)
+      .regex(/^[\S]+$/)
+      .required(),
+    newPassword: Joi.string()
+      .min(8)
+      .max(128)
+      .regex(/^[\S]+$/)
+      .required(),
+  })
+);
+
 module.exports = {
   signUp,
   signIn,
@@ -100,4 +145,6 @@ module.exports = {
   resetPassword,
   getTreeByClientId,
   getAuthClientChildren,
+  updateData,
+  updatePassword,
 };

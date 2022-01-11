@@ -91,4 +91,21 @@ export default {
     content: `La réinitialisation de votre mot de passe a été effectuée avec succès,
        vous pouvez maintenant vous connecter avec votre nouveau mot de passe.`,
   },
+  // client update
+  CLIENT_UPDATE_NOT_ALLOWED_ERROR: {
+    type: "error",
+    title: "Erreur",
+    content:
+      "Mot de passe actuel incorrect, veuillez vérifier vos données saisies.",
+  },
+  CLIENT_UPDATE_DATA_SUCCESS: {
+    type: "success",
+    title: "Succès",
+    content: "Vos informations personnelles ont été enregistrées.",
+  },
+  CLIENT_UPDATE_PASSWORD_SUCCESS: {
+    type: "success",
+    title: "Succès",
+    content: "Mot de passe mis à jour avec succès.",
+  },
 };

@@ -3,7 +3,7 @@
     <div class="tree-header">
       <div class="info">
         <h1>
-          Bienvenu{{ client.profile.gender == "f" ? "e" : "" }},
+          Bienvenue,
           {{ client.profile.firstName }}!
         </h1>
         <small>Format d'affichage</small>

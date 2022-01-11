@@ -24,5 +24,7 @@ const API_ROUTES = {
   resetPassword: "/client/reset-password",
   getTreeByClientId: (clientId) => `/client/tree/${clientId}`,
   getAuthClientChildren: (page) => `/client/children/${page}`,
+  updateClientData: "/client/update/data",
+  updateClientPassword: "/client/update/password",
 };
 export default API_ROUTES;

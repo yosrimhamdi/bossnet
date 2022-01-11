@@ -5,6 +5,7 @@
       class="input"
       @input="(e) => $emit('input', e.target.value)"
       :name="name"
+      :value="value"
     >
       <option v-for="option in options" :key="option.id" :value="option.id">
         {{ option.value }}

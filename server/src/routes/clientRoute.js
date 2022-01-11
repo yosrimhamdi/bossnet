@@ -37,6 +37,20 @@ clientRouter
     provideAuthMiddleware,
     ensureAuthMiddleware,
     clientController.getAuthClientChildren
+  )
+  .put(
+    "/update/data",
+    clientValidators.updateData,
+    provideAuthMiddleware,
+    ensureAuthMiddleware,
+    clientController.updateData
+  )
+  .put(
+    "/update/password",
+    clientValidators.updatePassword,
+    provideAuthMiddleware,
+    ensureAuthMiddleware,
+    clientController.updatePassword
   );
 
 module.exports = {

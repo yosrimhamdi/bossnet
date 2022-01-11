@@ -25,7 +25,7 @@
           <span>Mon solde</span></router-link
         >
         <hr />
-        <router-link to="/client" class="drop-btn">
+        <router-link to="/client/settings" class="drop-btn">
           <settings-icon />
           Paramètres</router-link
         >

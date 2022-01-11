@@ -13,7 +13,11 @@
 </template>
 
 <script>
+import ClientAside from "../components/client/ClientAside.vue";
 export default {
+  components: {
+    ClientAside,
+  },
   middleware: "authenticated",
   head() {
     return {

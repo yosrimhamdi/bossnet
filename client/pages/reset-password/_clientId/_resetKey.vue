@@ -86,7 +86,7 @@ export default {
   validate({ params: { clientId, resetKey } }) {
     return validateId(clientId) && validatePasswordResetKey(resetKey);
   },
-  components: { TextInput, SpinnerLoading, SpinnerLoading },
+  components: { TextInput, SpinnerLoading },
   mixins: [validationMixin],
   data() {
     return {
