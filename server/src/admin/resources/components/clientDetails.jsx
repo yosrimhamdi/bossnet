@@ -23,15 +23,18 @@ const clientDetails = ({ record: { params } }) => {
       <ValueGroup label="Solde">
         <Section marginBottom={18}>
           <ValueGroup
-            value={balance.totalAmount + " TND"}
+            value={balance.totalAmount.toLocaleString() + " TND"}
             label="Montant total"
           />
           <ValueGroup
-            value={balance.paidAmount + " TND"}
+            value={balance.paidAmount.toLocaleString() + " TND"}
             label="Montant payé"
           />
           <ValueGroup
-            value={balance.totalAmount - balance.paidAmount + " TND"}
+            value={
+              (balance.totalAmount - balance.paidAmount).toLocaleString() +
+              " TND"
+            }
             label="Montant impayé"
           />
         </Section>
