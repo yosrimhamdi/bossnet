@@ -9,8 +9,8 @@
     </router-link>
 
     <router-link
-      v-for="(page, i) in ranges[0]"
-      :key="i"
+      v-for="page in ranges[0]"
+      :key="page"
       :to="getToLink(page)"
       class="btn sq border bg-gray-100 mr-2"
       :class="{ light: isCurrentPage(page) }"
@@ -19,8 +19,8 @@
     <template v-if="ranges[1]">
       <span>...</span>
       <router-link
-        v-for="(page, i) in ranges[1]"
-        :key="i"
+        v-for="page in ranges[1]"
+        :key="page"
         :to="getToLink(page)"
         class="btn sq border bg-gray-100 mr-2"
         :class="{ light: isCurrentPage(page) }"
@@ -30,8 +30,8 @@
     <template v-if="ranges[2]">
       <span>...</span>
       <router-link
-        v-for="(page, i) in ranges[2]"
-        :key="i"
+        v-for="page in ranges[2]"
+        :key="page"
         :to="getToLink(page)"
         class="btn sq border bg-gray-100 mr-2"
         :class="{ light: isCurrentPage(page) }"

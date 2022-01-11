@@ -108,4 +108,8 @@ export default {
     title: "Succès",
     content: "Mot de passe mis à jour avec succès.",
   },
+  // UNAUTHORIZED_AUTH_ERROR: {
+  //   type: "info",
+  //   content: "Votre session a expiré, veuillez vous reconnecter!",
+  // },
 };

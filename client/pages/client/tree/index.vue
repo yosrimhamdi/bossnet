@@ -26,7 +26,6 @@
                   lastParent.rightChildsCount
                 }}</span>
               </small>
-
               <client-actions-modal class="top-right" :client="lastParent" />
             </div>
             <div class="children">
@@ -61,8 +60,9 @@ import API_ROUTES from "../../../apiRoutes";
 import { scrollToElement } from "../../../utils/userInteractions";
 import SpinnerLoading from "../../../components/utilities/SpinnerLoading.vue";
 import ClientTreeNode from "../../../components/client/ClientTreeNode.vue";
+import ClientActionsModal from "../../../components/client/ClientActionsModal.vue";
 export default {
-  components: { ClientTreeNode, SpinnerLoading },
+  components: { ClientTreeNode, SpinnerLoading, ClientActionsModal },
   data() {
     return {
       isLoading: true,
@@ -188,7 +188,8 @@ export default {
       -webkit-box-orient: vertical;
       text-overflow: ellipsis;
       overflow: hidden;
-      @apply font-semibold break-words;
+
+      @apply font-semibold max-w-full break-words;
     }
     small {
       @apply font-semibold mt-2;

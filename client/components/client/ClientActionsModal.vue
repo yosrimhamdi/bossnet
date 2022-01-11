@@ -107,7 +107,7 @@ export default {
   @apply border-b border-dashed pb-4
     flex items-center flex-wrap mb-2;
   .left-side {
-    @apply w-full;
+    @apply relative w-full;
     @screen md {
       @apply w-2/3;
     }
@@ -118,18 +118,18 @@ export default {
       @apply w-1/3 text-center mt-0;
     }
     small {
-      @apply text-xl;
+      @apply text-xl max-w-full break-words;
     }
   }
   p {
-    @apply text-sm;
+    @apply text-sm max-w-full break-words;
   }
   & > * {
     @apply block;
   }
 }
 h3 {
-  @apply text-2xl font-bold;
+  @apply text-2xl font-bold max-w-full break-words;
 }
 .action {
   @apply block w-full border-b py-3 px-2 text-sm font-semibold text-left;
