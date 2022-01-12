@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
-
-const PAY_AMOUNT_BY_CHILD = 7.5; // 7.5 TND
+const { AMOUNT_TO_PAY_BY_CHILD } = require("./configs");
 
 module.exports = (clientId) => [
   {
@@ -142,43 +141,8 @@ module.exports = (clientId) => [
       totalAmount: {
         $multiply: [
           { $min: ["$leftChildsCount", "$rightChildsCount"] },
-          PAY_AMOUNT_BY_CHILD * 2,
+          AMOUNT_TO_PAY_BY_CHILD * 2,
         ],
-      },
-    },
-  },
-  // calc paid amount
-  {
-    $lookup: {
-      from: "clientpayments",
-      let: {
-        varId: "$_id",
-      },
-      pipeline: [
-        {
-          $match: {
-            isPaid: true,
-            $expr: {
-              $eq: ["$client", "$$varId"],
-            },
-          },
-        },
-        {
-          $group: {
-            _id: null,
-            amount: {
-              $sum: "$amount",
-            },
-          },
-        },
-      ],
-      as: "paidAmount",
-    },
-  },
-  {
-    $set: {
-      paidAmount: {
-        $ifNull: [{ $arrayElemAt: ["$paidAmount.amount", 0] }, 0],
       },
     },
   },

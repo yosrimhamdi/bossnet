@@ -4,7 +4,7 @@ const advertissmentResource = require("./advertissmentResource");
 const clientResource = require("./clientResource");
 const contactResource = require("./contactResource");
 const customPageResource = require("./customPageResource");
-const clientEmailVerificationResource = require("./clientEmailVerificationResource");
+// const clientEmailVerificationResource = require("./clientEmailVerificationResource");
 const clientPasswordResetResource = require("./clientPasswordResetResource");
 const clientPaymentResource = require("./clientPaymentResource");
 const categoryResource = require("./categoryResource");
@@ -12,20 +12,19 @@ const partnerResource = require("./partnerResource");
 const partnerOfferResource = require("./partnerOfferResource");
 
 module.exports = [
-    customPageResource,
-    contactResource,
-    advertissmentResource,
+  customPageResource,
+  contactResource,
+  advertissmentResource,
 
-    partnerResource,
-    partnerOfferResource,
-    categoryResource,
+  partnerResource,
+  partnerOfferResource,
+  categoryResource,
 
+  clientResource,
+  clientPaymentResource,
+  //clientEmailVerificationResource,
+  clientPasswordResetResource,
 
-    clientResource,
-    clientPaymentResource,
-    clientEmailVerificationResource,
-    clientPasswordResetResource,
-
-    adminResource,
-    adminRoleResource,
+  adminResource,
+  adminRoleResource,
 ];

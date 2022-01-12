@@ -6,42 +6,44 @@ const defaultOptions = require("./configs/defaultOptions");
 const { CLIENT_GROUP } = require("./configs/navigationGroups");
 const timestampsProperties = require("./configs/timestampsProperties");
 
-
 module.exports = {
-    resource: ClientPayment,
-    options: {
-        ...defaultOptions,
-        navigation: CLIENT_GROUP,
-        listProperties: [
-            "client",
-            "amount",
-            "paymentMethod",
-            "isPaid",
-            "createdAt"
-        ],
-        properties: {
-            ...timestampsProperties,
-            _id: {
-                isVisible: {
-                    list: false,
-                    show: true,
-                    filter: true
-                }
-            },
-            paymentMethod: {
-                availableValues: CLIENT_PAYMENT_METHOD_CHOICES
-            },
+  resource: ClientPayment,
+  options: {
+    ...defaultOptions,
+    navigation: CLIENT_GROUP,
+    listProperties: [
+      "client",
+      "amount",
+      "paymentMethod",
+      "isPaid",
+      "createdAt",
+    ],
+    properties: {
+      ...timestampsProperties,
+      _id: {
+        isVisible: {
+          list: false,
+          show: true,
+          filter: true,
         },
-        actions: {
-            new: { isAccessible: hasPermission(CLIENT_PAYMENT, "canCreate") },
-            edit: { isAccessible: hasPermission(CLIENT_PAYMENT, "canModify") },
-            delete: { isAccessible: hasPermission(CLIENT_PAYMENT, "canDelete") },
-            bulkDelete: { isAccessible: hasPermission(CLIENT_PAYMENT, "canDelete") },
-            show: {
-                isAccessible: hasPermission(CLIENT_PAYMENT, "canView"),
-                showInDrawer: true
-            },
-            list: { isAccessible: hasPermission(CLIENT_PAYMENT, "canView") },
-        }
-    }
-}
+      },
+      paymentMethod: {
+        availableValues: CLIENT_PAYMENT_METHOD_CHOICES,
+      },
+      note: {
+        type: "textarea",
+      },
+    },
+    actions: {
+      new: { isAccessible: hasPermission(CLIENT_PAYMENT, "canCreate") },
+      edit: { isAccessible: hasPermission(CLIENT_PAYMENT, "canModify") },
+      delete: { isAccessible: hasPermission(CLIENT_PAYMENT, "canDelete") },
+      bulkDelete: { isAccessible: hasPermission(CLIENT_PAYMENT, "canDelete") },
+      show: {
+        isAccessible: hasPermission(CLIENT_PAYMENT, "canView"),
+        showInDrawer: true,
+      },
+      list: { isAccessible: hasPermission(CLIENT_PAYMENT, "canView") },
+    },
+  },
+};

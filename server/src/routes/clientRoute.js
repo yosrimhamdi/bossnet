@@ -24,6 +24,21 @@ clientRouter
     clientValidators.resetPassword,
     clientController.resetPassword
   )
+
+  .put(
+    "/update/data",
+    clientValidators.updateData,
+    provideAuthMiddleware,
+    ensureAuthMiddleware,
+    clientController.updateData
+  )
+  .put(
+    "/update/password",
+    clientValidators.updatePassword,
+    provideAuthMiddleware,
+    ensureAuthMiddleware,
+    clientController.updatePassword
+  )
   .get(
     "/tree/:clientId",
     clientValidators.getTreeByClientId,
@@ -38,19 +53,11 @@ clientRouter
     ensureAuthMiddleware,
     clientController.getAuthClientChildren
   )
-  .put(
-    "/update/data",
-    clientValidators.updateData,
+  .get(
+    "/balance",
     provideAuthMiddleware,
     ensureAuthMiddleware,
-    clientController.updateData
-  )
-  .put(
-    "/update/password",
-    clientValidators.updatePassword,
-    provideAuthMiddleware,
-    ensureAuthMiddleware,
-    clientController.updatePassword
+    clientController.getAuthClientBalance
   );
 
 module.exports = {

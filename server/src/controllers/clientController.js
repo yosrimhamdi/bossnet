@@ -193,44 +193,6 @@ const resetPassword = async (req, res) => {
 };
 
 /*
-  params: {clientId}
-*/
-const getTreeByClientId = async (req, res) => {
-  try {
-    const clients = await clientService.getTreeByClientId(
-      req.params.clientId,
-      req.client._id
-    );
-    res.send({
-      clients,
-    });
-  } catch (err) {
-    if (err instanceof clientService.exceptions.GetClientTreeNotAllowedError) {
-      res.status(403).send({
-        error: GET_CLIENT_TREE_NOT_ALLOWED_ERROR_MSG,
-      });
-    } else {
-      res.status(500).send({
-        error: UNEXPECTED_ERROR_MSG,
-      });
-    }
-  }
-};
-
-/*
-  params: {page}
-*/
-const getAuthClientChildren = async (req, res) => {
-  const clients = await clientService.getClientChildren(
-    req.client._id,
-    req.params.page
-  );
-  res.send({
-    clients,
-  });
-};
-
-/*
   body: {
     password,
     firstName,
@@ -284,6 +246,49 @@ const updatePassword = async (req, res) => {
   }
 };
 
+/*
+  params: {clientId}
+*/
+const getTreeByClientId = async (req, res) => {
+  try {
+    const clients = await clientService.getTreeByClientId(
+      req.params.clientId,
+      req.client._id
+    );
+    res.send({
+      clients,
+    });
+  } catch (err) {
+    if (err instanceof clientService.exceptions.GetClientTreeNotAllowedError) {
+      res.status(403).send({
+        error: GET_CLIENT_TREE_NOT_ALLOWED_ERROR_MSG,
+      });
+    } else {
+      res.status(500).send({
+        error: UNEXPECTED_ERROR_MSG,
+      });
+    }
+  }
+};
+
+/*
+  params: {page}
+*/
+const getAuthClientChildren = async (req, res) => {
+  const clients = await clientService.getClientChildren(
+    req.client._id,
+    req.params.page
+  );
+  res.send({
+    clients,
+  });
+};
+
+const getAuthClientBalance = async (req, res) => {
+  const balance = await clientService.getClientBalance(req.client._id);
+  res.send({ balance });
+};
+
 module.exports = {
   signUp,
   signIn,
@@ -294,4 +299,5 @@ module.exports = {
   getAuthClientChildren,
   updateData,
   updatePassword,
+  getAuthClientBalance,
 };

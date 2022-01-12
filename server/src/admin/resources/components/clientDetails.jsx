@@ -4,7 +4,6 @@ import { Header, Box, ValueGroup, Section } from "@admin-bro/design-system";
 const clientDetails = ({ record: { params } }) => {
   const balance = params["balance"];
   const childrenCount = params["childrenCount"];
-  console.log(childrenCount);
 
   return (
     <>
@@ -31,10 +30,7 @@ const clientDetails = ({ record: { params } }) => {
             label="Montant payé"
           />
           <ValueGroup
-            value={
-              (balance.totalAmount - balance.paidAmount).toLocaleString() +
-              " TND"
-            }
+            value={balance.unpaidAmount.toLocaleString() + " TND"}
             label="Montant impayé"
           />
         </Section>
