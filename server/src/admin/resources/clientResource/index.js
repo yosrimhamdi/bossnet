@@ -98,6 +98,7 @@ module.exports = {
         before: handleBeforeUpdateAction,
         after: handleAfterSaveAction,
         isAccessible: hasPermission(CLIENT, "canModify"),
+        hideActionHeader: true,
       },
       delete: { isAccessible: hasPermission(CLIENT, "canDelete") },
       bulkDelete: { isAccessible: false },
