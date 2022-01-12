@@ -129,6 +129,7 @@ module.exports = {
       partner: "Partenaire",
       uploadImage: "Image",
       relatedOffers: "Offres similaires",
+      note: "Remarques",
     },
     messages: {
       successfullyBulkDeleted: "{{count}} enregistrement supprimés avec succès",
