@@ -1,5 +1,19 @@
 // All models enums ( choices label )
 
+const {
+  ADMIN_ROLE,
+  ADMIN,
+  ADVERTISSMENT,
+  CONTACT,
+  CUSTOM_PAGE,
+  CLIENT,
+  CLIENT_PASSWORD_RESET,
+  CLIENT_PAYMENT,
+  CATEGORY,
+  PARTNER,
+  PARTNER_OFFER,
+} = require("./collectionsNames");
+
 module.exports = {
   // ads home page positions
   AD_POSITION_CHOICES: [
@@ -25,5 +39,18 @@ module.exports = {
     { value: "1", label: "Platinium" },
     { value: "2", label: "Gold" },
     { value: "3", label: "Silver" },
+  ],
+  ADMIN_PERMISSION_COLLECTION_CHOICES: [
+    { value: ADMIN, label: "Administrateurs" },
+    { value: ADMIN_ROLE, label: "Rôles de l'administration" },
+    { value: ADVERTISSMENT, label: "Publicités" },
+    { value: CONTACT, label: "Contactes" },
+    { value: CUSTOM_PAGE, label: "Pages personnalisées" },
+    { value: CLIENT, label: "Clients" },
+    { value: CLIENT_PASSWORD_RESET, label: "Réinitialisation du mot de passe" },
+    { value: CLIENT_PAYMENT, label: "Paiement des clients" },
+    { value: CATEGORY, label: "Catégories" },
+    { value: PARTNER, label: "Partenaires" },
+    { value: PARTNER_OFFER, label: "Offres" },
   ],
 };

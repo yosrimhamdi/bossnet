@@ -98,7 +98,11 @@ module.exports = {
         before: handleBeforeUpdateAction,
         after: handleAfterSaveAction,
         isAccessible: hasPermission(CLIENT, "canModify"),
-        hideActionHeader: true,
+        handler: async (req, res, data) => {
+          if (req.method == "get") {
+            return await showHandler(req, res, data);
+          }
+        },
       },
       delete: { isAccessible: hasPermission(CLIENT, "canDelete") },
       bulkDelete: { isAccessible: false },
