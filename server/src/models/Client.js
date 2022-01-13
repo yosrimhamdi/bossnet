@@ -149,6 +149,11 @@ clientSchema.post("findOneAndRemove", async function (doc) {
   await ClientPasswordReset.deleteMany({ client: doc._id });
 });
 
+clientSchema.index({ parent: 1 });
+clientSchema.index({ ancestors: 1 });
+clientSchema.index({ direction: 1 });
+
 const Client = mongoose.model(CLIENT, clientSchema);
+Client.createIndexes(() => console.log("Client indexes done!"));
 
 module.exports = Client;
