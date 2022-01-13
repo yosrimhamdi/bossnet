@@ -1,5 +1,5 @@
 const customPageService = require("../services/customPageService");
-const responseErrorsMsgs = require("./configs/responseErrorsMsgs");
+const responseErrorsMsgs = require("../config/responseErrorsMsgs");
 
 /*
    prams: [customPageId]

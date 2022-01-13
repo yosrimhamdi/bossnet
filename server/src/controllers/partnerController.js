@@ -1,5 +1,5 @@
 const partnerService = require("./../services/partnerService");
-const responseErrorsMsgs = require("./configs/responseErrorsMsgs");
+const responseErrorsMsgs = require("../config/responseErrorsMsgs");
 
 /*
     params: [categoryId, page]

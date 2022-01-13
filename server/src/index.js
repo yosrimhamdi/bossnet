@@ -1,4 +1,5 @@
 const express = require("express");
+require("express-async-errors");
 const loadMongoose = require("./loaders/mongoose");
 const loadExpress = require("./loaders/express");
 const loadAdminBro = require("./loaders/admin-bro");

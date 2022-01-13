@@ -6,6 +6,8 @@ const {
   CLIENT_ENDPOINT,
   REST_API_VERSION_1_ENDPOINT,
 } = require("../config");
+
+const unexpectedErrorsHandler = require("../middlewares/unexpectedErrorsHandler");
 const middlewares = require("../middlewares");
 const routes = require("../routes");
 const helmet = require("helmet");
@@ -43,4 +45,6 @@ module.exports = (expressApp) => {
   routes.map(({ path, route }) =>
     expressApp.use(`${REST_API_VERSION_1_ENDPOINT}${path}`, route)
   );
+
+  expressApp.use(unexpectedErrorsHandler);
 };

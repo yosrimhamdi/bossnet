@@ -13,7 +13,7 @@ const {
   CLIENT_PASSWORD_RESET_EXPIRED_ERROR_MSG,
   GET_CLIENT_TREE_NOT_ALLOWED_ERROR_MSG,
   CLIENT_UPDATE_NOT_ALLOWED_ERROR_MSG,
-} = require("./configs/responseErrorsMsgs");
+} = require("../config/responseErrorsMsgs");
 
 /*
     body: {

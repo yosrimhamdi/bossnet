@@ -2,7 +2,7 @@ const contactService = require("./../services/contactService");
 const {
   UNEXPECTED_ERROR_MSG,
   CAPTCHA_ERROR_MSG,
-} = require("./configs/responseErrorsMsgs");
+} = require("../config/responseErrorsMsgs");
 const validateGoogleRecaptchaToken = require("./utils/validateGoogleRecaptchaToken");
 
 /*

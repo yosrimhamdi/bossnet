@@ -1,5 +1,5 @@
 const categoryService = require("../services/categoryService");
-const responseErrorsMsgs = require("./configs/responseErrorsMsgs");
+const responseErrorsMsgs = require("../config/responseErrorsMsgs");
 
 const getAllCategories = async (req, res) => {
   const categories = await categoryService.getAllCategories();

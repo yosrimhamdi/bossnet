@@ -1,3 +1,4 @@
+const { INPUTS_ERROR_MSG } = require("../../../config/responseErrorsMsgs");
 const formatJoiErrors = require("../../../utils/formatJoiErrors");
 
 // Create a middleware based on joiSchema
@@ -13,6 +14,6 @@ module.exports =
     } catch (err) {
       res
         .status(400)
-        .json({ error: "INPUTS_ERROR", fieldsErrors: formatJoiErrors(err) });
+        .json({ error: INPUTS_ERROR_MSG, fieldsErrors: formatJoiErrors(err) });
     }
   };
