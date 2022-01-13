@@ -23,7 +23,7 @@ const notificationsPlugin = {
       content,
       autoHide = options.defaultAutoHide,
       hideDuration = options.defaultHideDuration,
-      deleteOldNotifications = false,
+      deleteOldNotifications = true,
     }) => {
       const id = Math.random();
       let notification;

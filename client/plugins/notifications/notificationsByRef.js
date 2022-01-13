@@ -110,7 +110,7 @@ export default {
   },
   AUTH_TOKEN_EXPIRED_INFO: {
     type: "info",
-    title: "Session a expiré",
+    title: "Session expiré",
     content: "Votre session a expiré, veuillez vous reconnecter!",
   },
 };
