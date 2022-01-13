@@ -3,11 +3,16 @@ export default function ({ $axios, redirect, app, store }, inject) {
     baseURL: process.env.apiEndpoint,
   });
 
-  api.onRequest(() => {
+  api.onRequest((config) => {
     // provide auth token to request
-    if (app.$auth.loggedIn) {
-      const token = app.$auth.strategy.token.get().split(" ")[1];
-      api.setToken(token, "Bearer");
+    try {
+      if (app.$auth.loggedIn) {
+        const token = app.$auth.strategy.token.get().split(" ")[1];
+        api.setToken(token, "Bearer");
+      }
+    } catch (err) {
+      // get token error ( throwed when client logout from another browser tab )
+      store.dispatch("logout", true);
     }
   });
 
@@ -19,9 +24,7 @@ export default function ({ $axios, redirect, app, store }, inject) {
     } else if (code == 403) {
       const { error } = err.response.data;
       if (error == "UNAUTHORIZED_AUTH_ERROR") {
-        await app.$auth.logout();
-        store.commit("setClient", null);
-        redirect("/signin");
+        store.dispatch("logout", true);
       }
     }
   });

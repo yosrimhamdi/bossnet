@@ -8,4 +8,14 @@ export default {
       await app.$auth.logout();
     }
   },
+  async logout({ commit }, isExpired = false) {
+    await this.$auth.logout();
+    commit("setClient", null);
+    if (isExpired) {
+      this.$router.push("/signin");
+      this.$notify({ messageRef: "AUTH_TOKEN_EXPIRED_INFO" });
+      return;
+    }
+    this.$router.push("/");
+  },
 };

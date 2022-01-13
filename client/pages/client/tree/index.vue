@@ -26,6 +26,9 @@
                   lastParent.rightChildsCount
                 }}</span>
               </small>
+              <div class="bottom">
+                {{ lastParent.ancestorsSize }}
+              </div>
               <client-actions-modal class="top-right" :client="lastParent" />
             </div>
             <div class="children">
@@ -177,7 +180,7 @@ export default {
     width: var(--node-width);
     @apply relative bg-white flex flex-col
    items-center justify-center text-center
-     rounded-lg shadow-md border border-dashed p-4;
+     rounded-lg shadow border border-dashed p-4;
     &.bottom-line-dashed::before {
       @apply border-dashed;
     }
@@ -234,6 +237,14 @@ export default {
   }
   .top-right {
     @apply absolute top-0 right-0;
+  }
+  .bottom {
+    height: 25px;
+    min-width: 25px;
+    bottom: -12.5px;
+    @apply absolute text-xs font-semibold 
+    rounded-full bg-white border text-primary
+    flex items-center justify-center;
   }
 }
 </style>

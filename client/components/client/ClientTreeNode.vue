@@ -7,7 +7,9 @@
         /
         <span class="right-text">{{ currentClient.rightChildsCount }}</span>
       </small>
-
+      <div class="bottom">
+        {{ currentClient.ancestorsSize }}
+      </div>
       <client-actions-modal class="top-right" :client="currentClient" />
     </div>
     <div class="children">

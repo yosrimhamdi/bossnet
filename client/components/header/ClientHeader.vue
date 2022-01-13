@@ -29,7 +29,10 @@
           <settings-icon />
           Paramètres</router-link
         >
-        <button @click="logout" class="drop-btn text-red-600">
+        <button
+          @click="$store.dispatch('logout')"
+          class="drop-btn text-red-600"
+        >
           <logout-icon />
           Déconnexion
         </button>
@@ -63,13 +66,6 @@ export default {
   computed: {
     client() {
       return this.$store.state.client;
-    },
-  },
-  methods: {
-    async logout() {
-      await this.$auth.logout();
-      this.$store.commit("setClient", null);
-      this.$router.push("/");
     },
   },
 };

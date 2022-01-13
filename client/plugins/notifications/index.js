@@ -3,7 +3,7 @@ import Vue from "vue";
 import notificationsByRef from "./notificationsByRef";
 
 const notificationsPlugin = {
-  install(Vue, options = { defaultHideDuration: 5000, defaultAutoHide: true }) {
+  install(Vue, options = { defaultHideDuration: 4000, defaultAutoHide: true }) {
     Vue.component("notifications", Notifications);
 
     Vue.prototype.$notifications = Vue.observable({ list: [] });
@@ -23,6 +23,7 @@ const notificationsPlugin = {
       content,
       autoHide = options.defaultAutoHide,
       hideDuration = options.defaultHideDuration,
+      deleteOldNotifications = false,
     }) => {
       const id = Math.random();
       let notification;
@@ -33,7 +34,11 @@ const notificationsPlugin = {
       } else {
         notification = { id, ...notificationsByRef.UNEXPECTED_ERROR };
       }
-      Vue.prototype.$notifications.list.unshift(notification);
+      if (deleteOldNotifications) {
+        Vue.prototype.$notifications.list = [notification];
+      } else {
+        Vue.prototype.$notifications.list.unshift(notification);
+      }
       if (autoHide) {
         // remove when duration done
         setTimeout(() => {
@@ -46,3 +51,6 @@ const notificationsPlugin = {
 };
 
 Vue.use(notificationsPlugin);
+export default (context, inject) => {
+  inject("notify", Vue.prototype.$notify);
+};

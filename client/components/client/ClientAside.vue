@@ -52,7 +52,10 @@
             >
           </li>
           <li>
-            <button class="btn flat start md no-sh logout-btn" @click="logout">
+            <button
+              class="btn flat start md no-sh logout-btn"
+              @click="$store.dispatch('logout')"
+            >
               <logout-icon class="left" />
               <span>Déconnexion</span>
             </button>
@@ -93,13 +96,7 @@ export default {
       return `${firstName} ${lastName}`;
     },
   },
-  methods: {
-    async logout() {
-      this.$router.push("/");
-      await this.$auth.logout();
-      this.$store.commit("setClient", null);
-    },
-  },
+  methods: {},
 };
 </script>
 
