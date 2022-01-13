@@ -89,9 +89,11 @@ export default {
     scrollTreeContainerToCenter() {
       const { treeContainer } = this.$refs;
       this.$nextTick(() => {
-        const scrollToXCenter =
-          treeContainer.scrollWidth / 2 - treeContainer.clientWidth / 2;
-        treeContainer.scrollTo(scrollToXCenter, 0);
+        if (treeContainer) {
+          const scrollToXCenter =
+            treeContainer.scrollWidth / 2 - treeContainer.clientWidth / 2;
+          treeContainer.scrollTo(scrollToXCenter, 0);
+        }
       });
     },
     scrollToTopContainer() {

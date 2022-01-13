@@ -289,6 +289,19 @@ const getAuthClientBalance = async (req, res) => {
   res.send({ balance });
 };
 
+/*
+  params: {page}
+*/
+const getAuthClientPaymentsHistory = async (req, res) => {
+  const payments = await clientService.getClientPaymentsHistory(
+    req.client._id,
+    req.params.page
+  );
+  res.send({
+    payments,
+  });
+};
+
 module.exports = {
   signUp,
   signIn,
@@ -300,4 +313,5 @@ module.exports = {
   updateData,
   updatePassword,
   getAuthClientBalance,
+  getAuthClientPaymentsHistory,
 };

@@ -58,6 +58,13 @@ clientRouter
     provideAuthMiddleware,
     ensureAuthMiddleware,
     clientController.getAuthClientBalance
+  )
+  .get(
+    "/payments-history/:page",
+    clientValidators.getAuthClientPaymentsHistory,
+    provideAuthMiddleware,
+    ensureAuthMiddleware,
+    clientController.getAuthClientPaymentsHistory
   );
 
 module.exports = {

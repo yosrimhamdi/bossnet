@@ -33,9 +33,9 @@
           </li>
           <li>
             <router-link
-              to="/client/payments"
+              to="/client/balance"
               class="btn flat start md no-sh"
-              :class="{ light: $route.path == '/client/payments' }"
+              :class="{ light: $route.path == '/client/balance' }"
             >
               <pocket-icon class="left" />
               <span>Mon solde</span></router-link

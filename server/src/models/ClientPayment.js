@@ -1,4 +1,5 @@
 const Joi = require("joi");
+const mongoosePaginate = require("mongoose-paginate-v2");
 const mongoose = require("mongoose");
 const createJoiMongooseFieldValidate = require("../utils/createJoiMongooseFieldValidate");
 const { CLIENT, CLIENT_PAYMENT } = require("./configs/collectionsNames");
@@ -26,6 +27,7 @@ const clientPaymentSchema = new mongoose.Schema(
     paymentMethod: {
       type: String,
       enum: CLIENT_PAYMENT_METHOD_CHOICES.map((item) => item.value),
+      required: [true, REQUIRED_ERROR_MSG],
     },
     paidDate: {
       type: Date,
@@ -38,6 +40,8 @@ const clientPaymentSchema = new mongoose.Schema(
   },
   { timestamps: true }
 );
+
+clientPaymentSchema.plugin(mongoosePaginate);
 
 const ClientPayment = mongoose.model(CLIENT_PAYMENT, clientPaymentSchema);
 

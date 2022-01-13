@@ -9,6 +9,7 @@ const getClientBalance = require("./getClientBalance");
 const getClientChildrenCount = require("./getClientChildrenCount");
 const updateData = require("./updateData");
 const updatePassword = require("./updatePassword");
+const getClientPaymentsHistory = require("./getClientPaymentsHistory");
 
 module.exports = {
   signUp,
@@ -22,4 +23,5 @@ module.exports = {
   getClientChildrenCount,
   updateData,
   updatePassword,
+  getClientPaymentsHistory,
 };

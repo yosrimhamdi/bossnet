@@ -11,7 +11,7 @@ const getClientTreeIsAllowed = async (clientId, authClientId) => {
 };
 
 module.exports = async (clientId, authClientId) => {
-  if (!getClientTreeIsAllowed(clientId, authClientId))
+  if (!(await getClientTreeIsAllowed(clientId, authClientId)))
     throw new GetClientTreeNotAllowedError();
 
   const clients = await Client.aggregate(

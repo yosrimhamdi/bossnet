@@ -22,9 +22,13 @@ const API_ROUTES = {
   signIn: "/client/signin",
   resetPasswordRequest: "/client/reset-password/request",
   resetPassword: "/client/reset-password",
-  getTreeByClientId: (clientId) => `/client/tree/${clientId}`,
-  getAuthClientChildren: (page) => `/client/children/${page}`,
+
   updateClientData: "/client/update/data",
   updateClientPassword: "/client/update/password",
+
+  getTreeByClientId: (clientId) => `/client/tree/${clientId}`,
+  getAuthClientChildren: (page) => `/client/children/${page}`,
+  getClientBalance: `/client/balance`,
+  getClientPaymentsHistory: (page) => `/client/payments-history/${page}`,
 };
 export default API_ROUTES;

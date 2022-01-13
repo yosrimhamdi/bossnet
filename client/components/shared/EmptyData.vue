@@ -3,7 +3,7 @@
     <img src="~/assets/images/empty.png" alt="404 error" />
     <div class="details">
       <slot />
-      <router-link to="/" class="btn md primary">
+      <router-link v-if="hasHomeLink" to="/" class="btn md primary">
         <arrow-right-icon class="left transform rotate-180" />
         Accueil
       </router-link>
@@ -14,6 +14,12 @@
 <script>
 import ArrowRightIcon from "../icons/ArrowRightIcon.vue";
 export default {
+  props: {
+    hasHomeLink: {
+      type: Boolean,
+      default: true,
+    },
+  },
   components: {
     ArrowRightIcon,
   },

@@ -138,6 +138,13 @@ const updatePassword = createJoiValidatorMiddleware(
   })
 );
 
+const getAuthClientPaymentsHistory = createJoiValidatorMiddleware(
+  Joi.object({
+    page: Joi.number().min(1),
+  }),
+  "params"
+);
+
 module.exports = {
   signUp,
   signIn,
@@ -147,4 +154,5 @@ module.exports = {
   getAuthClientChildren,
   updateData,
   updatePassword,
+  getAuthClientPaymentsHistory,
 };

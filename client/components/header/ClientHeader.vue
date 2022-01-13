@@ -20,7 +20,7 @@
           <tree-icon />
           <span>Mon arbre</span></router-link
         >
-        <router-link to="/client/solde" class="drop-btn">
+        <router-link to="/client/balance" class="drop-btn">
           <pocket-icon />
           <span>Mon solde</span></router-link
         >
