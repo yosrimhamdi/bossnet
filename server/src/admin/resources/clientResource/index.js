@@ -102,6 +102,7 @@ module.exports = {
           if (req.method == "get") {
             return await showHandler(req, res, data);
           }
+          return adminBro.ACTIONS.edit.handler(req, res, data);
         },
       },
       delete: { isAccessible: hasPermission(CLIENT, "canDelete") },

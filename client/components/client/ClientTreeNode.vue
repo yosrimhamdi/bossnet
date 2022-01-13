@@ -8,7 +8,7 @@
         <span class="right-text">{{ currentClient.rightChildsCount }}</span>
       </small>
       <div class="bottom">
-        {{ currentClient.ancestorsSize }}
+        {{ treeHeightPosition }}
       </div>
       <client-actions-modal class="top-right" :client="currentClient" />
     </div>
@@ -92,6 +92,13 @@ export default {
     },
     hasRightChilds() {
       return this.currentClient.rightChildsCount > 0;
+    },
+    treeHeightPosition() {
+      const { parent } = this.$store.state.client;
+      if (parent) {
+        return this.currentClient.ancestorsSize - parent.ancestorsSize - 1;
+      }
+      return this.currentClient.ancestorsSize;
     },
   },
   methods: {

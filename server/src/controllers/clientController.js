@@ -108,12 +108,6 @@ const signIn = async (req, res) => {
   }
 };
 
-const getAuthClientData = async (req, res) => {
-  res.send({
-    client: req.client,
-  });
-};
-
 /*
   body: {email, recaptchaToken}
 */
@@ -305,7 +299,6 @@ const getAuthClientPaymentsHistory = async (req, res) => {
 module.exports = {
   signUp,
   signIn,
-  getAuthClientData,
   resetPasswordRequest,
   resetPassword,
   getTreeByClientId,

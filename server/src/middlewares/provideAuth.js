@@ -21,7 +21,7 @@ module.exports = async (req, res, next) => {
         ])
         .populate({
           path: "parent",
-          select: ["profile", "_id"],
+          select: ["profile", "_id", "ancestors"],
         });
       if (client) {
         req.client = client;

@@ -2,6 +2,7 @@ const {
   getHomePageAdvertissments,
 } = require("../services/advertissementService");
 const { getHomePageCategories } = require("../services/categoryService");
+const { formatClientData } = require("../services/clientService");
 const { getFooterCustomPages } = require("../services/customPageService");
 const { getHomePageOffers } = require("../services/partnerOfferService");
 const {
@@ -32,7 +33,7 @@ const getBaseData = async (req, res) => {
     customPages: await getFooterCustomPages(),
   };
   if (req.isAuthenticated) {
-    response.client = req.client;
+    response.client = formatClientData(req.client);
   }
 
   res.send(response);
