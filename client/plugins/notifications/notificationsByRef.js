@@ -77,7 +77,8 @@ export default {
   CLIENT_PASSWORD_RESET_DOES_NOT_EXISTS_ERROR: {
     type: "error",
     title: "Lien invalide",
-    content: "The reset link your entered is invalid, please try again.",
+    content:
+      "Le lien de réinitialisation que vous avez saisi n'est pas valide, veuillez réessayer.",
   },
   CLIENT_PASSWORD_RESET_EXPIRED_ERROR: {
     type: "error",

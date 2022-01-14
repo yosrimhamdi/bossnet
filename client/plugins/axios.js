@@ -16,7 +16,7 @@ export default function ({ $axios, redirect, app, store }, inject) {
     }
   });
 
-  api.onError(async (err) => {
+  api.onError((err) => {
     // handle global errors
     const code = parseInt(err.response && err.response.status);
     if (code == 404) {
