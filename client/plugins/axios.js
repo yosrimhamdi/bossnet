@@ -25,6 +25,8 @@ export default function ({ $axios, redirect, app, store }, inject) {
       const { error } = err.response.data;
       if (error == "UNAUTHORIZED_AUTH_ERROR") {
         store.dispatch("logout", true);
+      } else {
+        window && window.location.reload();
       }
     }
   });
