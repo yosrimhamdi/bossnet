@@ -11,6 +11,7 @@ module.exports = (clientId) => [
   {
     $project: {
       _id: "$_id",
+      ancestorsSize: { $size: "$ancestors" },
     },
   },
   // find leftChild and rightChild to count children
@@ -23,6 +24,7 @@ module.exports = (clientId) => [
       pipeline: [
         {
           $match: {
+            isVerified: true,
             direction: "l",
             $expr: {
               $eq: ["$parent", "$$varId"],
@@ -42,6 +44,7 @@ module.exports = (clientId) => [
       pipeline: [
         {
           $match: {
+            isVerified: true,
             direction: "r",
             $expr: {
               $eq: ["$parent", "$$varId"],
@@ -52,26 +55,42 @@ module.exports = (clientId) => [
       as: "rightChild",
     },
   },
-  // count left / right verified children for each one
+  // count left / right verified children before 10 height for each one
   {
     $lookup: {
       from: "clients",
       let: {
-        leftChildId: {
+        varLeftChildId: {
           $arrayElemAt: ["$leftChild._id", 0],
         },
+        varParentAncestorsSize: "$ancestorsSize",
       },
       pipeline: [
         {
+          $set: {
+            sizeOfAncestorsMinusParentSize: {
+              $subtract: [
+                {
+                  $size: "$ancestors",
+                },
+                "$$varParentAncestorsSize",
+              ],
+            },
+          },
+        },
+        {
           $match: {
             isVerified: true,
+            sizeOfAncestorsMinusParentSize: {
+              $lte: 10,
+            },
             $expr: {
               $or: [
                 {
-                  $in: ["$$leftChildId", "$ancestors"],
+                  $in: ["$$varLeftChildId", "$ancestors"],
                 },
                 {
-                  $eq: ["$_id", "$$leftChildId"],
+                  $eq: ["$_id", "$$varLeftChildId"],
                 },
               ],
             },
@@ -88,21 +107,37 @@ module.exports = (clientId) => [
     $lookup: {
       from: "clients",
       let: {
-        rightChildId: {
+        varRightChildId: {
           $arrayElemAt: ["$rightChild._id", 0],
         },
+        varParentAncestorsSize: "$ancestorsSize",
       },
       pipeline: [
         {
+          $set: {
+            sizeOfAncestorsMinusParentSize: {
+              $subtract: [
+                {
+                  $size: "$ancestors",
+                },
+                "$$varParentAncestorsSize",
+              ],
+            },
+          },
+        },
+        {
           $match: {
             isVerified: true,
+            sizeOfAncestorsMinusParentSize: {
+              $lte: 10,
+            },
             $expr: {
               $or: [
                 {
-                  $in: ["$$rightChildId", "$ancestors"],
+                  $in: ["$$varRightChildId", "$ancestors"],
                 },
                 {
-                  $eq: ["$_id", "$$rightChildId"],
+                  $eq: ["$_id", "$$varRightChildId"],
                 },
               ],
             },
