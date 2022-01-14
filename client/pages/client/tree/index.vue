@@ -27,7 +27,7 @@
                 }}</span>
               </small>
               <div class="bottom">
-                {{ lastParent.ancestorsSize }}
+                {{ lastParentTreeHeightPosition }}
               </div>
               <client-actions-modal class="top-right" :client="lastParent" />
             </div>
@@ -86,6 +86,13 @@ export default {
     },
     lastParent() {
       return this.lastParents[this.lastParents.length - 1];
+    },
+    lastParentTreeHeightPosition() {
+      const { parent } = this.$store.state.client;
+      if (parent) {
+        return this.lastParent.ancestorsSize - parent.ancestorsSize - 1;
+      }
+      return this.lastParent.ancestorsSize;
     },
   },
   methods: {
