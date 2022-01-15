@@ -1,5 +1,6 @@
 <template>
   <div>
+    <OfflineStatus />
     <TheHeader />
     <main class="default-main">
       <Nuxt />
@@ -10,10 +11,11 @@
 </template>
 
 <script>
+import OfflineStatus from "../components/OfflineStatus.vue";
 import TheFooter from "../components/TheFooter.vue";
 import TheHeader from "../components/TheHeader.vue";
 export default {
-  components: { TheHeader, TheFooter },
+  components: { TheHeader, TheFooter, OfflineStatus },
 };
 </script>
 
