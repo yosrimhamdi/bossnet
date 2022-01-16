@@ -239,6 +239,8 @@ export default {
         this.isLoading = true;
         await this.updateClientData({ ...this.$data });
         this.isLoading = false;
+      } else {
+        this.$notify({ messageRef: "INPUTS_ERROR" });
       }
     },
     async updateClientData({
@@ -279,7 +281,7 @@ export default {
         this.$notify({ messageRef: "CLIENT_UPDATE_DATA_SUCCESS" });
         this.$router.push("/client/tree");
       } catch (err) {
-        this.handleUpdateClientApiErrors(err);
+        this.handleUpdateClientDataApiErrors(err);
       }
     },
     handleUpdateClientDataApiErrors(err) {

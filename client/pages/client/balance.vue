@@ -135,4 +135,7 @@ export default {
 h2 {
   @apply text-2xl font-bold mt-12 mb-6 text-center;
 }
+.payments {
+  @apply block max-w-full overflow-x-auto;
+}
 </style>
