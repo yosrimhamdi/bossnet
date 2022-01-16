@@ -53,6 +53,7 @@
 <script>
 import DotsMenuIcon from "../icons/DotsMenuIcon.vue";
 import Modal from "../utilities/Modal.vue";
+import copyTextToClipboard from "./../../utils/copyTextToClipboard";
 export default {
   components: { Modal, DotsMenuIcon },
   data() {
@@ -77,15 +78,17 @@ export default {
   },
   methods: {
     copyClientId() {
-      navigator.clipboard.writeText(this.client._id);
-      this.idIsCopied = true;
-      setTimeout(() => (this.idIsCopied = false), 4000);
+      if (copyTextToClipboard(this.client._id)) {
+        this.idIsCopied = true;
+        setTimeout(() => (this.idIsCopied = false), 4000);
+      }
     },
     copySignUpLink() {
       const signUpLink = `${window.location.host}/signup?parentId=${this.client._id}`;
-      navigator.clipboard.writeText(signUpLink);
-      this.linkIsCopied = true;
-      setTimeout(() => (this.linkIsCopied = false), 4000);
+      if (copyTextToClipboard(signUpLink)) {
+        this.linkIsCopied = true;
+        setTimeout(() => (this.linkIsCopied = false), 4000);
+      }
     },
   },
 };
