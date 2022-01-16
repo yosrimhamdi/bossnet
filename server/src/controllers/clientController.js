@@ -204,11 +204,10 @@ const updateData = async (req, res) => {
     res.status(204).send();
   } catch (err) {
     if (err instanceof clientService.exceptions.ClientUpdateNotAllowedError) {
-      res.status(403).send({
+      res.status(401).send({
         error: CLIENT_UPDATE_NOT_ALLOWED_ERROR_MSG,
       });
     } else {
-      console.log(err);
       res.status(500).send({
         error: UNEXPECTED_ERROR_MSG,
       });
@@ -228,7 +227,7 @@ const updatePassword = async (req, res) => {
     res.status(204).send();
   } catch (err) {
     if (err instanceof clientService.exceptions.ClientUpdateNotAllowedError) {
-      res.status(403).send({
+      res.status(401).send({
         error: CLIENT_UPDATE_NOT_ALLOWED_ERROR_MSG,
       });
     } else {
