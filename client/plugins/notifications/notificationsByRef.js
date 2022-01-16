@@ -4,6 +4,7 @@ const UNEXPECTED_ERROR = {
   content:
     "Une erreur s'est produite, veuillez vérifier votre connexion ou réessayer plus tard.",
 };
+
 export default {
   // globals
   UNEXPECTED_ERROR,
@@ -113,5 +114,17 @@ export default {
     type: "info",
     title: "Session expiré",
     content: "Votre session a expiré, veuillez vous reconnecter!",
+  },
+
+  // rate limits errors
+  CONTACT_TOO_MANY_REQUESTS_ERROR: {
+    type: "error",
+    title: "Opération non autorisée",
+    content: `Vous pouvez soumettre un maximum de 5 demandes par jour.`,
+  },
+  CLIENT_TOO_MANY_REQUESTS_ERROR: {
+    type: "error",
+    title: "Opération non autorisée",
+    content: `Veuillez patienter quelques minutes avant de réessayer.`,
   },
 };

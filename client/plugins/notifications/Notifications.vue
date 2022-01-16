@@ -57,7 +57,7 @@ export default {
 
 <style lang="scss" scoped>
 .notifications {
-  @apply z-50 fixed left-0 top-0 w-full flex flex-col items-center justify-center overflow-y-auto max-h-screen h-auto;
+  @apply z-50 fixed left-0 top-0 w-full flex flex-col items-center justify-center overflow-y-visible max-h-screen h-auto;
 }
 .notification-card {
   @screen md {

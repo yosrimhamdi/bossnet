@@ -19,15 +19,17 @@ export default function ({ $axios, redirect, app, store }, inject) {
   api.onError((err) => {
     // handle global errors
     const code = parseInt(err.response && err.response.status);
+    const error = err?.response?.data?.error;
     if (code == 404) {
       redirect("/404");
     } else if (code == 403) {
-      const { error } = err.response.data;
       if (error == "UNAUTHORIZED_AUTH_ERROR") {
         store.dispatch("logout", true);
       } else {
         window && window.location.reload();
       }
+    } else if (code == 429 && error == "TOO_MANY_REQUESTS_ERROR") {
+      app.$notify({ messageRef: error });
     }
   });
 
