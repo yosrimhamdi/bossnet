@@ -187,6 +187,8 @@ export default {
           this.$notify({ messageRef: "CAPTCHA_ERROR" });
         }
         this.isLoading = false;
+      } else {
+        this.$notify({ messageRef: "INPUTS_ERROR" });
       }
     },
     async postContact({
