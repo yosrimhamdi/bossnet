@@ -8,7 +8,7 @@ module.exports = {
   MONGO_URI:
     process.env.MONGO_URI || "mongodb://127.0.0.1:27017/bossnet-db-dev",
   PORT: process.env.PORT || "4000",
-  CLIENT_ENDPOINT: process.env.CLIENT_ENDPOINT || "http://localhost:8080",
+  CLIENT_ENDPOINT: process.env.CLIENT_ENDPOINT || "http://localhost:3000",
   REST_API_VERSION_1_ENDPOINT:
     process.env.REST_API_VERSION_1_ENDPOINT || "/api/v1",
   INIT_ADMIN_PASSWORD: process.env.INIT_ADMIN_PASSWORD || "azerty",

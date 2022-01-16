@@ -22,6 +22,7 @@
         "express": "^4.17.1",
         "express-async-errors": "^3.1.1",
         "express-formidable": "^1.2.0",
+        "express-rate-limit": "^6.1.0",
         "flat": "^5.0.2",
         "helmet": "^5.0.1",
         "joi": "^17.5.0",
@@ -32,6 +33,7 @@
         "morgan": "^1.10.0",
         "nodemailer": "^6.7.2",
         "rand-token": "^1.0.1",
+        "rate-limit-redis": "^2.1.0",
         "tslib": "^2.3.1"
     },
     "devDependencies": {

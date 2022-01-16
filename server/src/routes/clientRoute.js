@@ -4,23 +4,37 @@ const clientValidators = require("./../middlewares/validators/clientValidators")
 const clientRouter = new Router();
 const provideAuthMiddleware = require("./../middlewares/provideAuth");
 const ensureAuthMiddleware = require("./../middlewares/ensureAuth");
+const rateLimiters = require("./../middlewares/rateLimiters");
 
 clientRouter
-  .post("/signup", clientValidators.signUp, clientController.signUp)
-  .post("/signin", clientValidators.signIn, clientController.signIn)
+  .post(
+    "/signup",
+    rateLimiters.signUp,
+    clientValidators.signUp,
+    clientController.signUp
+  )
+  .post(
+    "/signin",
+    rateLimiters.signIn,
+    clientValidators.signIn,
+    clientController.signIn
+  )
   .post(
     "/reset-password/request",
+    rateLimiters.resetPasswordRequest,
     clientValidators.resetPasswordRequest,
     clientController.resetPasswordRequest
   )
   .post(
     "/reset-password",
+    rateLimiters.resetPassword,
     clientValidators.resetPassword,
     clientController.resetPassword
   )
 
   .put(
     "/update/data",
+    rateLimiters.updateData,
     clientValidators.updateData,
     provideAuthMiddleware,
     ensureAuthMiddleware,
@@ -28,6 +42,7 @@ clientRouter
   )
   .put(
     "/update/password",
+    rateLimiters.updatePassword,
     clientValidators.updatePassword,
     provideAuthMiddleware,
     ensureAuthMiddleware,
