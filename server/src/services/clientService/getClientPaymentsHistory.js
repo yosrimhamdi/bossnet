@@ -1,6 +1,6 @@
 const ClientPayment = require("../../models/ClientPayment");
 
-const PAGINATION_LIMIT = 1;
+const PAGINATION_LIMIT = 8;
 
 module.exports = async (clientId, page = 1) => {
   const payments = await ClientPayment.paginate(
