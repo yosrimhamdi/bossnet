@@ -36,6 +36,9 @@ export default {
 }
 h3 {
   @apply font-semibold mb-2 text-gray-500 text-center;
+  span {
+    @apply text-primary;
+  }
 }
 h4 {
   @apply text-3xl font-bold my-2 text-center;

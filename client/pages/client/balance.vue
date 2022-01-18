@@ -9,7 +9,7 @@
         />
         <client-balance-card
           class="active"
-          title="Solde<br/>Montant impayé"
+          title="<span>Solde</span><br/>Montant impayé"
           :amount="balance.unpaidAmount"
         />
 
@@ -91,7 +91,13 @@ export default {
   },
   computed: {
     paymentsHistoryTableCols() {
-      return ["Montant", "Méthode de paiement", "Date de paiement"];
+      return [
+        "Montant totale",
+        "Montant HT",
+        "Taxe",
+        "Méthode de paiement",
+        "Date de paiement",
+      ];
     },
   },
   methods: {

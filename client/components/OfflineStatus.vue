@@ -29,7 +29,7 @@ export default {
 
 <style lang="scss" scoped>
 .offline-status {
-  @apply fixed top-0 right-0 p-4 w-full flex justify-center z-50;
+  @apply fixed bottom-0 right-0 p-4 w-full flex justify-end z-50;
 }
 .offline-status > div {
   @apply w-full
