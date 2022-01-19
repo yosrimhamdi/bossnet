@@ -1,0 +1,1 @@
+MongoDb manual aggregations pipelines

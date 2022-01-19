@@ -1,0 +1,7 @@
+const AMOUNT_TO_PAY_BY_CHILD = 7.5; // 7.5 TND
+const PAY_FOR_MAX_LEFT_RIGHT_COUNT = 1332 / 2; // 666 child
+
+module.exports = {
+  AMOUNT_TO_PAY_BY_CHILD,
+  PAY_FOR_MAX_LEFT_RIGHT_COUNT,
+};
