@@ -4,7 +4,7 @@ export default function ({ $axios, redirect, app, store }, inject) {
   });
 
   api.onRequest((config) => {
-    // provide auth token to request
+    // provide auth token to request (interceptor)
     try {
       if (app.$auth.loggedIn) {
         const token = app.$auth.strategy.token.get().split(" ")[1];
@@ -22,11 +22,9 @@ export default function ({ $axios, redirect, app, store }, inject) {
     const error = err?.response?.data?.error;
     if (code == 404) {
       redirect("/404");
-    } else if (code == 403) {
+    } else if (code == 401) {
       if (error == "UNAUTHORIZED_AUTH_ERROR") {
         store.dispatch("logout", true);
-      } else {
-        window && window.location.reload();
       }
     } else if (code == 429 && error == "TOO_MANY_REQUESTS_ERROR") {
       app.$notify({ messageRef: error });
