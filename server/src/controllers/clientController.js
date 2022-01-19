@@ -204,7 +204,7 @@ const updateData = async (req, res) => {
     res.status(204).send();
   } catch (err) {
     if (err instanceof clientService.exceptions.ClientUpdateNotAllowedError) {
-      res.status(401).send({
+      res.status(403).send({
         error: CLIENT_UPDATE_NOT_ALLOWED_ERROR_MSG,
       });
     } else {
@@ -227,7 +227,7 @@ const updatePassword = async (req, res) => {
     res.status(204).send();
   } catch (err) {
     if (err instanceof clientService.exceptions.ClientUpdateNotAllowedError) {
-      res.status(401).send({
+      res.status(403).send({
         error: CLIENT_UPDATE_NOT_ALLOWED_ERROR_MSG,
       });
     } else {

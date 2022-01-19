@@ -3,7 +3,7 @@ module.exports = async (req, res, next) => {
     next();
     return;
   }
-  res.status(403).send({
+  res.status(401).send({
     error: "UNAUTHORIZED_AUTH_ERROR",
   });
 };
