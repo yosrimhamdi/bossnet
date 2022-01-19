@@ -16,8 +16,8 @@
         is a placeholder text commonly used to demonstrate the visual form of a
         document.
       </p>
-      <router-link to="/signup" class="btn dark md">
-        S'inscrire
+      <router-link to="/about" class="btn dark md">
+        À propos
         <arrow-right-icon />
       </router-link>
     </div>

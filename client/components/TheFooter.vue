@@ -55,7 +55,7 @@
           </li>
         </ul>
       </div>
-      <div class="nav-links">
+      <div class="nav-links" v-if="customPages.length">
         <h3>Autres</h3>
         <ul>
           <li v-for="(customPage, i) in customPages" :key="i">
