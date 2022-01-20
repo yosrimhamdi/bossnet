@@ -83,11 +83,15 @@ const calcClientTotalAmount = (leftRightCountsGroupedByTreeHeight) => {
     countsToRemove
   );
   // Then calc total amount (+=MIN(LEFT,RIGHT) * 2 * 7.5) with max 666
-  return leftRightCountsGroupedByTreeHeight.reduce((total, { left, right }) => {
-    let min = Math.min(left, right);
-    min = minimizeCount(min);
-    return total + min * AMOUNT_TO_PAY_BY_CHILD * 2;
-  }, 0);
+  return (
+    leftRightCountsGroupedByTreeHeight.reduce((total, { left, right }) => {
+      let min = Math.min(left, right);
+      min = minimizeCount(min);
+      return total + min;
+    }, 0) *
+    AMOUNT_TO_PAY_BY_CHILD *
+    2
+  );
 };
 
 module.exports = calcClientTotalAmount;
