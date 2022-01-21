@@ -39,6 +39,8 @@ module.exports = async (expressApp) => {
       store: new RedisStore({
         client: redis.createClient(),
       }),
+      resave: true,
+      saveUninitialized: true,
     }
   );
   await createInitialSuperuser();
