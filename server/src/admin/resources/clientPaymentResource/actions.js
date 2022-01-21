@@ -19,9 +19,17 @@ const validateAmount = async (payload) => {
       let { unpaidAmount } = await clientService.getClientBalance(
         payload.client
       );
+
+      // is updated
       if (payload._id) {
-        // is updated
-        unpaidAmount += (await ClientPayment.findById(payload._id)).amount;
+        oldPaymentWithCurrentClient = await ClientPayment.findOne({
+          _id: payload._id,
+          // client filter to make sure client didn't change
+          client: payload.client,
+        });
+        if (oldPaymentWithCurrentClient) {
+          unpaidAmount += oldPaymentWithCurrentClient.amount;
+        }
       }
       const amount = Number.parseFloat(payload.amount);
       if (unpaidAmount < amount) {
