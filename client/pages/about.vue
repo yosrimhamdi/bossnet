@@ -56,6 +56,11 @@
 <script>
 import ContactUs from "../components/shared/ContactUs.vue";
 export default {
+  head() {
+    return {
+      titleTemplate: `À propos | %s`,
+    };
+  },
   components: { ContactUs },
 };
 </script>

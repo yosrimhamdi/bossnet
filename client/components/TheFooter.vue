@@ -31,6 +31,9 @@
         <h3>Naviguer</h3>
         <ul>
           <li>
+            <router-link to="/">Accueil</router-link>
+          </li>
+          <li>
             <router-link to="/partners">Partenaires</router-link>
           </li>
           <li>
@@ -47,12 +50,25 @@
       <div class="nav-links">
         <h3>Clients</h3>
         <ul>
-          <li>
-            <router-link to="/client/tree">Mon compte</router-link>
-          </li>
-          <li>
-            <router-link to="/signup">S'inscrire</router-link>
-          </li>
+          <template v-if="isAuth">
+            <li>
+              <router-link to="/client/tree">Mon arbre</router-link>
+            </li>
+            <li>
+              <router-link to="/client/balance">Mon solde</router-link>
+            </li>
+            <li>
+              <router-link to="/client/settings">Paramètres</router-link>
+            </li>
+          </template>
+          <template v-else>
+            <li>
+              <router-link to="/signin">Se connecter</router-link>
+            </li>
+            <li>
+              <router-link to="/signup">S'inscrire</router-link>
+            </li>
+          </template>
         </ul>
       </div>
       <div class="nav-links" v-if="customPages.length">
@@ -100,6 +116,9 @@ export default {
     },
     customPages() {
       return this.$store.state.footer.customPages;
+    },
+    isAuth() {
+      return !!this.$store.state.client;
     },
   },
   components: {
@@ -151,6 +170,9 @@ nav {
       @apply mr-4 w-5 h-5 my-1;
     }
     &:hover {
+      @apply underline;
+    }
+    a.nuxt-link-exact-active {
       @apply underline;
     }
   }
