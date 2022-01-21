@@ -14,7 +14,7 @@ const globalActions = require("../admin/globalActions");
 AdminBro.registerAdapter(AdminBroMongoose);
 AdminBro.ACTIONS.list.handler = globalActions.list;
 
-module.exports = async (expressApp, database) => {
+module.exports = async (expressApp) => {
   const adminBro = new AdminBro({
     resources,
     rootPath: ADMIN_PANEL_PATH,

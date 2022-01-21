@@ -9,12 +9,12 @@ const createClientsForTesting = require("./utils/createClientsForTesting");
 
 async function startServer() {
   const app = express();
-  const db = await loadMongoose();
+  await loadMongoose();
 
   //   await createClientsForTesting();
 
   loadExpress(app);
-  await loadAdminBro(app, db);
+  await loadAdminBro(app);
   app.listen(PORT, handleAppListenCallback);
 }
 
