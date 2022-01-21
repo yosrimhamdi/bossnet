@@ -10,6 +10,10 @@ const createInitialSuperuser = require("../utils/createInitialSuperuser");
 const dashboard = require("./../admin/dashboard");
 const assets = require("./../admin/assets");
 const globalActions = require("../admin/globalActions");
+const session = require("express-session");
+const RedisStore = require("connect-redis")(session);
+const redis = require("redis");
+const convertDurationToSeconds = require("../utils/convertDurationToSeconds");
 
 AdminBro.registerAdapter(AdminBroMongoose);
 AdminBro.ACTIONS.list.handler = globalActions.list;
@@ -23,10 +27,20 @@ module.exports = async (expressApp) => {
     dashboard,
     locale,
   });
-  const adminBroRouter = AdminBroExpress.buildAuthenticatedRouter(adminBro, {
-    authenticate: authenticateAdmin,
-    cookiePassword: SECRET_COOKIE_CODE,
-  });
+  const adminBroRouter = AdminBroExpress.buildAuthenticatedRouter(
+    adminBro,
+    {
+      authenticate: authenticateAdmin,
+      cookiePassword: SECRET_COOKIE_CODE,
+    },
+    null,
+    {
+      cookie: { maxAge: 1000 * convertDurationToSeconds("1day") },
+      store: new RedisStore({
+        client: redis.createClient(),
+      }),
+    }
+  );
   await createInitialSuperuser();
   expressApp.use(ADMIN_PANEL_PATH, adminBroRouter);
 };
