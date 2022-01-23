@@ -1,6 +1,6 @@
 require("dotenv").config();
 module.exports = {
-  DEBUG: process.env.MODE == "development",
+  DEBUG: process.env.NODE_ENV == "development",
   JWT_SECRET_CODE: process.env.SECRET_JWT_CODE,
   JWT_EXPIRES_IN: "2d",
   SECRET_COOKIE_CODE: process.env.SECRET_COOKIE_CODE,
