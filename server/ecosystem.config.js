@@ -7,13 +7,9 @@ module.exports = {
       exec_mode: "cluster",
       env: {
         NODE_ENV: "development",
-        SECRET_COOKIE_CODE: "h$gjs$=df$v*kjh-è_-è_è-khsfdfg*jdlfz1289",
-        SECRET_JWT_CODE: "h$gjs$=df$v*kjh-è_-è_è-khsfdg*jdlf1243",
       },
       env_production: {
         NODE_ENV: "production",
-        SECRET_COOKIE_CODE: "h$gjs$=df$v*kjh-è_-è_è-khsfdfg*jdlfz1289",
-        SECRET_JWT_CODE: "h$gjs$=df$v*kjh-è_-è_è-khsfdg*jdlf1243",
       },
     },
     // {
