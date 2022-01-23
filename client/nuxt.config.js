@@ -166,9 +166,9 @@ export default {
     color: "#FFBA00",
     height: "2px",
   },
-  server: {
-    host: "0.0.0.0",
-  },
+  // server: {
+  //   host: "0.0.0.0",
+  // },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 };

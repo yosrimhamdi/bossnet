@@ -1,26 +1,32 @@
 module.exports = {
   apps: [
     {
-      name: "server",
-      script: "./server/index.js",
+      name: "bossnet-api",
+      script: "./src/index.js",
+      instances: "max",
+      exec_mode: "cluster",
       env: {
         NODE_ENV: "development",
+        SECRET_COOKIE_CODE: "h$gjs$=df$v*kjh-è_-è_è-khsfdfg*jdlfz1289",
+        SECRET_JWT_CODE: "h$gjs$=df$v*kjh-è_-è_è-khsfdg*jdlf1243",
       },
       env_production: {
         NODE_ENV: "production",
+        SECRET_COOKIE_CODE: "h$gjs$=df$v*kjh-è_-è_è-khsfdfg*jdlfz1289",
+        SECRET_JWT_CODE: "h$gjs$=df$v*kjh-è_-è_è-khsfdg*jdlf1243",
       },
     },
-    {
-      name: "client",
-      script: "./client/node_modules/nuxt/bin/nuxt.js",
-      args: "start",
-      env: {
-        NODE_ENV: "development",
-      },
-      env_production: {
-        NODE_ENV: "production",
-      },
-    },
+    // {
+    //   name: "bossnet-client",
+    //   script: "./client/node_modules/nuxt/bin/nuxt.js",
+    //   args: "dev",
+    //   env: {
+    //     NODE_ENV: "development",
+    //   },
+    //   env_production: {
+    //     NODE_ENV: "production",
+    //   },
+    // },
   ],
 
   // deploy: {
