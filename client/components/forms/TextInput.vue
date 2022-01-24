@@ -18,6 +18,7 @@
       :id="name"
       :placeholder="placeholder"
       class="input"
+      autocapitalize="none"
       @input="(e) => $emit('input', e.target.value)"
     />
     <slot />
