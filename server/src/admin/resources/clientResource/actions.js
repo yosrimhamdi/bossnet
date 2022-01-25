@@ -58,8 +58,9 @@ module.exports = {
   showHandler: async (req, res, data) => {
     const clientId = data.record.params._id;
     data.record.params.balance = await clientService.getClientBalance(clientId);
-    data.record.params.childrenCount =
-      await clientService.getClientChildrenCount(clientId);
+    data.record.params.leftRightChildsCountGroupedByTreeHeight = await clientService.getClientLeftRightChildsCountGroupedByTreeHeight(
+      clientId
+    );
 
     const record = data.record.toJSON(data.currentAdmin);
     return {

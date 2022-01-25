@@ -11,6 +11,7 @@ const updateData = require("./updateData");
 const updatePassword = require("./updatePassword");
 const getClientPaymentsHistory = require("./getClientPaymentsHistory");
 const formatClientData = require("./formatClientData");
+const getClientLeftRightChildsCountGroupedByTreeHeight = require("./getClientBalance/getClientLeftRightChildsCountGroupedByTreeHeight");
 
 module.exports = {
   signUp,
@@ -21,6 +22,7 @@ module.exports = {
   getTreeByClientId,
   getClientChildren,
   getClientBalance,
+  getClientLeftRightChildsCountGroupedByTreeHeight,
   getClientChildrenCount,
   updateData,
   updatePassword,

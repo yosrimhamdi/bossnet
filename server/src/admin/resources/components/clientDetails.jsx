@@ -2,21 +2,28 @@ import React from "react";
 import { Header, Box, ValueGroup, Section } from "@admin-bro/design-system";
 
 const clientDetails = ({ record: { params } }) => {
-  const balance = params["balance"];
-  const childrenCount = params["childrenCount"];
-
+  const { leftRightChildsCountGroupedByTreeHeight, balance } = params;
+  const firstLeftRightChildsCountId =
+    (leftRightChildsCountGroupedByTreeHeight[0] &&
+      leftRightChildsCountGroupedByTreeHeight[0]._id - 1) ||
+    0;
   return (
     <>
       <ValueGroup label="Fils">
         <Section marginBottom={18}>
-          <ValueGroup
-            value={childrenCount.leftChildsCount.toString()}
-            label="Gauche"
-          />
-          <ValueGroup
-            value={childrenCount.rightChildsCount.toString()}
-            label="Droit"
-          />
+          {leftRightChildsCountGroupedByTreeHeight.map(
+            ({ left, right, _id }) => (
+              <ValueGroup
+                key={_id}
+                label={`Ligne ${_id - firstLeftRightChildsCountId}`}
+              >
+                <Section marginBottom={18}>
+                  <ValueGroup value={left.toString()} label="Gauche" />
+                  <ValueGroup value={right.toString()} label="Droit" />
+                </Section>
+              </ValueGroup>
+            )
+          )}
         </Section>
       </ValueGroup>
       <ValueGroup label="Solde">
