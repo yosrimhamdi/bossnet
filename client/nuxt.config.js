@@ -15,6 +15,11 @@ export default {
         name: "description",
         content: `Bossnet est une société qui renforce la relation entre le consommateur qui cherche les promotions pour toujours et le commerçant qui cherche à minimiser le coût de la publicité.`,
       },
+      {
+        hid: "og:description",
+        name: "og:description",
+        content: `Bossnet est une société qui renforce la relation entre le consommateur qui cherche les promotions pour toujours et le commerçant qui cherche à minimiser le coût de la publicité.`,
+      },
       { name: "format-detection", content: "telephone=no" },
       {
         name: "og:locale",
