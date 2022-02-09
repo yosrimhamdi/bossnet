@@ -7,13 +7,16 @@
       }"
     >
       <div class="start-side">
-        <button
-          id="toggle-nav-btn"
-          @click="showCenterSideByBtn = !showCenterSideByBtn"
-          class="btn sq light"
-        >
-          <menu-icon />
-        </button>
+        <transition name="fade-left">
+          <button
+            v-if="!scrollPositionIsTop"
+            id="toggle-nav-btn"
+            @click="showCenterSideByBtn = !showCenterSideByBtn"
+            class="btn sq light"
+          >
+            <menu-icon />
+          </button>
+        </transition>
         <logo class="sm" />
       </div>
 
