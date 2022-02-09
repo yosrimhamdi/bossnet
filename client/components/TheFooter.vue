@@ -1,6 +1,6 @@
 <template>
   <footer>
-    <logo />
+    <logo :dark="true" />
     <nav>
       <div class="nav-links">
         <h3>Contactez-nous</h3>

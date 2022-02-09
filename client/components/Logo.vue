@@ -1,11 +1,23 @@
 <template>
   <router-link to="/" class="logo">
-    <img src="~/assets/images/logo.png" alt="Bossnet logo" />
+    <img
+      v-if="dark"
+      src="~/assets/images/logo-dark.png"
+      alt="Bossnet dark logo"
+    />
+    <img v-else src="~/assets/images/logo.png" alt="Bossnet logo" />
   </router-link>
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    dark: {
+      type: Boolean,
+      default: false,
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
