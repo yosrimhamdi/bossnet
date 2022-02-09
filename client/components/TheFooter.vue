@@ -7,21 +7,33 @@
         <ul>
           <li>
             <phone-icon class="foot-icon" />
-            <a href="tel:+21645567778">+216 45 567 778</a>
+            <div>
+              <a
+                v-for="(phone, i) in siteSettings.phoneNumbers"
+                :key="i"
+                :href="'tel:' + phone"
+                >{{ phone }}<br
+              /></a>
+            </div>
           </li>
           <li>
             <location-icon class="foot-icon" />
-            <a>Rue saleh ben yousef <br />bennen، Monastir 5025 </a>
+            <div>
+              <span v-for="(location, i) in siteSettings.locations" :key="i"
+                >{{ location }}<br
+              /></span>
+            </div>
           </li>
           <li>
             <email-icon class="foot-icon" />
-            <a href="mailto:bossnet@contact.com">bossnet@contact.com</a>
+            <a :href="'mailto:' + siteSettings.email">
+              {{ siteSettings.email }}
+            </a>
           </li>
-          <li>
+          <li v-if="siteSettings.timing">
             <clock-icon class="foot-icon" />
-            <span to="/">
-              De samedi jusqu'a Vendredi<br />
-              8:00 - 16:00
+            <span>
+              {{ siteSettings.timing }}
             </span>
           </li>
         </ul>
@@ -120,6 +132,9 @@ export default {
     isAuth() {
       return !!this.$store.state.client;
     },
+    siteSettings() {
+      return this.$store.state.siteSettings;
+    },
   },
   components: {
     CircleShape,
@@ -165,12 +180,13 @@ nav {
     @apply ml-2;
   }
   li {
+    max-width: 250px;
     @apply text-gray-200 py-2 flex font-normal items-center text-sm;
     .foot-icon {
       @apply mr-4 w-5 h-5 my-1;
     }
-    &:hover {
-      @apply underline;
+    & > div {
+      width: calc(100% - 50px);
     }
     a.nuxt-link-exact-active {
       @apply underline;

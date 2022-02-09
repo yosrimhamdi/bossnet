@@ -10,6 +10,7 @@ const clientPaymentResource = require("./clientPaymentResource");
 const categoryResource = require("./categoryResource");
 const partnerResource = require("./partnerResource");
 const partnerOfferResource = require("./partnerOfferResource");
+const siteSettingsResource = require("./siteSettingsResource");
 
 module.exports = [
   customPageResource,
@@ -27,4 +28,5 @@ module.exports = [
 
   adminResource,
   adminRoleResource,
+  siteSettingsResource,
 ];

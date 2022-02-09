@@ -11,6 +11,7 @@ const {
   CATEGORY,
   PARTNER,
   PARTNER_OFFER,
+  SITE_SETTINGS,
 } = require("../models/configs/collectionsNames");
 
 // translation to french
@@ -58,6 +59,7 @@ module.exports = {
       [CATEGORY]: "Catégories",
       [PARTNER]: "Partenaires",
       [PARTNER_OFFER]: "Offres",
+      [SITE_SETTINGS]: "Paramètres",
     },
     properties: {
       length: "Longueur",
@@ -130,6 +132,9 @@ module.exports = {
       uploadImage: "Image",
       relatedOffers: "Offres similaires",
       note: "Remarques",
+
+      phoneNumbers: "Téléphones",
+      locations: "Emplacements",
     },
     messages: {
       successfullyBulkDeleted: "{{count}} enregistrement supprimés avec succès",

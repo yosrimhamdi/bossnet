@@ -7,6 +7,7 @@ const branding = require("./../admin/branding");
 const authenticateAdmin = require("../admin/authenticateAdmin");
 const locale = require("./../admin/locale");
 const createInitialSuperuser = require("../utils/createInitialSuperuser");
+const createInitialSiteSettings = require("../utils/createInitialSiteSettings");
 const dashboard = require("./../admin/dashboard");
 const assets = require("./../admin/assets");
 const globalActions = require("../admin/globalActions");
@@ -44,5 +45,6 @@ module.exports = async (expressApp) => {
     }
   );
   await createInitialSuperuser();
+  await createInitialSiteSettings();
   expressApp.use(ADMIN_PANEL_PATH, adminBroRouter);
 };

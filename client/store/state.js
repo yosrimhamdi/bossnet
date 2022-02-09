@@ -5,5 +5,6 @@ export default () => ({
   footer: {
     customPages: [],
   },
+  siteSettings: {},
   client: null,
 });

@@ -18,4 +18,10 @@ module.exports = {
 
   EMAIL_USER: process.env.EMAIL_USER,
   EMAIL_PASSWORD: process.env.EMAIL_PASSWORD,
+
+  INIT_SITE_SETTINGS: {
+    phoneNumbers: ["+216 45 567 778"],
+    locations: ["Rue saleh ben yousef bannen، Monastir 5025"],
+    email: "bossnet@contact.com",
+  },
 };
