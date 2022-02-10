@@ -207,9 +207,7 @@
         >
           <small class="font-normal text-sm"
             >J'ai lu et j'accepte
-            <a href="/general-conditions" target="blank" class="text-primary">
-              les Conditions générales</a
-            >
+            <a href="#footer" class="text-primary"> les Conditions générales</a>
             de bossnet.</small
           >
         </checkbox-input>

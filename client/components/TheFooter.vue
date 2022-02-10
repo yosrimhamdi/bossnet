@@ -1,5 +1,5 @@
 <template>
-  <footer>
+  <footer id="footer">
     <logo :dark="true" />
     <nav>
       <div class="nav-links">
