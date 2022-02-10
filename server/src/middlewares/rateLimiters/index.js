@@ -37,7 +37,7 @@ const resetPasswordRequest = createRateLimiterMiddleware({
 
 const resetPassword = createRateLimiterMiddleware({
   prefix: "passReset",
-  maxRequests: 5,
+  maxRequests: 10,
   forDuration: "30min",
   messageError: CLIENT_TOO_MANY_REQUESTS_ERROR_MSG,
 });
