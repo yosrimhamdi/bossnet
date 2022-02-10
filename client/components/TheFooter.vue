@@ -5,7 +5,7 @@
       <div class="nav-links">
         <h3>Contactez-nous</h3>
         <ul>
-          <li>
+          <li v-if="siteSettings.phoneNumbers.length">
             <phone-icon class="foot-icon" />
             <div>
               <a
@@ -16,7 +16,7 @@
               /></a>
             </div>
           </li>
-          <li>
+          <li v-if="siteSettings.locations.length">
             <location-icon class="foot-icon" />
             <div>
               <span v-for="(location, i) in siteSettings.locations" :key="i"
@@ -152,8 +152,11 @@ export default {
 
 <style lang="scss" scoped>
 footer {
-  @apply relative w-full bg-dark text-white px-12 py-16 h-auto
+  @apply relative w-full bg-dark text-white px-6 py-16 h-auto
     overflow-hidden;
+  @screen sm {
+    @apply px-12;
+  }
 }
 .circle {
   @screen sm {

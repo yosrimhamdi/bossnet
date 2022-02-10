@@ -3,23 +3,35 @@
     <div class="info" anim="fade-left">
       <h2>BossNet</h2>
       <ul>
-        <li>
+        <li v-if="siteSettings.phoneNumbers.length">
           <phone-icon class="info-icon" />
-          <a href="tel:+21645567778">+216 45 567 778</a>
+          <div>
+            <a
+              v-for="(phone, i) in siteSettings.phoneNumbers"
+              :key="i"
+              :href="'tel:' + phone"
+              >{{ phone }}<br
+            /></a>
+          </div>
         </li>
         <li>
           <email-icon class="info-icon" />
-          <a href="mailto:bossnet@contact.com">bossnet@contact.com</a>
+          <a :href="'mailto:' + siteSettings.email">
+            {{ siteSettings.email }}
+          </a>
         </li>
-        <li>
+        <li v-if="siteSettings.locations.length">
           <location-icon class="info-icon" />
-          <a>Rue saleh ben yousef <br />bennen، Monastir 5025</a>
+          <div>
+            <span v-for="(location, i) in siteSettings.locations" :key="i"
+              >{{ location }}<br
+            /></span>
+          </div>
         </li>
-        <li>
+        <li v-if="siteSettings.timing">
           <clock-icon class="info-icon" />
-          <span to="/">
-            De samedi jusqu'a Vendredi<br />
-            8:00 - 16:00
+          <span>
+            {{ siteSettings.timing }}
           </span>
         </li>
       </ul>
@@ -64,6 +76,11 @@ export default {
     ClockIcon,
     ContactForm,
   },
+  computed: {
+    siteSettings() {
+      return this.$store.state.siteSettings;
+    },
+  },
 };
 </script>
 
@@ -89,6 +106,7 @@ li {
   }
 }
 .info {
+  max-width: 500px;
   @apply relative bg-dark text-white p-6 pb-24 rounded-md shadow-md z-0 w-full mx-2;
   @screen md {
     @apply p-12 pb-32;
