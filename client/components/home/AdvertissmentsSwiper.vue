@@ -1,15 +1,33 @@
 <template>
   <div class="ads-swiper">
     <swiper :autoHideBtns="true" :autoSwipeEachSeconds="8">
-      <router-link
-        class="ad"
-        v-for="(advertissment, i) in advertissments"
-        :to="advertissment.url"
-        :key="i"
-        :title="advertissment.title"
-      >
-        <bucket-image :image="advertissment.image" :alt="advertissment.title" />
-      </router-link>
+      <template v-for="(advertissment, i) in advertissments">
+        <a
+          v-if="isExternUrl(advertissment.url)"
+          target="_blank"
+          class="ad"
+          :href="advertissment.url"
+          :title="advertissment.title"
+          :key="i"
+        >
+          <bucket-image
+            :image="advertissment.image"
+            :alt="advertissment.title"
+          />
+        </a>
+        <router-link
+          v-else
+          class="ad"
+          :to="advertissment.url"
+          :title="advertissment.title"
+          :key="i"
+        >
+          <bucket-image
+            :image="advertissment.image"
+            :alt="advertissment.title"
+          />
+        </router-link>
+      </template>
     </swiper>
   </div>
 </template>
@@ -22,6 +40,11 @@ export default {
   components: { Swiper, BucketImage },
   props: {
     advertissments: Array,
+  },
+  methods: {
+    isExternUrl(url) {
+      return url.includes("http://") || url.includes("https://");
+    },
   },
 };
 </script>
