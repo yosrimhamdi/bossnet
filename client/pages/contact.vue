@@ -36,12 +36,15 @@
         </li>
       </ul>
       <div class="socials">
-        <a href="/">
+        <a v-if="siteSettings.facebookLink" :href="siteSettings.facebookLink">
           <facebook-icon />
         </a>
-        <a href="/"> <twitter-icon /> </a>
-        <a href="/"> <whats-icon /> </a>
-        <a href="/"> <youtube-icon /> </a>
+        <a v-if="siteSettings.whatsAppLink" :href="siteSettings.whatsAppLink">
+          <whats-icon />
+        </a>
+        <a v-if="siteSettings.youtubeLink" :href="siteSettings.youtubeLink">
+          <youtube-icon />
+        </a>
       </div>
     </div>
     <contact-form />
@@ -55,7 +58,6 @@ import EmailIcon from "../components/icons/EmailIcon.vue";
 import LocationIcon from "../components/icons/LocationIcon.vue";
 import PhoneIcon from "../components/icons/PhoneIcon.vue";
 import FacebookIcon from "../components/icons/social/FacebookIcon.vue";
-import TwitterIcon from "../components/icons/social/TwitterIcon.vue";
 import WhatsIcon from "../components/icons/social/WhatsIcon.vue";
 import YoutubeIcon from "../components/icons/social/YoutubeIcon.vue";
 
@@ -70,7 +72,6 @@ export default {
     EmailIcon,
     LocationIcon,
     FacebookIcon,
-    TwitterIcon,
     WhatsIcon,
     YoutubeIcon,
     ClockIcon,

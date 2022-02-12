@@ -98,12 +98,15 @@
       <div class="content">
         <p>© {{ currentDate }} Bossnet.Tous les droits sont réservés.</p>
         <div class="socials">
-          <a href="/">
+          <a v-if="siteSettings.facebookLink" :href="siteSettings.facebookLink">
             <facebook-icon />
           </a>
-          <a href="/"> <twitter-icon /> </a>
-          <a href="/"> <whats-icon /> </a>
-          <a href="/"> <youtube-icon /> </a>
+          <a v-if="siteSettings.whatsAppLink" :href="siteSettings.whatsAppLink">
+            <whats-icon />
+          </a>
+          <a v-if="siteSettings.youtubeLink" :href="siteSettings.youtubeLink">
+            <youtube-icon />
+          </a>
         </div>
       </div>
       <circle-shape class="circle" />
@@ -117,7 +120,6 @@ import EmailIcon from "./icons/EmailIcon.vue";
 import LocationIcon from "./icons/LocationIcon.vue";
 import PhoneIcon from "./icons/PhoneIcon.vue";
 import FacebookIcon from "./icons/social/FacebookIcon.vue";
-import TwitterIcon from "./icons/social/TwitterIcon.vue";
 import WhatsIcon from "./icons/social/WhatsIcon.vue";
 import YoutubeIcon from "./icons/social/YoutubeIcon.vue";
 import CircleShape from "./shapes/CircleShape.vue";
@@ -143,7 +145,6 @@ export default {
     ClockIcon,
     FacebookIcon,
     WhatsIcon,
-    TwitterIcon,
     YoutubeIcon,
     LocationIcon,
   },

@@ -135,6 +135,10 @@ module.exports = {
 
       phoneNumbers: "Téléphones",
       locations: "Emplacements",
+
+      facebookLink: "Page facebook",
+      youtubeLink: "Page youtube",
+      whatsAppLink: "Whatsapp",
     },
     messages: {
       successfullyBulkDeleted: "{{count}} enregistrement supprimés avec succès",

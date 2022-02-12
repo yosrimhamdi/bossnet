@@ -42,6 +42,36 @@ const siteSettingsSchema = new mongoose.Schema({
     type: String,
     trim: true,
   },
+  facebookLink: {
+    type: String,
+    trim: true,
+    validate: createJoiMongooseFieldValidate(
+      Joi.string()
+        .uri({ allowRelative: false })
+        .allow(""),
+      INVALID_ERROR_MSG
+    ),
+  },
+  youtubeLink: {
+    type: String,
+    trim: true,
+    validate: createJoiMongooseFieldValidate(
+      Joi.string()
+        .uri({ allowRelative: false })
+        .allow(""),
+      INVALID_ERROR_MSG
+    ),
+  },
+  whatsAppLink: {
+    type: String,
+    trim: true,
+    validate: createJoiMongooseFieldValidate(
+      Joi.string()
+        .uri({ allowRelative: false })
+        .allow(""),
+      INVALID_ERROR_MSG
+    ),
+  },
 });
 
 const SiteSettings = mongoose.model(SITE_SETTINGS, siteSettingsSchema);
