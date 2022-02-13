@@ -1,45 +1,27 @@
 <template>
   <section class="classic-ads">
-    <template v-for="(advertissment, i) in advertissments">
-      <a
-        v-if="isExternUrl(advertissment.url)"
-        target="_blank"
-        class="ad"
-        :href="advertissment.url"
-        :title="advertissment.title"
-        :key="i"
-      >
-        <div class="content">
-          <bucket-image
-            :image="advertissment.image"
-            :alt="advertissment.title"
-          />
-        </div>
-      </a>
-      <router-link
-        class="ad"
-        v-else
-        :to="advertissment.url"
-        :key="i"
-        :title="advertissment.title"
-      >
-        <div class="content">
-          <bucket-image
-            :image="advertissment.image"
-            :alt="advertissment.title"
-          />
-        </div>
-      </router-link>
-    </template>
+    <link-intern-extern
+      v-for="(advertissment, i) in advertissments"
+      :title="advertissment.title"
+      :key="i"
+      class="ad"
+      :url="advertissment.url"
+    >
+      <div class="content">
+        <bucket-image :image="advertissment.image" :alt="advertissment.title" />
+      </div>
+    </link-intern-extern>
   </section>
 </template>
 
 <script>
+import LinkInternExtern from "../shared/LinkInternExtern.vue";
 import BucketImage from "../utilities/BucketImage.vue";
 
 export default {
   components: {
     BucketImage,
+    LinkInternExtern,
   },
   props: {
     advertissments: Array,
@@ -57,10 +39,7 @@ export default {
   @apply relative w-full my-12 block text-center;
 }
 .content {
-  @apply transform m-2 p-2 rounded border shadow-md;
-  &:hover {
-    transform: scale(1.01);
-  }
+  @apply relative  m-2  rounded border-4 border-white shadow-md overflow-hidden;
 }
 .ad {
   @screen lg {
@@ -69,6 +48,9 @@ export default {
   @apply relative inline-block w-full;
 }
 img {
-  @apply w-full h-auto rounded;
+  @apply w-full h-auto rounded transform transition-transform;
+  &:hover {
+    transform: scale(1.01);
+  }
 }
 </style>
