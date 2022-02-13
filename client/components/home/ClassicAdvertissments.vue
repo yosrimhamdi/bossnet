@@ -26,11 +26,6 @@ export default {
   props: {
     advertissments: Array,
   },
-  methods: {
-    isExternUrl(url) {
-      return url.includes("http://") || url.includes("https://");
-    },
-  },
 };
 </script>
 
