@@ -30,7 +30,7 @@ module.exports = (expressApp) => {
   // Helmet helps secure Express apps by setting various HTTP headers.
   expressApp.use(
     helmet({
-      crossOriginResourcePolicy: { policy: "cross-origin" },
+      crossOriginEmbedderPolicy: false,
       contentSecurityPolicy: false,
     })
   );
