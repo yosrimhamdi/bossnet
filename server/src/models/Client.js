@@ -36,7 +36,10 @@ const clientSchema = new mongoose.Schema(
       // required: [true, REQUIRED_ERROR_MSG],
       trim: true,
       validate: createJoiMongooseFieldValidate(
-        Joi.string().min(20).max(30).allow(""),
+        Joi.string()
+          .min(20)
+          .max(30)
+          .allow(""),
         INVALID_ERROR_MSG
       ),
     },
@@ -112,7 +115,7 @@ const prentChildAlreadyExists = async (doc) => {
 };
 
 // Custom validations
-clientSchema.pre("validate", async function () {
+clientSchema.pre("validate", async function() {
   if (await parentIsRequired(this)) {
     this.invalidate("parent", REQUIRED_ERROR_MSG);
   }
@@ -121,27 +124,12 @@ clientSchema.pre("validate", async function () {
   }
 });
 
-clientSchema.pre("save", async function () {
+clientSchema.pre("save", async function() {
   if (this.parent && this.ancestors.length == 0)
     this.ancestors = await getAncestorsByParent(this.parent);
 });
 
-// clientSchema.pre("findOneAndUpdate", async function () {
-//     const docToUpdate = await Client.findOne(this.getFilter());
-//     const updateSet = this._update.$set;
-//     // parent changed
-//     if (docToUpdate.parent.toString() != updateSet.parent) {
-//         // set new ancestors
-//         updateSet.ancestors = await getAncestorsByParent(updateSet.parent);
-//         // update each child ancestors
-//         // await Client.find({ ancestors: updateSet._id }).cursor().eachAsync(async (doc) => {
-//         //     await doc.save(); // this will automatically call pre save in the top
-//         //     console.log({ doc });
-//         // });
-//     }
-// });
-
-clientSchema.post("findOneAndRemove", async function (doc) {
+clientSchema.post("findOneAndRemove", async function(doc) {
   // remove client children
   await Client.deleteMany({ ancestors: doc._id });
   await ClientPayment.deleteMany({ client: doc._id });

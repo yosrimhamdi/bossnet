@@ -117,7 +117,6 @@ export default {
         this.$notify({ messageRef: "SIGNIN_SUCCESS" });
         this.redirect();
       } catch (err) {
-        console.log(err);
         const error = err?.response?.data?.error || "UNEXPECTED_ERROR";
         this.$notify({ messageRef: error });
       }
