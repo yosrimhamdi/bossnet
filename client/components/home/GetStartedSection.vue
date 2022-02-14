@@ -10,7 +10,7 @@
         {{ description }}
       </p>
       <link-intern-extern :url="url" class="btn dark md">
-        À propos
+        Voir plus
         <arrow-right-icon />
       </link-intern-extern>
     </div>
