@@ -25,7 +25,7 @@ export default {
     @apply mt-24;
   }
   @screen md {
-    @apply px-4;
+    @apply px-4 mt-28;
   }
   @apply relative py-12 px-2 mt-52  flex flex-col items-center;
 }

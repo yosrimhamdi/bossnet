@@ -34,7 +34,7 @@ const getPartnersByCategory = async (categoryId, page = 1) => {
       page,
       limit: PAGINATION_LIMIT,
       sort: "type -updatedAt",
-      select: ["_id", "name", "logo", "description"],
+      select: ["_id", "name", "logo", "description", "discountRate"],
     }
   );
 

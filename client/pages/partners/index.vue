@@ -5,11 +5,12 @@
       <nav class="list">
         <ul>
           <li
+            class="link"
             v-for="(category, i) in categories"
             :key="i"
             :title="category.description"
           >
-            <router-link class="link" :to="`/categories/${category._id}`">{{
+            <router-link :to="`/categories/${category._id}`">{{
               category.name
             }}</router-link>
           </li>
@@ -158,29 +159,35 @@ export default {
     @apply block w-max text-sm
      bg-gray-50 p-2 rounded-md m-2 border shadow-sm;
   }
-  @screen md {
-    width: 250px;
-    @apply inline-block min-h-screen border-r-2 border-b-0 pr-8 mb-0;
+  @screen lg {
+    width: 300px;
+    top: 1rem;
+    @apply inline-block max-h-screen mb-0 
+    bg-white px-4 py-6 rounded-md border shadow-md;
     h2 {
-      @apply font-bold text-4xl mb-8;
+      @apply font-bold text-4xl mb-4;
     }
     ul {
       @apply block overflow-hidden;
     }
     .link {
-      @apply block py-3 rounded-none w-full border-0 bg-transparent
-       shadow-none border-b border-gray-100;
+      @apply relative block py-2 px-1 rounded-none border-0 bg-transparent
+       shadow-none border-b border-gray-100 w-full;
+      a {
+        @apply block w-full;
+      }
       &:hover {
         @apply underline;
+      }
+      &:last-child {
+        @apply border-b-0;
       }
     }
   }
 }
 .partners-list {
-  @screen md {
-    width: calc(100% - 250px);
-  }
   @screen lg {
+    width: calc(100% - 300px);
     @apply pl-12;
   }
   .content {
