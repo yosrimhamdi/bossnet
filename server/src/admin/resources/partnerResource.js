@@ -87,9 +87,7 @@ module.exports = {
         bucket: "logo.bucket",
         size: "logo.size",
       },
-      validation: {
-        mimeTypes: ["image/jpeg", "image/png"],
-      },
+      validation: imagesValidation,
     }),
     uploadFileFeature({
       provider: new UploadProvider("partners/images"),

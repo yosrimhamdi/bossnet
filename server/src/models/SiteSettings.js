@@ -1,4 +1,5 @@
 const Joi = require("joi");
+const file = require("./embeded/file");
 const mongoose = require("mongoose");
 const createJoiMongooseFieldValidate = require("../utils/createJoiMongooseFieldValidate");
 const { SITE_SETTINGS } = require("./configs/collectionsNames");
@@ -72,6 +73,32 @@ const siteSettingsSchema = new mongoose.Schema({
       INVALID_ERROR_MSG
     ),
   },
+  homePageCard: {
+    type: {
+      title: {
+        type: String,
+        trim: true,
+        required: [true, REQUIRED_ERROR_MSG],
+      },
+      description: {
+        type: String,
+        trim: true,
+        required: [true, REQUIRED_ERROR_MSG],
+      },
+      url: {
+        type: String,
+        trim: true,
+        validate: createJoiMongooseFieldValidate(
+          Joi.string()
+            .uri({ allowRelative: true })
+            .allow(""),
+          INVALID_ERROR_MSG
+        ),
+        required: [true, REQUIRED_ERROR_MSG],
+      },
+    },
+  },
+  homePageCardImage: file,
 });
 
 const SiteSettings = mongoose.model(SITE_SETTINGS, siteSettingsSchema);

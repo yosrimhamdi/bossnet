@@ -141,6 +141,14 @@ module.exports = {
       whatsAppLink: "Lien Whatsapp",
 
       showAtFooter: "Afficher dans le pied de page",
+
+      "homePageCard.title": "Titre",
+      "homePageCard.description": "Description",
+      "homePageCard.url": "Lien de bouton",
+      "homePageCard.image": "Image",
+      homePageCard: "Carte d'accueil",
+      homePageCardImage: "Image de la carte d'accueil",
+      homePageCardImageUpload: "Image de la carte d'accueil",
     },
     messages: {
       successfullyBulkDeleted: "{{count}} enregistrement supprimés avec succès",

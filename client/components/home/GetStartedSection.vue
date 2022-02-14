@@ -1,33 +1,45 @@
 <template>
-  <section class="get-started">
-    <div class="img">
+  <section v-if="homePageCard" class="get-started">
+    <div v-if="image" class="img">
       <div class="shape" />
-      <img
-        data-src="~/assets/images/getStarted.png"
-        alt="Bossnet"
-        v-lazy-load
-      />
+      <bucket-image alt="Bossnet" :image="image" />
     </div>
     <div class="details">
-      <h2>Rejoignez notre équipe pour faire du <span>profit</span></h2>
-      <p>
-        In publishing and graphic design, Lorem ipsum is a placeholder text
-        commonly used to demonstrate the visual form of a document, Lorem ipsum
-        is a placeholder text commonly used to demonstrate the visual form of a
-        document.
+      <h2 v-if="title">{{ title }}</h2>
+      <p v-if="description">
+        {{ description }}
       </p>
-      <router-link to="/about" class="btn dark md">
+      <link-intern-extern :url="url" class="btn dark md">
         À propos
         <arrow-right-icon />
-      </router-link>
+      </link-intern-extern>
     </div>
   </section>
 </template>
 
 <script>
 import ArrowRightIcon from "../icons/ArrowRightIcon.vue";
+import LinkInternExtern from "../shared/LinkInternExtern.vue";
+import BucketImage from "../utilities/BucketImage.vue";
 export default {
-  components: { ArrowRightIcon },
+  components: { ArrowRightIcon, BucketImage, LinkInternExtern },
+  computed: {
+    homePageCard() {
+      return this.$store.state.siteSettings.homePageCard;
+    },
+    title() {
+      return this.homePageCard.title;
+    },
+    description() {
+      return this.homePageCard.description;
+    },
+    url() {
+      return this.homePageCard.url;
+    },
+    image() {
+      return this.$store.state.siteSettings.homePageCardImage;
+    },
+  },
 };
 </script>
 
