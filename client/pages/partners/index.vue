@@ -158,6 +158,9 @@ export default {
   .link {
     @apply block w-max text-sm
      bg-gray-50 p-2 rounded-md m-2 border shadow-sm;
+    a {
+      @apply block w-max;
+    }
   }
   @screen lg {
     width: 300px;
