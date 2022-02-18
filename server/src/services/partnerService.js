@@ -1,6 +1,7 @@
 const { PARTNER_TYPE_CHOICES } = require("../models/configs/enums");
 const Partner = require("../models/Partner");
 const categoryService = require("./categoryService");
+const { NotFoundError } = require("./exceptions");
 
 const PAGINATION_LIMIT = 8;
 
@@ -87,6 +88,9 @@ const getPartnerById = async (partnerId) => {
     path: "categories",
     select: ["_id", "name"],
   });
+  if (!partner) {
+    throw new NotFoundError();
+  }
   return partner;
 };
 

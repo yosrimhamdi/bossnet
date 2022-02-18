@@ -14,7 +14,7 @@ module.exports = async ({ email, password }) => {
       path: "parent",
       select: ["profile", "_id", "ancestors"],
     });
-  if (!client) throw new ClientDoesNotExistsError();
+  if (!client) throw new ClientDoesNotExistsError(401);
   if (!(await bcrypt.compare(password, client.encryptedPassword)))
     throw new ClientPasswordAndEmailDoesNotMatchError();
 

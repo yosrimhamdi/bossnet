@@ -22,8 +22,7 @@ module.exports = async (clientEmail, clientId, resetPasswordKey) => {
     Remarque : Ce lien expire après 2 heures.
     `,
     });
-  } catch (err) {
-    console.log(err);
+  } catch {
     throw new ClientSendResetPasswordEmailError();
   }
 };

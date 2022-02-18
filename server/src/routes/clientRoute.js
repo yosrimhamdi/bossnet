@@ -5,12 +5,14 @@ const clientRouter = new Router();
 const provideAuthMiddleware = require("./../middlewares/provideAuth");
 const ensureAuthMiddleware = require("./../middlewares/ensureAuth");
 const rateLimiters = require("./../middlewares/rateLimiters");
+const createGoogleRecaptchaValidatorMiddleware = require("../middlewares/createGoogleRecaptchaValidatorMiddleware");
 
 clientRouter
   .post(
     "/signup",
     rateLimiters.signUp,
     clientValidators.signUp,
+    createGoogleRecaptchaValidatorMiddleware("signup"),
     clientController.signUp
   )
   .post(
@@ -23,6 +25,7 @@ clientRouter
     "/reset-password/request",
     rateLimiters.resetPasswordRequest,
     clientValidators.resetPasswordRequest,
+    createGoogleRecaptchaValidatorMiddleware("resetPasswordRequest"),
     clientController.resetPasswordRequest
   )
   .post(

@@ -1,4 +1,5 @@
 const PartnerOffer = require("../models/PartnerOffer");
+const { NotFoundError } = require("./exceptions");
 
 const PAGINATION_LIMIT = 8;
 
@@ -51,6 +52,9 @@ const getPartnerOfferById = async (offerId) => {
       },
     ])
     .select("-showAtHome");
+  if (!offer) {
+    throw new NotFoundError();
+  }
   return offer;
 };
 

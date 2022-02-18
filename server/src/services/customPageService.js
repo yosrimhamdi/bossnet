@@ -1,8 +1,11 @@
 const CustomPage = require("../models/CustomPage");
+const { NotFoundError } = require("./exceptions");
 
 const getCustomPageById = async (id) => {
   const page = await CustomPage.findById(id);
-
+  if (!page) {
+    throw new NotFoundError();
+  }
   return page;
 };
 

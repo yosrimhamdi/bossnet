@@ -1,5 +1,4 @@
 const partnerService = require("./../services/partnerService");
-const responseErrorsMsgs = require("../config/responseErrorsMsgs");
 
 /*
     params: [categoryId, page]
@@ -46,14 +45,8 @@ const getPartnersSuggestionsBySearchQuery = async (req, res) => {
 
 const getPartnerById = async (req, res) => {
   const partner = await partnerService.getPartnerById(req.params.partnerId);
-  if (partner) {
-    res.send({
-      partner,
-    });
-    return;
-  }
-  res.status(404).send({
-    error: responseErrorsMsgs.NOT_FOUND_MSG,
+  res.send({
+    partner,
   });
 };
 

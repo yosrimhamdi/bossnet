@@ -1,4 +1,5 @@
 const Category = require("../models/Category");
+const { NotFoundError } = require("./exceptions");
 
 const getHomePageCategories = async () => {
   const categories = await Category.find({
@@ -21,6 +22,9 @@ const getCategoryById = async (categoryId) => {
     "-searchKeys",
     "-showAtHome",
   ]);
+  if (!category) {
+    throw new NotFoundError();
+  }
   return category;
 };
 

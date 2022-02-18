@@ -1,59 +1,73 @@
-class ParentDoesNotExistsError extends Error {
-  constructor() {
-    super("Parent does not exists");
+const {
+  PARENT_NOT_FOUND_ERROR_MSG,
+  PARENT_HAS_FULL_CHILDREN_ERROR_MSG,
+  EMAIL_ALREADY_EXISTS_ERROR_MSG,
+  CLIENT_DOES_NOT_EXISTS_ERROR_MSG,
+  CLIENT_PASSWORD_AND_EMAIL_DOES_NOT_MATCH_ERROR_MSG,
+  CLIENT_SEND_RESET_PASSWORD_EMAIL_ERROR_MSG,
+  CLIENT_PASSWORD_RESET_DOES_NOT_EXISTS_ERROR_MSG,
+  CLIENT_PASSWORD_RESET_EXPIRED_ERROR_MSG,
+  CLIENT_UPDATE_NOT_ALLOWED_ERROR_MSG,
+  GET_CLIENT_TREE_NOT_ALLOWED_ERROR_MSG,
+} = require("../../config/responseErrorsMsgs");
+const HttpError = require("../../utils/HttpError");
+
+class ParentDoesNotExistsError extends HttpError {
+  constructor(statusCode = 400) {
+    super(statusCode, PARENT_NOT_FOUND_ERROR_MSG);
   }
 }
 
-class ParentHasFullChildrenError extends Error {
-  constructor() {
-    super("Parent has full children");
+class ParentHasFullChildrenError extends HttpError {
+  constructor(statusCode = 400) {
+    super(statusCode, PARENT_HAS_FULL_CHILDREN_ERROR_MSG);
   }
 }
 
-class EmailAlreadyExistsError extends Error {
-  constructor() {
-    super("A client with this email already exists");
+class EmailAlreadyExistsError extends HttpError {
+  constructor(statusCode = 400) {
+    super(statusCode, EMAIL_ALREADY_EXISTS_ERROR_MSG);
   }
 }
 
-class ClientDoesNotExistsError extends Error {
-  constructor() {
-    super("Client does not exists");
+class ClientDoesNotExistsError extends HttpError {
+  constructor(statusCode = 400) {
+    super(statusCode, CLIENT_DOES_NOT_EXISTS_ERROR_MSG);
   }
 }
 
-class ClientPasswordAndEmailDoesNotMatchError extends Error {
-  constructor() {
-    super("Client password and email does not match");
+class ClientPasswordAndEmailDoesNotMatchError extends HttpError {
+  constructor(statusCode = 401) {
+    super(statusCode, CLIENT_PASSWORD_AND_EMAIL_DOES_NOT_MATCH_ERROR_MSG);
   }
 }
 
-class ClientSendResetPasswordEmailError extends Error {
-  constructor() {
-    super("Client send reset password email error");
+class ClientSendResetPasswordEmailError extends HttpError {
+  constructor(statusCode = 500) {
+    super(statusCode, CLIENT_SEND_RESET_PASSWORD_EMAIL_ERROR_MSG);
   }
 }
 
-class ClientPasswordResetDoesNotExistsError extends Error {
-  constructor() {
-    super("Client reset password does not exists error");
+class ClientPasswordResetDoesNotExistsError extends HttpError {
+  constructor(statusCode = 400) {
+    super(statusCode, CLIENT_PASSWORD_RESET_DOES_NOT_EXISTS_ERROR_MSG);
   }
 }
-class ClientPasswordResetExpiredError extends Error {
-  constructor() {
-    super("Client reset password expired error");
-  }
-}
-
-class GetClientTreeNotAllowedError extends Error {
-  constructor() {
-    super("Get client tree not allowed error");
+class ClientPasswordResetExpiredError extends HttpError {
+  constructor(statusCode = 400) {
+    super(statusCode, CLIENT_PASSWORD_RESET_EXPIRED_ERROR_MSG);
   }
 }
 
-class ClientUpdateNotAllowedError extends Error {
-  constructor() {
-    super("Client update not allowed error");
+class GetClientTreeNotAllowedError extends HttpError {
+  constructor(statusCode = 403) {
+    super(statusCode, GET_CLIENT_TREE_NOT_ALLOWED_ERROR_MSG);
+  }
+}
+
+class ClientUpdateNotAllowedError extends HttpError {
+  constructor(statusCode = 403) {
+    super(statusCode, CLIENT_UPDATE_NOT_ALLOWED_ERROR_MSG);
   }
 }
 

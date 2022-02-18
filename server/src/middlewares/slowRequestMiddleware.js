@@ -2,5 +2,4 @@
 // used for dev mode only
 module.exports = async (req, res, next) => {
   setTimeout(() => next(), 300);
-  next();
 };

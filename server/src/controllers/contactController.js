@@ -1,9 +1,4 @@
 const contactService = require("./../services/contactService");
-const {
-  UNEXPECTED_ERROR_MSG,
-  CAPTCHA_ERROR_MSG,
-} = require("../config/responseErrorsMsgs");
-const validateGoogleRecaptchaToken = require("./utils/validateGoogleRecaptchaToken");
 
 /*
     body: {
@@ -12,33 +7,12 @@ const validateGoogleRecaptchaToken = require("./utils/validateGoogleRecaptchaTok
         email,
         companyName,
         mobilePhone,
-        message,
-        recaptchaToken
+        message
     }
 */
 const createContact = async (req, res) => {
-  const { recaptchaToken } = req.body;
-  try {
-    if (await validateGoogleRecaptchaToken(recaptchaToken, "contact")) {
-      try {
-        const newContact = await contactService.createContact(req.body);
-        res.status(201).send(newContact);
-      } catch (err) {
-        res.status(500).send({
-          error: UNEXPECTED_ERROR_MSG,
-        });
-      }
-      return;
-    }
-    res.status(400).send({
-      error: CAPTCHA_ERROR_MSG,
-    });
-  } catch (err) {
-    // recaptcha unexpected error
-    res.status(500).send({
-      error: UNEXPECTED_ERROR_MSG,
-    });
-  }
+  const newContact = await contactService.createContact(req.body);
+  res.status(201).send(newContact);
 };
 
 module.exports = {
