@@ -21,12 +21,12 @@ export default {
 
 <style lang="scss" scoped>
 .default-main {
+  @apply relative py-12 px-2 mt-52  flex flex-col items-center;
+  @screen md {
+    @apply px-4 mt-56;
+  }
   @screen lg {
     @apply mt-24;
   }
-  @screen md {
-    @apply px-4 mt-28;
-  }
-  @apply relative py-12 px-2 mt-52  flex flex-col items-center;
 }
 </style>
