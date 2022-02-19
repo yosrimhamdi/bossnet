@@ -6,4 +6,5 @@ module.exports = [
   require("./customPageRoute"),
   require("./contactRoute"),
   require("./clientRoute"),
+  require("./seoRoute"),
 ];

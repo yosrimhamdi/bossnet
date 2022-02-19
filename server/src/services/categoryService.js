@@ -37,9 +37,12 @@ const getCategoriesIdsBySearchQuery = async (searchQuery) => {
   return categories;
 };
 
+const getAllCategoriesForSeo = () => Category.find().select("_id");
+
 module.exports = {
   getHomePageCategories,
   getAllCategories,
   getCategoryById,
   getCategoriesIdsBySearchQuery,
+  getAllCategoriesForSeo,
 };

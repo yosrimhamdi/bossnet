@@ -93,6 +93,7 @@ const getPartnerById = async (partnerId) => {
   }
   return partner;
 };
+const getAllPartnersForSeo = () => Partner.find().select("_id");
 
 module.exports = {
   getHomePagePartners,
@@ -101,4 +102,5 @@ module.exports = {
   getPartnersBySearchQuery,
   getPartnerById,
   getHeaderPartners,
+  getAllPartnersForSeo,
 };

@@ -1,5 +1,10 @@
-const apiEndpoint = process.env.API_ENDPOINT || "http://localhost:4000/api/v1";
-
+import {
+  API_ENDPOINT,
+  GOOGLE_RECAPTCHA_SITE_KEY,
+  HOST_NAME,
+  MEDIA_PROVIDER_URL,
+} from "./config";
+import getSitemapDynamicRoutes from "./utils/getSitemapDynamicRoutes";
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -106,11 +111,6 @@ export default {
     ],
   },
 
-  env: {
-    mediaProviderUrl: process.env.MEDIA_PROVIDER_URL || "http://localhost:4000",
-    apiEndpoint,
-  },
-
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: ["~/assets/css/main.scss"],
 
@@ -139,13 +139,12 @@ export default {
     [
       "@nuxtjs/recaptcha",
       {
-        siteKey:
-          process.env.GOOGLE_RECAPTCHA_SITE_KEY ||
-          "6LfhxNMdAAAAADJj9ODuxEcJKcnoE_PSplLtFdSn", // Site key for requests
-        version: 3, // Version
+        siteKey: GOOGLE_RECAPTCHA_SITE_KEY,
+        version: 3,
       },
     ],
     "@nuxtjs/auth-next",
+    "@nuxtjs/sitemap",
   ],
   auth: {
     localStorage: false,
@@ -157,7 +156,7 @@ export default {
           type: "Bearer",
         },
         endpoints: {
-          login: { url: `${apiEndpoint}/client/signin`, method: "post" },
+          login: { url: `${API_ENDPOINT}/client/signin`, method: "post" },
           user: false,
           logout: false,
         },
@@ -166,7 +165,15 @@ export default {
     redirect: false,
     autoLogout: true,
   },
-
+  sitemap: {
+    hostname: HOST_NAME,
+    sitemaps: [
+      {
+        path: "/sitemap.xml",
+        routes: getSitemapDynamicRoutes,
+      },
+    ],
+  },
   loading: {
     color: "#FFBA00",
     height: "2px",

@@ -5,6 +5,7 @@ const {
   DEBUG,
   CLIENT_ENDPOINT,
   REST_API_VERSION_1_ENDPOINT,
+  EXPRESS_TRUST_PROXY_NUMBER,
 } = require("../config");
 
 const httpErrorsHandler = require("../middlewares/httpErrorsHandler");
@@ -25,7 +26,7 @@ module.exports = (expressApp) => {
     })
   );
   // numberOfProxies is the number of proxies between the user and the server ( to find correct client ip ).
-  // expressApp.set("trust proxy", numberOfProxies);
+  expressApp.set("trust proxy", EXPRESS_TRUST_PROXY_NUMBER);
 
   // Helmet helps secure Express apps by setting various HTTP headers.
   expressApp.use(

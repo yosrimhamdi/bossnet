@@ -24,4 +24,7 @@ module.exports = {
     locations: ["Rue saleh ben yousef bannen، Monastir 5025"],
     email: "bossnet@contact.com",
   },
+
+  EXPRESS_TRUST_PROXY_NUMBER:
+    Number.parseInt(process.env.EXPRESS_TRUST_PROXY_NUMBER) || 1,
 };

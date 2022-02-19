@@ -30,5 +30,6 @@ const API_ROUTES = {
   getAuthClientChildren: (page) => `/client/children/${page}`,
   getClientBalance: `/client/balance`,
   getClientPaymentsHistory: (page) => `/client/payments-history/${page}`,
+  getSeoData: "/seo/data",
 };
 export default API_ROUTES;

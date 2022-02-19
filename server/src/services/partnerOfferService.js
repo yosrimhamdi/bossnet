@@ -58,8 +58,11 @@ const getPartnerOfferById = async (offerId) => {
   return offer;
 };
 
+const getAllOffersForSeo = () => PartnerOffer.find().select("_id");
+
 module.exports = {
   getHomePageOffers,
   getOffersByPartner,
   getPartnerOfferById,
+  getAllOffersForSeo,
 };

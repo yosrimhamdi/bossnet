@@ -19,7 +19,10 @@ const getFooterCustomPages = async () => {
   return pages;
 };
 
+const getAllCustomPagesForSeo = () => CustomPage.find().select("_id");
+
 module.exports = {
   getCustomPageById,
   getFooterCustomPages,
+  getAllCustomPagesForSeo,
 };
