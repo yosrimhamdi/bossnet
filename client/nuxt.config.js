@@ -3,6 +3,7 @@ import {
   GOOGLE_RECAPTCHA_SITE_KEY,
   HOST_NAME,
   MEDIA_PROVIDER_URL,
+  PORT,
 } from "./config";
 import getSitemapDynamicRoutes from "./utils/getSitemapDynamicRoutes";
 export default {
@@ -178,9 +179,9 @@ export default {
     color: "#FFBA00",
     height: "2px",
   },
-  // server: {
-  //   host: "0.0.0.0",
-  // },
+  server: {
+    port: PORT,
+  },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 };

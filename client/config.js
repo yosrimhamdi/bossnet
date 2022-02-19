@@ -9,3 +9,5 @@ export const GOOGLE_RECAPTCHA_SITE_KEY =
   "6LfhxNMdAAAAADJj9ODuxEcJKcnoE_PSplLtFdSn";
 
 export const HOST_NAME = process.env.HOST_NAME || "http://localhost:3000";
+
+export const PORT = process.env.PORT || 3000;
