@@ -1,8 +1,6 @@
-import { API_ENDPOINT } from "../config";
-
 export default function ({ $axios, redirect, app, store }, inject) {
   const api = $axios.create({
-    baseURL: API_ENDPOINT,
+    baseURL: process.env.API_ENDPOINT,
   });
 
   api.onRequest((config) => {

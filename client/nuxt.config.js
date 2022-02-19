@@ -125,7 +125,6 @@ export default {
     // https://go.nuxtjs.dev/tailwindcss
     "@nuxtjs/tailwindcss",
   ],
-
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     "@nuxtjs/axios",
@@ -146,6 +145,10 @@ export default {
     "@nuxtjs/auth-next",
     "@nuxtjs/sitemap",
   ],
+  env: {
+    // For browser
+    API_ENDPOINT,
+  },
   auth: {
     localStorage: false,
     strategies: {
