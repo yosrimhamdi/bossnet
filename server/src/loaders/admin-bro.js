@@ -23,6 +23,8 @@ module.exports = async (expressApp) => {
   const adminBro = new AdminBro({
     resources,
     rootPath: ADMIN_PANEL_PATH,
+    loginPath: `${ADMIN_PANEL_PATH}/login`,
+    logoutPath: `${ADMIN_PANEL_PATH}/logout`,
     assets,
     branding,
     dashboard,
