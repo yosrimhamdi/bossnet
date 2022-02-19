@@ -8,4 +8,4 @@ export const GOOGLE_RECAPTCHA_SITE_KEY =
   process.env.GOOGLE_RECAPTCHA_SITE_KEY ||
   "6LfhxNMdAAAAADJj9ODuxEcJKcnoE_PSplLtFdSn";
 
-export const HOST_NAME = process.env.HOST_NAME || "http://localhost:4000";
+export const HOST_NAME = process.env.HOST_NAME || "http://localhost:3000";
