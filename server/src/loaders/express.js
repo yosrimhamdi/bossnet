@@ -27,7 +27,7 @@ module.exports = (expressApp) => {
   );
 
   // numberOfProxies is the number of proxies between the user and the server ( to find correct client ip ).
-  expressApp.set("trust proxy", 0);
+  expressApp.set("trust proxy", true);
   // for ip testing
   expressApp.get(`${REST_API_VERSION_1_ENDPOINT}/ip`, (req, res) => {
     res.send(req.ips);
