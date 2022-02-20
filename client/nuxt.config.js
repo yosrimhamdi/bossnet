@@ -148,6 +148,7 @@ export default {
   env: {
     // For browser
     API_ENDPOINT,
+    MEDIA_PROVIDER_URL,
   },
   auth: {
     localStorage: false,
