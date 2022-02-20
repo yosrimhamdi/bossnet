@@ -3,7 +3,7 @@ const morgan = require("morgan");
 const cors = require("cors");
 const {
   DEBUG,
-  CLIENT_ENDPOINT,
+  CLIENT_ENDPOINTS,
   REST_API_VERSION_1_ENDPOINT,
   EXPRESS_TRUST_PROXY_NUMBER,
 } = require("../config");
@@ -21,7 +21,7 @@ module.exports = (expressApp) => {
 
   expressApp.use(
     cors({
-      origin: CLIENT_ENDPOINT,
+      origin: CLIENT_ENDPOINTS.split(","),
       optionsSuccessStatus: 200,
     })
   );

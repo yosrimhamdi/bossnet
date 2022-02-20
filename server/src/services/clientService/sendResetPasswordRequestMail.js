@@ -1,9 +1,9 @@
-const { EMAIL_USER, CLIENT_ENDPOINT } = require("../../config");
+const { EMAIL_USER, HOST_NAME } = require("../../config");
 const nodeMailerTransporter = require("../../utils/nodeMailerTransporter");
 const { ClientSendResetPasswordEmailError } = require("./exceptions");
 
 const generetResetPasswordLink = (clientId, resetPasswordKey) => {
-  return `${CLIENT_ENDPOINT}/reset-password/${clientId}/${resetPasswordKey}`;
+  return `${HOST_NAME}/reset-password/${clientId}/${resetPasswordKey}`;
 };
 
 module.exports = async (clientEmail, clientId, resetPasswordKey) => {
