@@ -7,7 +7,6 @@ const {
   EXPRESS_TRUST_PROXY_NUMBER,
   CLIENT_ENDPOINTS,
 } = require("../config");
-const corsOriginHandler = require("./../utils/corsOriginHandler");
 const httpErrorsHandler = require("../middlewares/httpErrorsHandler");
 const middlewares = require("../middlewares");
 const routes = require("../routes");
