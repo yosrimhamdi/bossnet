@@ -25,13 +25,13 @@ module.exports = (expressApp) => {
       optionsSuccessStatus: 200,
     })
   );
-  expressApp.enable("trust proxy");
+
   // numberOfProxies is the number of proxies between the user and the server ( to find correct client ip ).
-  expressApp.set("trust proxy", EXPRESS_TRUST_PROXY_NUMBER);
+  expressApp.set("trust proxy", 0);
   // for ip testing
-  expressApp.get(`${REST_API_VERSION_1_ENDPOINT}/ip`, (req, res) =>
-    res.send(req.ip)
-  );
+  expressApp.get(`${REST_API_VERSION_1_ENDPOINT}/ip`, (req, res) => {
+    res.send(req.ips);
+  });
   // Helmet helps secure Express apps by setting various HTTP headers.
   expressApp.use(
     helmet({
