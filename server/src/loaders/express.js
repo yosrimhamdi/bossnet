@@ -3,11 +3,10 @@ const morgan = require("morgan");
 const cors = require("cors");
 const {
   DEBUG,
-  CLIENT_ENDPOINTS,
   REST_API_VERSION_1_ENDPOINT,
   EXPRESS_TRUST_PROXY_NUMBER,
 } = require("../config");
-
+const corsOriginHandler = require("./../utils/corsOriginHandler");
 const httpErrorsHandler = require("../middlewares/httpErrorsHandler");
 const middlewares = require("../middlewares");
 const routes = require("../routes");
@@ -21,8 +20,7 @@ module.exports = (expressApp) => {
 
   expressApp.use(
     cors({
-      origin: CLIENT_ENDPOINTS.split(","),
-      optionsSuccessStatus: 200,
+      origin: corsOriginHandler,
     })
   );
   // numberOfProxies is the number of proxies between the user and the server ( to find correct client ip ).
