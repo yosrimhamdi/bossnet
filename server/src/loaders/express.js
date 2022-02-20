@@ -25,6 +25,7 @@ module.exports = (expressApp) => {
       optionsSuccessStatus: 200,
     })
   );
+  expressApp.enable("trust proxy");
   // numberOfProxies is the number of proxies between the user and the server ( to find correct client ip ).
   expressApp.set("trust proxy", EXPRESS_TRUST_PROXY_NUMBER);
   // for ip testing
