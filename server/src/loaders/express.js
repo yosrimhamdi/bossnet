@@ -1,6 +1,8 @@
 const express = require("express");
 const morgan = require("morgan");
 const cors = require("cors");
+const requestIp = require("request-ip");
+
 const {
   DEBUG,
   CLIENT_ENDPOINT,
@@ -27,10 +29,11 @@ module.exports = (expressApp) => {
   );
 
   // numberOfProxies is the number of proxies between the user and the server ( to find correct client ip ).
-  expressApp.enable("trust proxy");
+  // expressApp.enable("trust proxy");
+  expressApp.use(requestIp.mw());
   // for ip testing
   expressApp.get(`${REST_API_VERSION_1_ENDPOINT}/ip`, (req, res) => {
-    res.send({ ips: req.ips, ip: req.ip });
+    res.send({ ips: req.ips, ip: req.ip, ip2: req.clientIp });
   });
   // Helmet helps secure Express apps by setting various HTTP headers.
   expressApp.use(
