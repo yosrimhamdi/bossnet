@@ -29,7 +29,7 @@ module.exports = (expressApp) => {
   expressApp.set("trust proxy", EXPRESS_TRUST_PROXY_NUMBER);
   // for ip testing
   expressApp.get(`${REST_API_VERSION_1_ENDPOINT}/ip`, (req, res) =>
-    response.send(req.ip)
+    res.send(req.ip)
   );
   // Helmet helps secure Express apps by setting various HTTP headers.
   expressApp.use(
