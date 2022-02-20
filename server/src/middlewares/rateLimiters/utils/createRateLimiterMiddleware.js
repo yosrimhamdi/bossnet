@@ -22,4 +22,5 @@ module.exports = ({
     message: { error: messageError },
     skipFailedRequests,
     skipSuccessfulRequests,
+    keyGenerator: (req) => req.clientIp,
   });

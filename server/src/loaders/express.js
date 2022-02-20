@@ -4,13 +4,13 @@ const cors = require("cors");
 const {
   DEBUG,
   REST_API_VERSION_1_ENDPOINT,
-  EXPRESS_TRUST_PROXY_NUMBER,
   CLIENT_ENDPOINTS,
 } = require("../config");
 const httpErrorsHandler = require("../middlewares/httpErrorsHandler");
 const middlewares = require("../middlewares");
 const routes = require("../routes");
 const helmet = require("helmet");
+const requestIp = require("request-ip");
 
 module.exports = (expressApp) => {
   if (DEBUG) {
@@ -24,10 +24,10 @@ module.exports = (expressApp) => {
     })
   );
   // numberOfProxies is the number of proxies between the user and the server ( to find correct client ip ).
-  expressApp.set("trust proxy", EXPRESS_TRUST_PROXY_NUMBER);
+  expressApp.use(requestIp.mw());
   // for ip testing
   expressApp.get(`${REST_API_VERSION_1_ENDPOINT}/ip`, (req, res) =>
-    res.send(req.ip)
+    res.send({ id: req.ip, clientIp: req.clientIp })
   );
   // Helmet helps secure Express apps by setting various HTTP headers.
   expressApp.use(
