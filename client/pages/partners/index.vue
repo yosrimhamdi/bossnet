@@ -48,6 +48,7 @@ import Breadcrumb from "../../components/utilities/Breadcrumb.vue";
 import Paginator from "../../components/utilities/Paginator.vue";
 import SpinnerLoading from "../../components/utilities/SpinnerLoading.vue";
 import { scrollToElement } from "../../utils/userInteractions";
+import { formatSearchQuery } from "../../utils/textFormatters";
 const initData = (categories) => ({
   categories,
   partners: {
@@ -116,7 +117,7 @@ export default {
       this.partners.isLoading = true;
       this.scrollToPartners();
       const page = this.$route.query.page || 1,
-        searchQuery = this.$route.query.searchQuery;
+        searchQuery = formatSearchQuery(this.$route.query.searchQuery || "");
       const response = await this.$api.$get(
         API_ROUTES.getPartnersBySearchKey(searchQuery, page)
       );

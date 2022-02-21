@@ -3,7 +3,8 @@
     class="header-search-input"
     placeholder="Rechercher partenaires par nom ou categorie"
     name="Search"
-    v-model="searchQuery"
+    @input="(v) => (searchQuery = formatSearchQuery(v))"
+    :value="formatSearchQuery(searchQuery)"
     :hasChildren="!!searchQuery"
     @handleSubmit="handleSubmit"
   >
@@ -34,13 +35,14 @@
 
 <script>
 import API_ROUTES from "../../apiRoutes";
+import { formatSearchQuery } from "../../utils/textFormatters";
 import SearchInput from "../forms/SearchInput.vue";
 import SpinnerLoading from "../utilities/SpinnerLoading.vue";
 export default {
   components: { SearchInput, SpinnerLoading },
   data() {
     return {
-      searchQuery: "",
+      searchQuery: this.$route.query.searchQuery || "",
       partnersSuggestions: {
         partners: [],
         total: 0,
@@ -55,23 +57,26 @@ export default {
         this.partnersSuggestions.partners.length
       );
     },
-    cleenSearchQuery() {
-      return this.searchQuery.replace("  ", " ").trim();
+    hasValidSearchQuery() {
+      return this.searchQuery.replaceAll(" ", "").length;
     },
   },
   methods: {
+    formatSearchQuery,
     async fetchPartnersSuggestions() {
-      if (this.cleenSearchQuery.length) {
+      if (this.hasValidSearchQuery) {
         this.isLoading = true;
         this.partnersSuggestions = await this.$api.$get(
-          API_ROUTES.getPartnersSuggestionsBySearchQuery(this.cleenSearchQuery)
+          API_ROUTES.getPartnersSuggestionsBySearchQuery(this.searchQuery)
         );
         this.isLoading = false;
+      } else {
+        this.searchQuery = "";
       }
     },
     handleSubmit() {
-      if (this.cleenSearchQuery) {
-        this.$router.push(`/partners?searchQuery=${this.cleenSearchQuery}`);
+      if (this.hasValidSearchQuery) {
+        this.$router.push(`/partners?searchQuery=${this.searchQuery}`);
       }
     },
   },
