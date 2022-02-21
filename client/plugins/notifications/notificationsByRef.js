@@ -120,7 +120,7 @@ export default {
   CONTACT_TOO_MANY_REQUESTS_ERROR: {
     type: "error",
     title: "Opération non autorisée",
-    content: `Vous pouvez soumettre un maximum de 5 demandes par jour.`,
+    content: `Vous pouvez soumettre un maximum de 10 demandes par jour.`,
   },
   CLIENT_TOO_MANY_REQUESTS_ERROR: {
     type: "error",
