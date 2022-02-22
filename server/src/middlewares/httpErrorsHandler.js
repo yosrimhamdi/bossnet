@@ -8,6 +8,9 @@ module.exports = (err, req, res, next) => {
   }
   if (err) {
     if (err instanceof HttpError) {
+      if (err.statusCode >= 500) {
+        consola.error(err);
+      }
       res.status(err.statusCode);
       res.send({ error: err.message });
     } else {
