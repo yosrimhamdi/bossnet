@@ -28,7 +28,7 @@ module.exports = {
           edit: true,
         },
       },
-      "permissions.collection": {
+      "permissions._collection": {
         availableValues: ADMIN_PERMISSION_COLLECTION_CHOICES,
       },
     },

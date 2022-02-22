@@ -74,7 +74,7 @@ module.exports = {
       isSuperuser: "Est Superuser",
       role: "Rôle d'administrateur",
       name: "Nom",
-      "permissions.collection": "Table",
+      "permissions._collection": "Table",
       "permissions.canView": "Afficher",
       "permissions.canDelete": "Supprimer",
       "permissions.canModify": "Modifier",
