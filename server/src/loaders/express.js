@@ -11,6 +11,7 @@ const middlewares = require("../middlewares");
 const routes = require("../routes");
 const helmet = require("helmet");
 const requestIp = require("request-ip");
+const convertDurationToSeconds = require("../utils/convertDurationToSeconds");
 
 module.exports = (expressApp) => {
   if (DEBUG) {
@@ -39,8 +40,18 @@ module.exports = (expressApp) => {
   );
 
   expressApp.use(express.json());
-  expressApp.use("/uploads", express.static("public/uploads/"));
-  expressApp.use("/admin-assets", express.static("public/admin-assets"));
+  expressApp.use(
+    "/uploads",
+    express.static("public/uploads/", {
+      maxAge: 1000 * convertDurationToSeconds("2day"),
+    })
+  );
+  expressApp.use(
+    "/admin-assets",
+    express.static("public/admin-assets", {
+      maxAge: 1000 * convertDurationToSeconds("10day"),
+    })
+  );
 
   // set middlewares
   middlewares.map(({ path, mid }) =>
