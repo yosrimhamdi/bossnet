@@ -41,37 +41,7 @@ export default {
     link: [
       {
         rel: "preload",
-        href: "/favicon/manifest.json",
-        as: "fetch",
-      },
-      {
-        rel: "preload",
         href: "/lazyLoading.jpg",
-        as: "image",
-      },
-      {
-        rel: "preload",
-        href: "/favicon/android-icon-192x192.png",
-        as: "image",
-      },
-      {
-        rel: "preload",
-        href: "/favicon/apple-icon-180x180.png",
-        as: "image",
-      },
-      {
-        rel: "preload",
-        href: "/favicon/favicon-16x16.png",
-        as: "image",
-      },
-      {
-        rel: "preload",
-        href: "/favicon/favicon-96x96.png",
-        as: "image",
-      },
-      {
-        rel: "preload",
-        href: "/favicon/favicon-32x32.png",
         as: "image",
       },
       {
