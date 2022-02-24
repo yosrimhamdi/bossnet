@@ -5,7 +5,7 @@ import {
   HOST_NAME,
   PORT,
 } from "./config";
-console.log(HOST_NAME);
+
 import getSitemapDynamicRoutes from "./utils/getSitemapDynamicRoutes";
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head

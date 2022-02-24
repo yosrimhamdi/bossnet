@@ -1,5 +1,4 @@
 require("dotenv").config({ path: `.env.${process.env.NODE_ENV}` });
-
 export const API_ENDPOINT =
   process.env.API_ENDPOINT || "http://localhost:4000/api/v1";
 
