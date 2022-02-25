@@ -14,10 +14,10 @@ const requestIp = require("request-ip");
 const convertDurationToSeconds = require("../utils/convertDurationToSeconds");
 
 module.exports = (expressApp) => {
-  if (DEBUG) {
-    // for printing request details in console
-    expressApp.use(morgan("tiny"));
-  }
+  // if (DEBUG) {
+  // for printing request details in console
+  expressApp.use(morgan("tiny"));
+  // }
 
   expressApp.use(
     cors({
