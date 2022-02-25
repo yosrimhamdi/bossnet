@@ -16,6 +16,7 @@ const getHomePageData = async (_, res) => {
   const advertissments = await getHomePageAdvertissments();
   const offers = await getHomePageOffers();
   const categories = await getHomePageCategories();
+  console.log({ called: true });
   res.send({
     partners,
     advertissments,
