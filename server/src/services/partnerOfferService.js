@@ -5,7 +5,7 @@ const PAGINATION_LIMIT = 8;
 
 const getHomePageOffers = async () => {
   const currentDate = new Date();
-  currentDate.setHours(0, 0, 0, 0);
+  //  currentDate.setHours(0, 0, 0, 0);
   const offers = await PartnerOffer.find({
     showAtHome: true,
     $or: [

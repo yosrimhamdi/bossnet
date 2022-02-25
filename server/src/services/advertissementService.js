@@ -2,7 +2,7 @@ const Advertissment = require("../models/Advertissment");
 
 const getHomePageAdvertissments = async () => {
   const currentDate = new Date();
-  currentDate.setHours(0, 0, 0, 0);
+  //  currentDate.setHours(0, 0, 0, 0);
   const homeAdvertissments = await Advertissment.find({
     showAtHome: true,
     $or: [
