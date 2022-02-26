@@ -13,7 +13,14 @@ module.exports = (clientId, page = 1) => [
   },
   // remove unused fields
   {
-    $unset: ["cinId", "rib", "encryptedPassword", "isPaid", "updatedAt"],
+    $unset: [
+      "cinId",
+      "rib",
+      "encryptedPassword",
+      "isPaid",
+      "profile.mobilePhone",
+      "updatedAt",
+    ],
   },
   // sort children by ancestorsSize
   // to make the left childs parallel to right childs
