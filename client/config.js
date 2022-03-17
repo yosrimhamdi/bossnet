@@ -11,4 +11,4 @@ export const HOST_NAME = process.env.HOST_NAME || "http://localhost:3000";
 
 export const PORT = process.env.PORT || 3000;
 
-export const UNDER_CONSTRUCTION = !!process.env.UNDER_CONSTRUCTION || false;
+export const UNDER_CONSTRUCTION = process.env.UNDER_CONSTRUCTION ? true : false;
