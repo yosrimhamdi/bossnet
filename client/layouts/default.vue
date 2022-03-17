@@ -3,7 +3,8 @@
     <OfflineStatus />
     <TheHeader />
     <main class="default-main">
-      <Nuxt />
+      <under-construction v-if="isUnderConstruction" />
+      <Nuxt v-else />
     </main>
     <TheFooter />
     <notifications />
@@ -11,11 +12,17 @@
 </template>
 
 <script>
+import UnderConstruction from "../components/errors/UnderConstruction.vue";
 import OfflineStatus from "../components/OfflineStatus.vue";
 import TheFooter from "../components/TheFooter.vue";
 import TheHeader from "../components/TheHeader.vue";
 export default {
-  components: { TheHeader, TheFooter, OfflineStatus },
+  components: { TheHeader, TheFooter, OfflineStatus, UnderConstruction },
+  computed: {
+    isUnderConstruction() {
+      return process.env.UNDER_CONSTRUCTION;
+    },
+  },
 };
 </script>
 

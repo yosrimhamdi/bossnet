@@ -10,3 +10,5 @@ export const GOOGLE_RECAPTCHA_SITE_KEY = process.env.GOOGLE_RECAPTCHA_SITE_KEY;
 export const HOST_NAME = process.env.HOST_NAME || "http://localhost:3000";
 
 export const PORT = process.env.PORT || 3000;
+
+export const UNDER_CONSTRUCTION = !!process.env.UNDER_CONSTRUCTION || false;

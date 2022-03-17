@@ -4,6 +4,7 @@ import {
   GOOGLE_RECAPTCHA_SITE_KEY,
   HOST_NAME,
   PORT,
+  UNDER_CONSTRUCTION,
 } from "./config";
 
 import getSitemapDynamicRoutes from "./utils/getSitemapDynamicRoutes";
@@ -156,6 +157,7 @@ export default {
     // For browser
     API_ENDPOINT,
     MEDIA_PROVIDER_URL,
+    UNDER_CONSTRUCTION,
   },
   auth: {
     localStorage: false,
