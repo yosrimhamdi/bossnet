@@ -1,0 +1,40 @@
+[{
+  "_id": {
+    "$oid": "61efdf7b3444e16e74d7b881"
+  },
+  "name": "Employé",
+  "permissions": [
+    {
+      "collection": "Partner",
+      "canView": true,
+      "canCreate": true,
+      "canModify": true,
+      "canDelete": true
+    },
+    {
+      "collection": "Advertissment",
+      "canView": true,
+      "canCreate": true,
+      "canModify": true,
+      "canDelete": true
+    },
+    {
+      "collection": "Advertissment",
+      "canView": true,
+      "canCreate": true,
+      "canModify": true,
+      "canDelete": true
+    }
+  ],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1643110267806"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1643110267806"
+    }
+  },
+  "__v": 0
+}]

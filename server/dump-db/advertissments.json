@@ -1,0 +1,228 @@
+[{
+  "_id": {
+    "$oid": "61bce19fd7d3dec7349d287c"
+  },
+  "title": "kljkjkj",
+  "description": "lmjllkjlkj",
+  "position": "1",
+  "duration": {
+    "startDate": {
+      "$date": {
+        "$numberLong": "1639695600000"
+      }
+    },
+    "endDate": null
+  },
+  "url": "/custom-pages/61ba45b0acdd7096fc84a180",
+  "showAtHome": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1639768479125"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1641635678775"
+    }
+  },
+  "__v": 0,
+  "image": {
+    "mimeType": "image/jpeg",
+    "path": "61bce19fd7d3dec7349d287c/FFA21_Enfantheureux_DB.jpg",
+    "bucket": "/uploads/advertissments"
+  }
+},{
+  "_id": {
+    "$oid": "61c22ac04a2f9faef0a30d87"
+  },
+  "title": "sdfgsdfsdfdsf",
+  "description": "sdfsdfsd dsfsdfsdfsdfsdfsdf",
+  "position": "1",
+  "duration": {
+    "startDate": {
+      "$date": {
+        "$numberLong": "1640041200000"
+      }
+    },
+    "endDate": null
+  },
+  "url": "/custom-pages/61ca070443648b044f2a253c",
+  "showAtHome": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1640114880969"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1641641045480"
+    }
+  },
+  "__v": 0,
+  "image": {
+    "mimeType": "image/jpeg",
+    "path": "61c22ac04a2f9faef0a30d87/FFA21_CPRS_DB-(1).jpg",
+    "bucket": "/uploads/advertissments"
+  }
+},{
+  "_id": {
+    "$oid": "61c333f45266bff201cc05dd"
+  },
+  "title": "sdf;sd ds;,fsd fsdjfksdjflksdlkfj sdklfjlksdf",
+  "position": "3",
+  "duration": {
+    "startDate": {
+      "$date": {
+        "$numberLong": "1640127600000"
+      }
+    },
+    "endDate": null
+  },
+  "url": "/custom-pages/61ba45b0acdd7096fc84a180",
+  "showAtHome": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1640182772513"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1641635368009"
+    }
+  },
+  "__v": 0,
+  "image": {
+    "mimeType": "image/jpeg",
+    "path": "61c333f45266bff201cc05dd/Depart2022_CAN_DB.jpg",
+    "bucket": "/uploads/advertissments"
+  }
+},{
+  "_id": {
+    "$oid": "61c334265266bff201cc05e2"
+  },
+  "title": "sldkfjl sdkfsdklfjklsdf",
+  "description": "sdfdsfsdfsdfdsfdsf",
+  "position": "3",
+  "duration": {
+    "startDate": {
+      "$date": {
+        "$numberLong": "1640127600000"
+      }
+    },
+    "endDate": null
+  },
+  "url": "/custom-pages/61ca04e843648b044f2a24dd",
+  "showAtHome": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1640182822022"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1641635320600"
+    }
+  },
+  "__v": 0,
+  "image": {
+    "mimeType": "image/jpeg",
+    "path": "61c334265266bff201cc05e2/Depart2022_CT_Slider-(1).jpg",
+    "bucket": "/uploads/advertissments"
+  }
+},{
+  "_id": {
+    "$oid": "61c33f468a2af42be8daf3da"
+  },
+  "title": "lore",
+  "position": "2",
+  "duration": {
+    "endDate": null,
+    "startDate": {
+      "$date": {
+        "$numberLong": "1640041200000"
+      }
+    }
+  },
+  "url": "/custom-pages/61ba45b0acdd7096fc84a180",
+  "showAtHome": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1640185670993"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1640185671009"
+    }
+  },
+  "__v": 0,
+  "image": {
+    "mimeType": "image/jpeg",
+    "path": "61c33f468a2af42be8daf3da/FFA21_CPRS_DB-(1).jpg",
+    "bucket": "/uploads/advertissments"
+  }
+},{
+  "_id": {
+    "$oid": "61c33f6d8a2af42be8daf3df"
+  },
+  "title": "jhk jkhkjhjkhkjhlj",
+  "position": "2",
+  "duration": {
+    "startDate": {
+      "$date": {
+        "$numberLong": "1640127600000"
+      }
+    },
+    "endDate": null
+  },
+  "url": "/custom-pages/61ba45b0acdd7096fc84a180",
+  "showAtHome": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1640185709272"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1641650507662"
+    }
+  },
+  "__v": 0,
+  "image": {
+    "mimeType": "image/jpeg",
+    "path": "61c33f6d8a2af42be8daf3df/FFA21_Enfantheureux_DB.jpg",
+    "bucket": "/uploads/advertissments"
+  }
+},{
+  "_id": {
+    "$oid": "61d95e915ad86affd547acaa"
+  },
+  "title": "kjkljkljlkjlkj",
+  "position": "1",
+  "duration": {
+    "startDate": {
+      "$date": {
+        "$numberLong": "1641596400000"
+      }
+    },
+    "endDate": null
+  },
+  "url": "/custom-pages/61ba45b0acdd7096fc84a180",
+  "showAtHome": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1641635473839"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1641682794111"
+    }
+  },
+  "__v": 0,
+  "image": {
+    "mimeType": "image/jpeg",
+    "path": "61d95e915ad86affd547acaa/Depart2022_CAN_DB.jpg",
+    "bucket": "/uploads/advertissments"
+  }
+}]

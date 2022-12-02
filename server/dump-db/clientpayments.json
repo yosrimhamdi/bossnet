@@ -1,0 +1,27 @@
+[{
+  "_id": {
+    "$oid": "61f00453fd351a7da62d3cbe"
+  },
+  "client": {
+    "$oid": "61be63b3a8ab4e0623afef81"
+  },
+  "amount": 30,
+  "paymentMethod": "ca",
+  "paidDate": {
+    "$date": {
+      "$numberLong": "1643068800000"
+    }
+  },
+  "isPaid": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1643119699205"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1643119699205"
+    }
+  },
+  "__v": 0
+}]

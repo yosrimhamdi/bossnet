@@ -1,0 +1,382 @@
+[{
+  "_id": {
+    "$oid": "61bd1907fa371ae52387b8aa"
+  },
+  "name": "Carrefour",
+  "description": "In publishing and graphic design Lorem ipsum text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available.",
+  "type": "1",
+  "email": "",
+  "location": {
+    "addresses": [
+      "Avenue Habib Bourguiba 5070 Ksar Hellal - MONASTIR",
+      "Avenue Habib Bourguiba 5060 Bannen - MONASTIR",
+      "Avenue Habib Bourguiba 5090 Jammel - MONASTIR"
+    ],
+    "embedMapIframe": "<iframe  src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d51245.761315644566!2d10.539155747113474!3d36.60567874641901!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12fd5b790e523209%3A0xefb66557c228e697!2sma%20petite%20ferme!5e0!3m2!1sen!2stn!4v1639958321009!5m2!1sen!2stn\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\"></iframe>"
+  },
+  "timing": "De 8h30 à 23h chaque jour.",
+  "discountRate": 15,
+  "categories": [
+    {
+      "$oid": "61c27750cc56ec308a258254"
+    },
+    {
+      "$oid": "61c27765cc56ec308a258258"
+    },
+    {
+      "$oid": "61c318425266bff201cc03f1"
+    }
+  ],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1639782663948"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1640523458221"
+    }
+  },
+  "__v": 0,
+  "logo": {
+    "mimeType": "image/png",
+    "path": "61bd1907fa371ae52387b8aa/image 9.png",
+    "bucket": "/uploads/partners/logo"
+  },
+  "webSiteURL": "https://www.carrefour.tn/",
+  "images": {
+    "mimeTypes": [
+      "image/png",
+      "image/png",
+      "image/png"
+    ],
+    "paths": [
+      "61bd1907fa371ae52387b8aa/carre-2.png",
+      "61bd1907fa371ae52387b8aa/carre-1.png",
+      "61bd1907fa371ae52387b8aa/carre-3.png"
+    ],
+    "buckets": [
+      "/uploads/partners/images",
+      "/uploads/partners/images",
+      "/uploads/partners/images"
+    ],
+    "sizes": [
+      284911,
+      514137,
+      157912
+    ]
+  }
+},{
+  "_id": {
+    "$oid": "61c32fab5266bff201cc05a4"
+  },
+  "name": "Magasin génerale",
+  "description": "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available.",
+  "type": "2",
+  "webSiteURL": "https://adminbro.com/module-@admin-bro_upload.html",
+  "location": {
+    "addresses": [
+      "sdfsdfsdfsdfsdfsdfsdf"
+    ]
+  },
+  "timing": "De samedi jusqu'a Vendredi 8:00 - 16:00",
+  "discountRate": 12,
+  "categories": [
+    {
+      "$oid": "61c27765cc56ec308a258258"
+    },
+    {
+      "$oid": "61c27750cc56ec308a258254"
+    }
+  ],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1640181675800"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1640432409926"
+    }
+  },
+  "__v": 0,
+  "logo": {
+    "mimeType": "image/png",
+    "path": "61c32fab5266bff201cc05a4/image 10.png",
+    "bucket": "/uploads/partners/logo"
+  }
+},{
+  "_id": {
+    "$oid": "61c476e984f0583d415c7327"
+  },
+  "name": "Zen",
+  "description": "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available.",
+  "type": "1",
+  "email": "",
+  "webSiteURL": "https://adminbro.com/module-@admin-bro_upload.html",
+  "location": {
+    "addresses": [
+      "dfgdfgdfg"
+    ]
+  },
+  "timing": "De samedi jusqu'a Vendredi 8:00 - 16:00",
+  "discountRate": 12,
+  "categories": [
+    {
+      "$oid": "61c23c11f80589de5f280084"
+    },
+    {
+      "$oid": "61c27765cc56ec308a258258"
+    }
+  ],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1640265449217"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1640432395900"
+    }
+  },
+  "__v": 0,
+  "logo": {
+    "mimeType": "image/png",
+    "path": "61c476e984f0583d415c7327/image 11.png",
+    "bucket": "/uploads/partners/logo"
+  }
+},{
+  "_id": {
+    "$oid": "61c4f1f033af28b54d732525"
+  },
+  "name": "Fatales",
+  "description": "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available.",
+  "type": "1",
+  "email": "",
+  "webSiteURL": "https://adminbro.com/module-@admin-bro_upload.html",
+  "location": {
+    "addresses": [
+      "dfgdfgdfgdfg"
+    ]
+  },
+  "timing": "De samedi jusqu'a Vendredi 8:00 - 16:00",
+  "discountRate": 15,
+  "categories": [
+    {
+      "$oid": "61c23c11f80589de5f280084"
+    },
+    {
+      "$oid": "61c27765cc56ec308a258258"
+    }
+  ],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1640296944374"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1640432385347"
+    }
+  },
+  "__v": 0,
+  "logo": {
+    "mimeType": "image/png",
+    "path": "61c4f1f033af28b54d732525/fatale.png",
+    "bucket": "/uploads/partners/logo"
+  }
+},{
+  "_id": {
+    "$oid": "61c4f23333af28b54d732534"
+  },
+  "name": "Aziza",
+  "description": "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available.",
+  "type": "1",
+  "location": {
+    "addresses": [
+      "fghfgdhhdfghfghfg gfhdhdfghfgh"
+    ]
+  },
+  "timing": "De samedi jusqu'a Vendredi 8:00 - 16:00",
+  "discountRate": 15,
+  "categories": [
+    {
+      "$oid": "61c27765cc56ec308a258258"
+    }
+  ],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1640297011464"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1640432373601"
+    }
+  },
+  "__v": 0,
+  "logo": {
+    "mimeType": "image/png",
+    "path": "61c4f23333af28b54d732534/aziz.png",
+    "bucket": "/uploads/partners/logo"
+  }
+},{
+  "_id": {
+    "$oid": "61c4f26f33af28b54d732548"
+  },
+  "name": "Chaneb",
+  "description": "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available.",
+  "type": "1",
+  "email": "",
+  "location": {
+    "addresses": [
+      "dfgdfgdfg"
+    ]
+  },
+  "timing": "De samedi jusqu'a Vendredi 8:00 - 16:00",
+  "discountRate": 15,
+  "categories": [
+    {
+      "$oid": "61c4f2fc33af28b54d732582"
+    },
+    {
+      "$oid": "61c27765cc56ec308a258258"
+    }
+  ],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1640297071247"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1640432361881"
+    }
+  },
+  "__v": 0,
+  "logo": {
+    "mimeType": "image/png",
+    "path": "61c4f26f33af28b54d732548/chaneb.png",
+    "bucket": "/uploads/partners/logo"
+  },
+  "images": {
+    "mimeTypes": [],
+    "paths": [],
+    "buckets": []
+  }
+},{
+  "_id": {
+    "$oid": "61c50beb33af28b54d73279c"
+  },
+  "name": "City market",
+  "description": "In publishing and graphic design Lorem ipsum text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available.",
+  "type": "1",
+  "location": {
+    "addresses": [
+      "fghfgdhhdfghfghfg gfhdhdfghfgh"
+    ]
+  },
+  "timing": "De samedi jusqu'a Vendredi 8:00 - 16:00",
+  "categories": [
+    {
+      "$oid": "61c27765cc56ec308a258258"
+    },
+    {
+      "$oid": "61c23c11f80589de5f280084"
+    }
+  ],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1640303595183"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1640432345446"
+    }
+  },
+  "__v": 0,
+  "logo": {
+    "mimeType": "image/png",
+    "path": "61c50beb33af28b54d73279c/city-market.png",
+    "bucket": "/uploads/partners/logo"
+  }
+},{
+  "_id": {
+    "$oid": "61c50cc733af28b54d7327c2"
+  },
+  "name": "Monoprix",
+  "description": "In publishing and graphic design Lorem ipsum text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available.",
+  "type": "1",
+  "location": {
+    "addresses": [
+      "fghfgdhhdfghfghfg gfhdhdfghfgh"
+    ]
+  },
+  "timing": "De samedi jusqu'a Vendredi 8:00 - 16:00",
+  "categories": [
+    {
+      "$oid": "61c27765cc56ec308a258258"
+    },
+    {
+      "$oid": "61c27750cc56ec308a258254"
+    },
+    {
+      "$oid": "61c4f2fc33af28b54d732582"
+    }
+  ],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1640303815170"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1640432329305"
+    }
+  },
+  "__v": 0,
+  "logo": {
+    "mimeType": "image/jpeg",
+    "path": "61c50cc733af28b54d7327c2/Monoprix-ART-logo-2019.jpg",
+    "bucket": "/uploads/partners/logo"
+  }
+},{
+  "_id": {
+    "$oid": "61c50d6e33af28b54d7327d8"
+  },
+  "name": "Samsung",
+  "description": "In publishing and graphic design Lorem ipsum text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available.",
+  "type": "1",
+  "location": {
+    "addresses": [
+      "fghfgdhhdfghfghfg gfhdhdfghfgh"
+    ]
+  },
+  "timing": "De samedi jusqu'a Vendredi 8:00 - 16:00",
+  "discountRate": 10,
+  "categories": [
+    {
+      "$oid": "61c27750cc56ec308a258254"
+    },
+    {
+      "$oid": "61c27765cc56ec308a258258"
+    }
+  ],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1640303982370"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669070819029"
+    }
+  },
+  "__v": 0,
+  "logo": {
+    "mimeType": "image/png",
+    "path": "61c50d6e33af28b54d7327d8/Samsung_Logo.svg.png",
+    "bucket": "/uploads/partners/logo"
+  }
+}]

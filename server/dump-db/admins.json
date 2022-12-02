@@ -1,0 +1,42 @@
+[{
+  "_id": {
+    "$oid": "61ef1172c069c013ca8d3ddf"
+  },
+  "fullName": "Superuser",
+  "email": "bossnet@admin.com",
+  "encryptedPassword": "$2b$10$VyMr5xK.A19Yb9kRsE5cD.MnxZJMxBCdnPulA2hc8nYS/jg8Rc9py",
+  "isSuperuser": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1643057522069"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1643057522069"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61efdfa33444e16e74d7b88a"
+  },
+  "fullName": "Ahmed",
+  "email": "ahmed@admin.com",
+  "encryptedPassword": "$2b$10$lDrf2JliqQbm2HIpxB7c0eZ/Ct6tW6qt.Qd6p9TI8QBZdBoLVNUuK",
+  "isSuperuser": false,
+  "role": {
+    "$oid": "61efdf7b3444e16e74d7b881"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1643110307064"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1643110307064"
+    }
+  },
+  "__v": 0
+}]

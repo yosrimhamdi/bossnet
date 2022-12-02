@@ -1,0 +1,131 @@
+[{
+  "_id": {
+    "$oid": "61c23c11f80589de5f280084"
+  },
+  "name": "Mode",
+  "description": "Lorem ipsum may be used as a placeholder before the final copy is available, Lorem ipsum may be used as a placeholder before the final copy is available.",
+  "searchKeys": [
+    "ghfgh"
+  ],
+  "showAtHome": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1640119313080"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1640216970411"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61c27750cc56ec308a258254"
+  },
+  "name": "Electronique",
+  "description": "Lorem ipsum may be used as a placeholder before the final copy is available.",
+  "searchKeys": [
+    "dfgdfgfdg"
+  ],
+  "showAtHome": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1640134480640"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1640216951592"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61c27765cc56ec308a258258"
+  },
+  "name": "Supermarché",
+  "description": "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content.",
+  "searchKeys": [
+    "marche",
+    "tv"
+  ],
+  "showAtHome": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1640134501488"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1640555346477"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61c3182e5266bff201cc03ed"
+  },
+  "name": "Santé & Beauté",
+  "description": "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available.",
+  "searchKeys": [
+    "Santé",
+    "Beauté"
+  ],
+  "showAtHome": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1640175662722"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1640216822042"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61c318425266bff201cc03f1"
+  },
+  "name": "Informatique",
+  "description": "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available.",
+  "searchKeys": [
+    "Informatique",
+    "pc"
+  ],
+  "showAtHome": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1640175682123"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1640297024642"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61c4f2fc33af28b54d732582"
+  },
+  "name": "Fast food",
+  "description": "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available.",
+  "searchKeys": [
+    "chapati",
+    "mlawi"
+  ],
+  "showAtHome": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1640297212279"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1643110193340"
+    }
+  },
+  "__v": 0
+}]

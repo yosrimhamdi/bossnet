@@ -1,0 +1,79 @@
+[{
+  "_id": {
+    "$oid": "61bdc52131d4e726d2898ba1"
+  },
+  "partner": {
+    "$oid": "61bd1907fa371ae52387b8aa"
+  },
+  "title": "60% de réduction sur le prix normal avec la carte boosnet",
+  "description": "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content.",
+  "duration": {
+    "startDate": {
+      "$date": {
+        "$numberLong": "1639782000000"
+      }
+    },
+    "endDate": {
+      "$date": {
+        "$numberLong": "1642633200000"
+      }
+    }
+  },
+  "showAtHome": true,
+  "relatedOffers": [],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1639826721918"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1641640997337"
+    }
+  },
+  "__v": 0,
+  "image": {
+    "mimeType": "image/jpeg",
+    "path": "61bdc52131d4e726d2898ba1/1212_Vega_DB.jpg",
+    "bucket": "/uploads/partners/offers"
+  }
+},{
+  "_id": {
+    "$oid": "61c31f805266bff201cc046b"
+  },
+  "partner": {
+    "$oid": "61bd1907fa371ae52387b8aa"
+  },
+  "title": "15% de réduction sur le prix normal avec la carte boosnet",
+  "description": "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available.",
+  "duration": {
+    "startDate": {
+      "$date": {
+        "$numberLong": "1640127600000"
+      }
+    },
+    "endDate": null
+  },
+  "showAtHome": true,
+  "relatedOffers": [
+    {
+      "$oid": "61bdc52131d4e726d2898ba1"
+    }
+  ],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1640177536690"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1641315533545"
+    }
+  },
+  "__v": 0,
+  "image": {
+    "mimeType": "image/jpeg",
+    "path": "61c31f805266bff201cc046b/FFA21_CPRS_DB-(1).jpg",
+    "bucket": "/uploads/partners/offers"
+  }
+}]
