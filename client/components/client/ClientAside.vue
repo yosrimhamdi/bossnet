@@ -43,6 +43,16 @@
           </li>
           <li>
             <router-link
+              to="/client/credit-card"
+              class="btn flat start md no-sh"
+              :class="{ light: $route.path.startsWith('/client/credit-card') }"
+            >
+              <credit-card-icon />
+              <span>Ma carte</span></router-link
+            >
+          </li>
+          <li>
+            <router-link
               to="/client/settings"
               class="btn flat start md no-sh"
               :class="{ light: $route.path.startsWith('/client/settings') }"
@@ -72,6 +82,7 @@ import LogoutIcon from "../icons/LogoutIcon.vue";
 import PocketIcon from "../icons/PocketIcon.vue";
 import SettingsIcon from "../icons/SettingsIcon.vue";
 import TreeIcon from "../icons/TreeIcon.vue";
+import CreditCardIcon from "../icons/CreditCardIcon.vue";
 export default {
   components: {
     TreeIcon,
@@ -79,6 +90,7 @@ export default {
     SettingsIcon,
     LogoutIcon,
     ArrowRightIcon,
+    CreditCardIcon,
   },
   props: {
     showAside: Boolean,

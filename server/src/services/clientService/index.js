@@ -12,6 +12,7 @@ const updatePassword = require("./updatePassword");
 const getClientPaymentsHistory = require("./getClientPaymentsHistory");
 const formatClientData = require("./formatClientData");
 const getClientLeftRightChildsCountGroupedByTreeHeight = require("./getClientBalance/getClientLeftRightChildsCountGroupedByTreeHeight");
+const generateQRCode = require("./generateQRCode");
 
 module.exports = {
   signUp,
@@ -28,4 +29,5 @@ module.exports = {
   updatePassword,
   getClientPaymentsHistory,
   formatClientData,
+  generateQRCode,
 };

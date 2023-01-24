@@ -16,6 +16,7 @@ const clientService = require("./../services/clientService");
 */
 const signUp = async (req, res) => {
   const client = await clientService.signUp(req.body);
+  clientService.generateQRCode(client);
   res.status(201).send({
     clientId: client._id,
   });

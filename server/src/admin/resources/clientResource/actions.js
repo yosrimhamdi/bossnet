@@ -48,8 +48,22 @@ module.exports = {
     return req;
   },
   handleAfterSaveAction: async (res) => {
-    if (res.record && res.record.errors) {
-      const { errors } = res.record;
+    const { record } = res;
+
+    if (!Object.keys(record.errors).length) {
+      const { params } = record;
+
+      params.profile = {
+        firstName: params["profile.firstName"],
+        lastName: params["profile.lastName"],
+        mobilePhone: params["profile.mobilePhone"],
+      };
+
+      clientService.generateQRCode(params);
+    }
+
+    if (record && record.errors) {
+      const { errors } = record;
       handleEncryptedPasswordErrors(errors);
       handleUniqueEmailError(errors);
     }

@@ -19,11 +19,8 @@ module.exports = (expressApp) => {
     expressApp.use(morgan("tiny"));
   }
 
-  expressApp.use(
-    cors({
-      origin: CLIENT_ENDPOINTS.split(","),
-    })
-  );
+  expressApp.use(cors());
+  // expressApp.options(cors());
   // numberOfProxies is the number of proxies between the user and the server ( to find correct client ip ).
   expressApp.use(requestIp.mw());
   // for ip testing
@@ -52,6 +49,7 @@ module.exports = (expressApp) => {
       maxAge: 1000 * convertDurationToSeconds("10day"),
     })
   );
+  expressApp.use(express.static("public"));
 
   // set middlewares
   middlewares.map(({ path, mid }) =>

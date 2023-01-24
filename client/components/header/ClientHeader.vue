@@ -24,6 +24,10 @@
           <pocket-icon />
           <span>Mon solde</span></router-link
         >
+        <router-link to="/client/credit-card" class="drop-btn">
+          <credit-card-icon />
+          <span>Ma carte</span></router-link
+        >
         <hr />
         <router-link to="/client/settings" class="drop-btn">
           <settings-icon />
@@ -53,6 +57,7 @@ import TreeIcon from "../icons/TreeIcon.vue";
 import PocketIcon from "../icons/PocketIcon.vue";
 import SettingsIcon from "../icons/SettingsIcon.vue";
 import LogoutIcon from "../icons/LogoutIcon.vue";
+import CreditCardIcon from "../icons/CreditCardIcon.vue";
 export default {
   components: {
     AccountArrowRightIcon,
@@ -62,6 +67,7 @@ export default {
     PocketIcon,
     SettingsIcon,
     LogoutIcon,
+    CreditCardIcon,
   },
   computed: {
     client() {
